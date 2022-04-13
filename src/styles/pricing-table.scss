@@ -1,0 +1,541 @@
+/* pricing table */
+.pricing-box {
+  color: #888;
+}
+
+.pricing-2-col {
+  border-right: solid 1px #eee;
+}
+
+.pricing-2-col .pricing-box {
+  width: 49%;
+}
+
+.pricing-3-col .pricing-box {
+  width: 32.33%;
+}
+
+.pricing-4-col .pricing-box {
+  width: 24%;
+}
+
+.pricing-5-col .pricing-box {
+  width: 19%;
+}
+
+.pricing-box {
+  float: left;
+  text-align: center;
+  margin: 5px;
+  padding: 0;
+  opacity: .8;
+}
+
+.pricing-box ul {
+  margin: 0;
+  padding: 0;
+}
+
+.pricing-box li {
+  list-style: none;
+  margin: 0;
+  padding: 15px 0 15px 0;
+  background: #eee;
+}
+
+.pricing-box li h4 {
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  color: #888;
+}
+
+.pricing-box li h1 {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 5px;
+  color: #1a8b49;
+  letter-spacing: 0px;
+}
+
+.pricing-box li.title-row {
+  padding: 15px 0 15px 0;
+}
+
+.pricing-box li.price-row {
+  padding: 15px 0 15px 0;
+  background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.pricing-box li.deco {
+  background: #f6f6f6;
+}
+
+.pricing-box a.btn {
+  color: #eceff3;
+}
+
+.pricing-box li.price-row span {
+  display: block;
+  font-weight: 600;
+}
+
+.pricing-box li.btn-row {
+  background: #ddd;
+}
+
+.pricing.pricing-box ul {
+  margin: 0;
+  padding: 0;
+}
+
+.pricing.pricing-box li {
+  background: #3b3b3b;
+  color: #bbb;
+  list-style: none;
+  margin: 0;
+  padding: 15px 0 15px 0;
+}
+
+.pricing.pricing-box li.deco {
+  background: #333;
+}
+
+.pricing.pricing-box li h4 {
+  font-size: 22px;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  color: #eceff3;
+}
+
+.pricing.pricing-box li h1 {
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #eceff3;
+}
+
+.pricing.pricing-box li.title-row {
+  background: #323232;
+  padding: 15px 0 15px 0;
+}
+
+.pricing.pricing-box li.price-row {
+  background: #2b2b2b;
+  padding: 15px 0 15px 0;
+}
+
+.pricing.pricing-box li.price-row h1 {
+  font-weight: 400;
+}
+
+.pricing.pricing-box li.price-row h1 span {
+  display: inline-block;
+  font-weight: 600;
+}
+
+.pricing.pricing-box li.price-row span {
+  display: block;
+  font-weight: 600;
+}
+
+.pricing.pricing-box li.btn-row {
+  background: #202220;
+}
+
+.pricing-featured {
+  position: relative;
+}
+
+.pricing-featured li {
+  padding-top: 17px;
+  padding-bottom: 17px;
+}
+
+.pricing-s1 {
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 2px 2px 20px 0px rgba(0, 0, 0, 0.05);
+}
+
+.dark-scheme .pricing-s1 {
+  background: #21273e;
+}
+
+.text-light .pricing-s1 {
+  background: rgba(0, 0, 0, .1);
+}
+
+.pricing-s1 .top {
+  padding: 30px;
+  text-align: center;
+}
+
+.pricing-s1 .top h2 {
+  font-size: 32px;
+  letter-spacing: normal;
+  line-height: 1em;
+  margin-bottom: 0;
+}
+
+.dark-scheme .pricing-s1 .top h2 {
+  color: #ffffff;
+}
+
+.pricing-s1 .top p.plan-tagline {
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+}
+
+.top .num {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.opt-2 {
+  display: none;
+}
+
+.pricing-s1 .top>* {
+  margin: 0px;
+}
+
+.pricing-s1 .top .price {
+  margin-top: 40px;
+  margin-bottom: 30px;
+}
+
+.pricing-s1 .top .price .currency {
+  font-size: 24px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.pricing-s1 .top .price b {
+  color: #fff;
+  font-weight: 500;
+}
+
+.pricing-s1 .top .price .month {
+  color: #fff;
+  font-size: 14px;
+}
+
+.pricing-s1 .top .price .txt {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, .5);
+}
+
+.pricing-s1 .m,
+.pricing-s1 .y {
+  font-size: 48px;
+  font-weight: 500;
+}
+
+.pricing-s1 .top .y {
+  display: none;
+}
+
+.pricing-s1 .mid {
+  padding: 40px;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.pricing-s1 .bottom {
+  border-top: 0px;
+  text-align: center;
+}
+
+.pricing-s1 .bottom ul {
+  display: block;
+  list-style: none;
+  list-style-type: none;
+  margin: 30px 0;
+  padding: 0px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.rtl .pricing-s1 .bottom ul {
+  text-align: right;
+}
+
+.pricing-s1 .bottom ul li {
+  padding: 10px 30px;
+  color: #505050;
+}
+
+.dark-scheme .pricing-s1 .bottom ul li {
+  color: #ffffff;
+}
+
+.text-light .pricing-s1 .bottom ul li {
+  color: #ffffff;
+}
+
+.pricing-s1 .bottom ul li>span {
+  color: #16A085;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.pricing-s1.zebra .bottom ul li:nth-child(odd) {
+  background: #ffffff;
+}
+
+.pricing-s1.zebra .bottom ul li:nth-child(even) {
+  background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.pricing-s1 .bottom>a {
+  margin: 40px;
+  width: auto;
+}
+
+.pricing-s1 .bottom i {
+  margin-right: 10px;
+}
+
+.rtl .pricing-s1 .bottom i {
+  margin-right: 0px;
+  margin-left: 10px;
+}
+
+.pricing-s1 .ribbon {
+  width: 200px;
+  position: absolute;
+  top: 25px;
+  left: -55px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+.pricing-s1.light {
+  color: #222;
+}
+
+.pricing-s1.light .top {
+  background: rgba(var(--secondary-color-rgb), .1);
+  color: #222;
+}
+
+.pricing-s1.light .top h2 {
+  color: #222;
+}
+
+.pricing-s1.light .top .price b,
+.pricing-s1.light .top .price .txt {
+  color: #222;
+}
+
+.pricing-s1.light .top .price .txt {
+  color: #555;
+}
+
+.pricing-s1.light .top .price .month {
+  color: #555;
+}
+
+.pricing-s1.light .top .price .currency {
+  color: #555;
+}
+
+.pricing-s1.light .bottom {
+  background: #eee;
+}
+
+.pricing-s1.light .bottom ul li>span {
+  color: #16A085;
+}
+
+.pricing-s1.light .bottom ul li:nth-child(odd) {
+  background: #ffffff;
+}
+
+.pricing-s1.light .bottom ul li:nth-child(even) {
+  background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.pricing-s1 .ribbon {
+  color: #fff;
+}
+
+.pricing-s1.rec {
+  box-shadow: 0px 0px 60px 0px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-s1 .action {
+  text-align: center;
+  padding: 40px 0;
+  border-top: solid 1px #eeeeee;
+}
+
+.dark-scheme .pricing-s1 .action {
+  border-top: solid 1px rgba(255, 255, 255, .2);
+}
+
+.text-light .pricing-s1 .action {
+  border-top: solid 1px rgba(255, 255, 255, .1);
+}
+
+.pricing-s2 {
+  background: #ffffff;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 5px 5px 40px 0px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-s2 .top {
+  padding: 30px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.pricing-s2 .top h2 {
+  font-size: 22px;
+  margin-bottom: 5px;
+  letter-spacing: normal;
+}
+
+.pricing-s2 .top p {
+  margin-bottom: 30px;
+}
+
+.pricing-s2 .top>* {
+  margin: 0px;
+}
+
+.pricing-s2 .top .price {
+  margin-bottom: 30px;
+  color: #111111;
+}
+
+.pricing-s2.text-light .top .price,
+.pricing-s2.text-white .top .price {
+  color: #ffffff;
+}
+
+.pricing-s2 .top .price .currency {
+  font-size: 24px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.pricing-s2 .top .price b {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.pricing-s2 .top .price .month {
+  font-size: 14px;
+}
+
+.pricing-s2 .top .price .txt {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 13px;
+}
+
+.pricing-s2 .top a.btn-main {
+  display: block;
+  width: 100%;
+  padding: 6px 10px;
+}
+
+.pricing-s2 .bottom {
+  border-top: 0px;
+  text-align: center;
+}
+
+.pricing-s2 .bottom ul {
+  display: block;
+  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0px;
+  text-align: left;
+  overflow: hidden;
+}
+
+.pricing-s2 .bottom ul li {
+  padding: 15px 30px;
+  color: #505050;
+}
+
+.pricing-s2 .bottom ul li>span {
+  color: #16A085;
+  font-size: 20px;
+  margin-right: 20px;
+}
+
+.pricing-s2 .bottom ul li:nth-child(odd) {
+  background: #ffffff;
+}
+
+.pricing-s2 .bottom ul li:nth-child(even) {
+  background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.pricing-s2 .bottom>a {
+  margin: 40px;
+  width: auto;
+}
+
+.pricing-s2 .bottom i {
+  margin-right: 10px;
+}
+
+.pricing-s2 .ribbon {
+  width: 200px;
+  position: absolute;
+  top: 25px;
+  left: -55px;
+  text-align: center;
+  line-height: 40px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  font-weight: bold;
+  transform: rotate(-45deg);
+}
+
+.pricing-s2 .inner {
+  padding-bottom: 10px;
+}
+
+.pricing-s2.bg .inner {
+  background: rgba(var(--primary-color-rgb), .8);
+}
+
+.pricing-s2.bg-2 .inner {
+  background: rgba(255, 88, 55, .8);
+}
+
+.pricing-s2.bg .top p {
+  color: #cccccc;
+}
+
+.pricing-s2.bg .top h2,
+.pricing-s2.bg .top .price,
+.pricing-s2.bg .top .price .currency,
+.pricing-s2.bg .top .month,
+
+.pricing-s2.bg-2 .top h2,
+.pricing-s2.bg-2 .top .price,
+.pricing-s2.bg-2 .top .price .currency,
+.pricing-s2.bg-2 .top .month {
+  color: #ffffff;
+}

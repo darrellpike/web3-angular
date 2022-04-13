@@ -1,0 +1,114 @@
+.side-layout header {
+  width: 20%;
+  height: 100%;
+  background: #222;
+  position: fixed;
+  padding: 30px;
+  top: 0;
+}
+
+.side-layout header.header-light {
+  background: #fff;
+  border-right: solid 1px #eee;
+}
+
+.side-layout #content {
+  width: 80%;
+  float: right;
+}
+
+.side-layout footer {
+  width: 80%;
+  float: right;
+}
+
+.side-layout .container {
+  width: 90%;
+}
+
+.side-layout section {
+  width: 100%;
+  float: right;
+}
+
+
+.side-layout header .info {
+  display: none;
+}
+
+.side-layout #mainmenu {
+  padding: 0;
+  margin-top: 40px;
+}
+
+.side-layout #mainmenu>li {
+  display: block;
+  width: 100%;
+  border-bottom: solid 1px rgba(255, 255, 255, .1);
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+}
+
+.side-layout header.smaller #mainmenu>li {
+  border-bottom: solid 1px rgba(0, 0, 0, .1);
+}
+
+.side-layout header.smaller {
+  border-right: solid 1px #f6f6f6;
+}
+
+.side-layout header.header-dark.smaller {
+  border-right: none;
+}
+
+.side-layout #mainmenu>li:last-child {
+  border-bottom: none;
+}
+
+.side-layout #mainmenu>li>a {
+  padding: 0;
+  margin: 0;
+}
+
+.side-layout #mainmenu>li>a span {
+  display: none;
+}
+
+.side-layout #mainmenu>li>ul {
+  top: 0;
+  margin-left: 120%;
+}
+
+.side-layout #mainmenu li ul {
+  border: solid 1px #888;
+}
+
+.side-layout header div#logo {
+  display: block;
+  float: none;
+  text-align: center;
+}
+
+.side-layout header div#logo img {
+  width: 100%;
+}
+
+.side-layout #subheader {
+  width: 80%;
+  float: right;
+  text-align: left;
+}
+
+.side-layout #subheader h1 {
+  margin-top: 0;
+  font-size: 24px;
+}
+
+.side-layout #subheader .small-border-deco span {
+  margin: 0;
+}
+
+.side-layout.side-custom-bg header {
+  background: url(/assets/images/background/bg-header.jpg) top left;
+  background-size: cover;
+}

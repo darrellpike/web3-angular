@@ -1,0 +1,92 @@
+/* social-icons */
+.social-icons {
+  display: inline-block;
+}
+
+.social-icons i {
+  text-shadow: none;
+  color: #fff;
+  padding: 12px 10px 8px 10px;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  margin: 0 3px 0 3px;
+}
+
+.social-icons i.fa-google-plus {
+  padding: 12px 14px 10px 6px;
+}
+
+.social-icons i:hover {
+  background: #fff;
+  border-color: #eceff3;
+  color: #333;
+}
+
+.social-icons.big i {
+  font-size: 26px;
+  width: auto;
+  height: auto;
+  margin: 0 15px 0 15px;
+}
+
+.social-icons.big i:hover {
+  background: none;
+}
+
+.social-icons.big i {
+  margin: 0 15px 0 15px;
+}
+
+.social-icons.big i:hover {
+  background: none;
+}
+
+.social-icons.s1 i {
+  border: none;
+  font-size: 16px;
+  margin: 3px;
+}
+
+.social-icons.s1:hover i {
+  background: none;
+}
+
+.social-icons.s1 {
+  line-height: 0.5;
+  text-align: center;
+}
+
+.social-icons.s1 .inner {
+  display: inline-block;
+  position: relative;
+}
+
+.social-icons.s1 .inner:before,
+.social-icons.s1 .inner:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  border-bottom: 1px solid rgba(255, 255, 255, .2);
+  top: 0;
+  width: 100%;
+}
+
+.social-icons.s1 .inner:before {
+  right: 100%;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.social-icons.s1 .inner:after {
+  left: 100%;
+  margin-left: 15px;
+  margin-top: 20px;
+}
+
+.col-right {
+  display: inline-block;
+  margin-top: 22px;
+}

@@ -1,0 +1,36 @@
+/* pagination */
+.pagination {
+  margin: 0 auto;
+  font-weight: 500;
+  border-radius: 3px;
+}
+
+.pagination li a {
+  font-size: 14px;
+  color: #888;
+  border: solid 1px #dddddd;
+  border-right: none;
+  background: none;
+  padding: 15px 20px 15px 20px;
+  border-radius: 0;
+
+  background: #ffffff;
+}
+
+.dark-scheme .pagination li:not(.active) a {
+  border-color: rgba(255, 255, 255, .1);
+  background: none;
+  color: #ffffff;
+}
+
+.pagination li:last-child a {
+  border-right: solid 1px #dddddd;
+}
+
+.dark-scheme .pagination li:last-child a {
+  border-right-color: rgba(255, 255, 255, .1);
+}
+
+.pagination>.active>a {
+  color: #ffffff;
+}

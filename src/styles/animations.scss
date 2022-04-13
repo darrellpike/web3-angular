@@ -1,0 +1,254 @@
+/* anim */
+
+header,
+de_tab .de_nav li span,
+.feature-box-small-icon i,
+a.btn-line:after,
+.de_count,
+.social-icons a i,
+.de_tab.tab_methods .de_nav li span,
+.de_tab.tab_methods .de_nav li span:hover,
+.de-gallery .overlay .icon i,
+.de-gallery .overlay .icon i:hover,
+.product img,
+.product img:hover,
+.mfp-close,
+.mfp-close:hover,
+.pic-hover .bg-overlay,
+.pic-hover:hover>.bg-overlay,
+i.btn-action-hide,
+.pic-hover.hover-scale img,
+.text-rotate-wrap,
+.text-rotate-wrap .text-item,
+.overlay-v,
+.carousel-item .pf_text .title,
+.carousel-item:hover .pf_text .title,
+.carousel-item .pf_text .title .type,
+.carousel-item:hover .pf_text .title .type,
+.owl-slider-nav .next,
+.owl-slider-nav .prev,
+#back-to-top.show,
+#back-to-top.hide,
+.social-icons-sm i,
+.social-icons-sm i:hover,
+.overlay-v i,
+.overlay-v i:hover,
+.de_tab .de_nav li span,
+#popup-box.popup-show,
+#popup-box.popup-hide,
+.form-underline input[type=text],
+.form-underline textarea,
+.form-underline input[type=email],
+.form-underline select,
+.btn-rsvp,
+.d-btn-close,
+.btn-main,
+.overlay-v span,
+.de_tab.tab_style_4 .de_nav li,
+.form-subscribe input[type=text],
+#mainmenu a span,
+#mainmenu a.active span,
+.feature-box .inner,
+.feature-box:hover .inner,
+.feature-box .inner i,
+.feature-box:hover .inner i,
+.error_input,
+.de_tab.tab_methods.style-2 .de_nav li.active .arrow,
+.owl-item.active.center div blockquote,
+.mask *,
+.mask .cover,
+.mask:hover .cover,
+.mask img,
+.mask:hover img,
+.accordion .content,
+a.btn-border,
+.f_box span,
+.f_box img,
+.f_box.s2:hover img,
+.mask .cover p,
+.feature-box-type-1:hover i,
+.feature-box-type-2 i,
+#contact_form input,
+#form_subscribe input[type=text],
+.table-pricing tbody tr,
+.feature-box.f-boxed,
+.feature-box.f-boxed:hover,
+.fp-wrap,
+.fp-wrap div,
+.fp-wrap img,
+.feature-box-type-2,
+.feature-box.style-3 i,
+.feature-box.style-3 h4,
+.logo-carousel img,
+.f-box,
+.f-box *,
+.fp-wrap *,
+.d-gallery-item *,
+.de-box-image *,
+.de-image-hover * a.a-underline *,
+.nft_coll *,
+.nft__item,
+.activity-filter *,
+.dropdown *,
+.icon-box.style-2 *,
+.nft__item img,
+#quick_search,
+.form-border *,
+.nft_pic *,
+.d-carousel *,
+.nft__item_like *,
+.nft__item_click span:after,
+.nft__item_extra,
+.nft__item_extra *,
+.opt-create *,
+.de-submenu,
+.menu_side_area *,
+#selector *,
+.box-url * {
+    transition: .7s;
+    outline: none;
+}
+
+a.btn-fx:after,
+a.btn-fx:hover:after,
+a.btn-fx:before,
+a.btn-fx:hover:before,
+#mainmenu li,
+#mainmenu li ul,
+.widget-post li .post-date,
+.author_list_pp img,
+.items_filter *,
+.owl-prev,
+.owl-next,
+.play-pause {
+    transition: .2s ease;
+    outline: none;
+}
+
+.feature-box:hover i.wm,
+#selector #demo-rtl {
+    transition: 2s ease;
+    outline: none;
+}
+
+header.header-mobile #mainmenu>li>span {
+    transition: none;
+    outline: none;
+}
+
+.nft_pic:hover * {
+    transition: 3s;
+    outline: none;
+}
+
+@-webkit-keyframes scaleIn {
+    from {
+        opacity: 1;
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 1;
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+.scaleIn {
+    animation-name: scaleIn;
+}
+
+@-webkit-keyframes scaleInFade {
+    from {
+        opacity: 0;
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+@keyframes scaleInFade {
+    from {
+        opacity: 0;
+        transform: scale3d(1.5, 1.5, 1.5);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+.scaleInFade {
+    animation-name: scaleInFade;
+}
+
+@-webkit-keyframes scaleOutFade {
+    from {
+        opacity: 0;
+        transform: scale3d(.75, .75, .75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+@keyframes scaleOutFade {
+    from {
+        opacity: 0;
+        transform: scale3d(.75, .75, .75);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale3d(var(--primary-color-rgb));
+    }
+}
+
+.scaleOutFade {
+    animation-name: scaleOutFade;
+}
+
+@-webkit-keyframes widthInFade {
+    from {
+        opacity: 0;
+        width: 1px;
+    }
+
+    100% {
+        opacity: 1;
+        width: 100px;
+    }
+}
+
+@keyframes widthInFade {
+    from {
+        opacity: 0;
+        width: 1px;
+    }
+
+    100% {
+        opacity: 1;
+        width: 100px;
+    }
+}
+
+.widthInFade {
+    animation-name: widthInFade;
+}

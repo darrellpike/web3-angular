@@ -1,0 +1,41 @@
+/* products */
+.products {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+}
+
+.products li {
+  margin-bottom: 40px;
+}
+
+.product .price {
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #222;
+}
+
+.de_light .product h4 {
+  font-size: 16px;
+  margin: 0;
+  margin-top: 20px;
+}
+
+.product img {
+  padding: 2px;
+  background: #333;
+  border: solid 1px #fff;
+}
+
+.de_light .product img {
+  padding: 0;
+  border: solid 1px #eee;
+}
+
+.ratings {
+  color: #F86E4E;
+}
+
+.product .ratings {
+  margin: 5px 0 5px 0;
+}

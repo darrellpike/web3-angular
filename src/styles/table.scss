@@ -1,0 +1,213 @@
+.de_table {
+  display: table;
+  border-collapse: collapse;
+  width: 100%;
+  color: #1a1b1e;
+  font-weight: 400;
+}
+
+.de_table .tr {
+  display: table-row;
+  border-collapse: collapse;
+  border-bottom: solid 1px #eee;
+}
+
+.de_table:not(.no-heading) .tr:first-child {
+  font-weight: 600;
+  color: #111111;
+}
+
+/*.de_table .tr:nth-child(even) {
+   background-color: rgba(var(--secondary-color-rgb), .1);
+}*/
+.de_table .tr .td {
+  display: table-cell;
+  padding: 16px 0;
+  /*border-left: 1px solid #ddd;*/
+}
+
+.de_table .tr .td:nth-child(2) {
+  font-weight: 600;
+}
+
+.de_table .tr .td:nth-child(2) span {
+  display: inline-block;
+  margin-left: 10px;
+  color: #bbb;
+  padding: 0 7px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.de_table .tr .td:nth-child(3) {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.de_table:not(.no-heading) .tr .td:first-child {
+  border-left: 0;
+}
+
+.de_table.cols-2 .btn-main {
+  padding: 5px 10px;
+}
+
+.de_table.table-style-2 {
+  font-size: 15px;
+}
+
+.de_table.table-style-2 .tr .td {
+  border: none;
+  padding: 10px;
+}
+
+.de_table.table-style-2:not(.no-heading) .tr:first-child {
+  color: #ffffff;
+  border: none;
+}
+
+.de_table.cols-2 .tr .td:last-child {
+  text-align: right;
+}
+
+.de_table .t-plus {
+  color: #16c784;
+}
+
+.de_table .t-min {
+  color: #ea3943;
+}
+
+.de_table .bc-btn {
+  position: relative;
+  display: inline-block;
+  left: 0;
+}
+
+.de_table .tr .td:nth-child(2) img {
+  width: 24px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* close new table */
+
+.table {
+  display: table;
+  margin-bottom: 0;
+}
+
+.table [class*="col-"] {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+  padding: 0;
+  height: 100%;
+}
+
+.table-custom-1 {
+  position: absolute;
+  height: 100%;
+}
+
+.table .table {
+  background: none;
+}
+
+.table-pricing {
+  font-size: 18px;
+  border-radius: 3px;
+  border: none;
+
+}
+
+.table-pricing thead {
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.table-pricing thead tr th {
+  padding: 20px 0 20px 0;
+}
+
+.table-pricing tbody tr {
+  width: 100%;
+  background: #f2f2f2;
+  border-top: solid 8px #ffffff;
+}
+
+.table-pricing tbody tr:hover {
+  background: #e2e2e2;
+}
+
+.table-pricing tbody tr td,
+.table-pricing tbody tr th {
+  border: none;
+  padding: 20px 0 20px 0;
+}
+
+.table-pricing tbody tr th .lbl,
+.table-pricing tbody tr td .lbl {
+  display: none;
+}
+
+.text-middle,
+.table [class*="col-"].text-middle {
+  vertical-align: middle;
+}
+
+.typed,
+.typed-strings {
+  display: inline-block;
+}
+
+.typed-strings p {
+  position: absolute;
+}
+
+.typed-cursor {
+  opacity: 1;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}

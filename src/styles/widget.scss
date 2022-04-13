@@ -1,0 +1,248 @@
+/* widget */
+#sidebar {
+  padding-left: 30px;
+}
+
+#sidebar.post-left {
+  padding-left: 0px;
+  padding-right: 30px;
+}
+
+.widget {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+}
+
+.widget h4 {
+  font-size: 18px;
+  margin-top: 0;
+  letter-spacing: normal;
+}
+
+.widget ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.widget ul li {
+  margin: 5px 0;
+}
+
+.widget .small-border {
+  height: 2px;
+  width: 30px;
+  background: #fff;
+  margin: 0px 0 20px 0;
+  display: block;
+}
+
+.widget_category li {
+  padding: 8px 20px 8px 20px;
+  margin-bottom: 8px;
+  background: #111;
+}
+
+.widget_category li:before {
+  font-family: "FontAwesome";
+  content: "\f07b";
+  margin-right: 10px;
+}
+
+.de_light .widget_category li {
+  background: none;
+  border: solid 1px #eee;
+}
+
+.widget_category li a {
+  color: #606060;
+}
+
+.widget_recent_post li {
+  padding-left: 20px;
+  background: url(/assets/images/list-arrow.png) left 2px no-repeat;
+  border-bottom: solid 1px #222;
+  padding-bottom: 7px;
+  margin-bottom: 5px;
+}
+
+.widget_recent_post li a {
+  color: #555;
+}
+
+.widget-post li {
+  border-bottom: solid 1px #f2f2f2;
+  padding-top: 4px;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.rtl .widget-post li a {
+  padding-left: 0px;
+  padding-right: 80px;
+}
+
+.widget-post li a {
+  padding-left: 70px;
+  display: block;
+  text-decoration: none;
+  color: #606060;
+}
+
+.dark-scheme .widget-post li {
+  border-bottom-color: rgba(255, 255, 255, .1);
+}
+
+.dark-scheme .widget-post li a {
+  color: #ffffff;
+}
+
+.widget-post .post-date {
+  position: absolute;
+  color: #222;
+  margin-right: 10px;
+  text-align: center;
+  width: 60px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.widget-post li:hover>.post-date {
+  background: #222;
+  color: #fff;
+}
+
+.widget-post .date {
+  background: #333;
+  color: #fff;
+  display: inline-block;
+  padding: 0px 5px 0px 5px;
+  font-size: 12px;
+  width: 60px;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+}
+
+.rtl .widget-post .date {
+  float: right;
+}
+
+.widget .comments li {
+  padding-left: 20px;
+  background: url(/assets/images/list-arrow.png) left 2px no-repeat;
+  border-bottom: solid 1px #eee;
+  padding-bottom: 7px;
+  margin-bottom: 5px;
+}
+
+.widget .tiny-border {
+  width: 100%;
+  background: rgba(255, 255, 255, .1);
+}
+
+.footer-light .widget .tiny-border {
+  background: rgba(0, 0, 0, .1);
+}
+
+.widget_tags li {
+  text-shadow: none;
+  display: inline-block;
+  margin-right: 3px;
+  margin-bottom: 16px;
+}
+
+.widget_tags li a {
+  font-size: 12px;
+  text-decoration: none;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  color: #fff !important;
+  padding: 7px 10px 7px 10px;
+}
+
+.de_light .widget_tags li a {
+  color: #606060;
+  border: solid 1px rgba(0, 0, 0, .2);
+}
+
+.widget_tags li a:hover {
+  color: #555;
+  border-color: #555;
+}
+
+.de_light .widget_tags li a:hover {
+  color: #111;
+  border-color: #111;
+}
+
+.widget_top_rated_product ul {
+  padding: 0;
+}
+
+.widget_top_rated_product li {
+  min-height: 80px;
+}
+
+.widget_top_rated_product li .text {
+  padding-top: 5px;
+  padding-left: 75px;
+}
+
+.widget_top_rated_product li img {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+}
+
+.widget_tags li a {
+  border-color: #555;
+}
+
+footer .widget {
+  border: none;
+  margin-bottom: 0;
+}
+
+.widget_tags ul {
+  margin-top: 30px;
+}
+
+footer .widget.widget_tags li a {
+  border-color: #222;
+}
+
+footer .widget_recent_post li {
+  padding: 0 0 10px 0;
+  margin: 0;
+  margin-bottom: 10px;
+  background: none;
+  border-bottom-color: rgba(255, 255, 255, .1);
+}
+
+footer .widget_recent_post li a {
+  color: #ccc;
+}
+
+footer .widget h5 {
+  margin-bottom: 20px;
+}
+
+footer .widget_list li {
+  padding: 0 0 10px 0;
+  margin: 0;
+  margin-bottom: 10px;
+  background: none;
+  border-bottom-color: rgba(255, 255, 255, .1);
+}
+
+footer .widget_list li a {
+  color: #ccc;
+}
+
+footer .tiny-border span {
+  background: #ffffff;
+  display: block;
+  height: 1px;
+  width: 30px;
+}

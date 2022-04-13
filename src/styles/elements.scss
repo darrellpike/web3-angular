@@ -1,0 +1,107 @@
+/* elements */
+
+/* address */
+address {
+  margin-top: 20px;
+}
+
+address span {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 18px;
+  padding: 14.5px;
+  background: #f5f5f5;
+  border-radius: 300px;
+}
+
+address span i {
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 15px;
+}
+
+.rtl address span i {
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.text-light address span a {
+  color: #ffffff;
+}
+
+.text-white address span a,
+.text-white address span a:hover {
+  color: #fff;
+}
+
+
+address.s1 span {
+  background: none;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.7em;
+  margin-bottom: 5px;
+}
+
+address.s1 span i {
+  font-size: 15px;
+}
+
+address span strong {
+  display: inline-block;
+}
+
+.de_light #sidebar .widget address span {
+  border-bottom: solid 1px #ddd;
+}
+
+.de_light #sidebar .widget address a {
+  color: #333;
+}
+
+/* border */
+
+
+/* ------------------------------ */
+
+.small-border {
+  width: 50px;
+  height: 2px;
+  background: rgba(0, 0, 0, .5);
+  border-left: none;
+  border-right: none;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+
+.small-border.sm-left {
+  margin-left: 0;
+}
+
+.rtl .small-border.sm-left {
+  margin-right: 0;
+}
+
+.text-light .small-border {
+  background: rgba(255, 255, 255, .2);
+}
+
+.tiny-border {
+  height: 1px;
+  background: #333;
+  width: 40px;
+  margin: 20px 0 20px 0;
+  display: block;
+}
+
+.tiny-border.center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-border.white {
+  border-top: solid 2px #ffffff;
+}

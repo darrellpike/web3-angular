@@ -1,0 +1,80 @@
+/* quick-search */
+#quick_search {
+  margin-left: 30px;
+  padding: 4px 11px;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  background: rgba(255, 255, 255, .1);
+  width: 120%;
+  font-family: var(--title-font);
+  outline: none;
+}
+
+.rtl #quick_search {
+  margin-left: 0;
+  margin-right: 30px;
+}
+
+#quick_search.style-2 {
+  background: rgba(0, 0, 0, .05) !important;
+}
+
+.dark-scheme #quick_search.style-2 {
+  background: rgba(255, 255, 255, .05) !important;
+}
+
+header:not(.header-light) #quick_search {
+  color: #ffffff;
+}
+
+header:not(.header-light) #quick_search::-moz-input-placeholder {
+  color: #ffffff;
+}
+
+header:not(.header-light) #quick_search::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+.header-light #quick_search {
+  background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.quick-search {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 10px 0 0 0;
+}
+
+.quick-search input {
+  width: 120px;
+  border-radius: 40px;
+}
+
+
+
+#search {
+  float: left;
+  width: 70%;
+  margin-bottom: 0;
+}
+
+#btn-search {
+  border: none;
+  padding: 7px;
+  background: #222;
+  float: left;
+  width: 30%;
+  height: 42px;
+}
+
+#btn-search:before {
+  font-family: FontAwesome;
+  content: "\f002";
+  font-size: 24px;
+  color: #111;
+}
+
+#btn-search:hover {
+  background: #fff;
+}

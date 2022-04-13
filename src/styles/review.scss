@@ -1,0 +1,80 @@
+.de_review {
+  text-align: center;
+  min-height: 260px;
+}
+
+.de_review .de_nav {
+  overflow: hidden;
+  padding-left: 0;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+.de_review .de_nav li {
+  list-style: none;
+  background: #EEE;
+  margin: 0 10px 0 10px;
+  margin-bottom: 20px;
+}
+
+.de_review .de_nav li {
+  display: inline-block;
+}
+
+.de_review .de_nav li img {
+  width: 100px;
+  height: auto;
+}
+
+.de_review .de_nav li span {
+  padding: 8px 16px 8px 16px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  display: block;
+  background: #f6f6f6;
+  text-decoration: none;
+  color: #646464;
+  font-size: 13px;
+  cursor: poInter;
+}
+
+.de_review blockquote {
+  border: none;
+  font-family: "Inter", Georgia, "Times New Roman", Times, serif;
+}
+
+.de_review .de_nav li span {
+  border: 1px solid #202220;
+  background: #222;
+}
+
+.de_review .de_nav li:first-child span {
+  border-left: 1px solid #ddd;
+}
+
+.de_review .de_nav li:first-child span {
+  border-left: 1px solid #202220;
+}
+
+.de_review .de_review_content {
+  border: 1px solid #ddd;
+  padding: 15px 20px 20px 20px;
+  margin-top: -1px;
+  background: #fff;
+}
+
+.de_review .de_review_content {
+  border: 1px solid #202220;
+  background: #27282b;
+}
+
+.de_review .de_nav li.active span {
+  background: #FFF;
+  border-bottom: 1px solid #fff;
+  color: #222;
+  margin-bottom: -3px;
+}

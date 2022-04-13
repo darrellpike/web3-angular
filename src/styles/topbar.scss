@@ -1,0 +1,188 @@
+/* topbar start here */
+#topbar {
+  z-index: 1000;
+  width: 100%;
+  padding: 0 30px;
+  overflow: hidden;
+  top: 0;
+}
+
+#topbar.topbar-dark {
+  background: #202020;
+}
+
+#topbar a {
+  text-decoration: none;
+  color: #606060;
+}
+
+#topbar.text-light a {
+  color: #ffffff;
+}
+
+.topbar-left,
+.topbar-right {
+  display: flex;
+}
+
+.topbar-right {
+  float: right;
+}
+
+.topbar-solid {
+  background: #ffffff;
+}
+
+.tb-light {
+  background: #ffffff;
+}
+
+#topbar:not(.topbar-noborder) .topbar-right .topbar-widget {
+  border-left: solid 1px rgba(255, 255, 255, .1);
+}
+
+#topbar:not(.topbar-noborder) .topbar-right span:last-child {
+  border-right: solid 1px rgba(255, 255, 255, .1);
+}
+
+#topbar:not(.topbar-noborder) .topbar-light .topbar-right .topbar-widget {
+  border-left: solid 1px #eee;
+}
+
+#topbar:not(.topbar-noborder) .topbar-light .topbar-right span:last-child {
+  border-right: solid 1px #eee;
+}
+
+#topbar:not(.topbar-noborder) .tb-light .topbar-right .topbar-widget {
+  border-left: solid 1px #eeeeee;
+}
+
+#topbar:not(.topbar-noborder) .tb-light .topbar-right span:last-child {
+  border-right: solid 1px #eeeeee;
+}
+
+/* topbar left content */
+.topbar-left {
+  float: left;
+}
+
+#topbar:not(.topbar-noborder) .topbar-left .topbar-widget {
+  border-right: solid 1px rgba(255, 255, 255, .1);
+}
+
+#topbar:not(.topbar-noborder) .topbar-light .topbar-left .topbar-widget {
+  border-right: solid 1px #eee;
+}
+
+#topbar:not(.topbar-noborder) .topbar-left span:first-child {
+  border-left: solid 1px rgba(255, 255, 255, .1);
+}
+
+#topbar:not(.topbar-noborder) .tb-light .topbar-left .topbar-widget {
+  border-right: solid 1px #eeeeee;
+}
+
+#topbar:not(.topbar-noborder) .tb-light .topbar-left span:first-child {
+  border-left: solid 1px #eeeeee;
+}
+
+.h-phone {
+  position: relative;
+  font-weight: bold;
+  color: #ffffff;
+  padding-left: 40px;
+  font-size: 18px;
+  padding-top: 20px;
+}
+
+.h-phone span {
+  display: inline-block;
+  position: absolute;
+  left: 40px;
+  top: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.h-phone i {
+  display: inline-block;
+  position: absolute;
+  font-size: 32px;
+  left: 0;
+  top: 12px
+}
+
+/* topbar widget */
+.topbar-widget {
+  font-size: 13px;
+  display: flex;
+  padding: 6px 15px;
+  font-weight: 400;
+  height: 40px;
+}
+
+.topbar-widget i {
+  font-size: 16px;
+  margin-top: 8px;
+  margin-right: 10px;
+}
+
+.h-sub .topbar-widget {
+  padding: 12px;
+}
+
+.topbar-widget:before {
+  float: left;
+  position: relative;
+  font-family: "FontAwesome";
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.topbar-widget.tb-phone:before {
+  content: "\f095";
+}
+
+.topbar-widget.tb-email:before {
+  content: "\f003";
+}
+
+.topbar-widget.tb-opening-hours:before {
+  content: "\f017";
+}
+
+.topbar-widget.tb-social {
+  padding: 0;
+}
+
+.topbar-widget.tb-social a {
+  font-size: 14px;
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+  display: inline-block;
+  text-align: center;
+}
+
+#topbar:not(.topbar-noborder) .topbar-light .topbar-widget.tb-social a,
+#topbar:not(.topbar-noborder) .topbar-light .topbar-widget.tb-social a:first-child {
+  border-left: solid 1px #eeeeee;
+}
+
+#topbar:not(.topbar-noborder) .topbar-widget.tb-social a {
+  border-left: solid 1px rgba(255, 255, 255, .1);
+}
+
+.tb-light .topbar-widget.tb-social a {
+  border-left: solid 1px #eeeeee;
+}
+
+.topbar-widget.tb-social a:first-child {
+  border: none;
+}
+
+/* topbar end here */
+
+#de-sidebar {
+  padding: 0px;
+}

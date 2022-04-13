@@ -1,0 +1,40 @@
+/* breadcrumb */
+.crumb {
+  color: #777;
+  margin: 0;
+  padding: 0;
+}
+
+.de-navbar-left.de_light #subheader .crumb {
+  color: #333;
+}
+
+.crumb li {
+  display: inline;
+  text-decoration: none;
+  letter-spacing: 0;
+}
+
+.crumb li:after {
+  font-family: "FontAwesome";
+  content: "\f054";
+  font-size: 10px;
+  margin: 0 10px 0 10px;
+  opacity: .5;
+}
+
+.crumb li:last-child:after {
+  display: none;
+}
+
+.crumb a {
+  text-decoration: none;
+}
+
+.crumb li .active {
+  font-weight: bold;
+}
+
+.de_light .crumb a:hover {
+  color: #fff;
+}

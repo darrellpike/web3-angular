@@ -1,0 +1,413 @@
+/* button and link */
+a {
+  text-decoration: none;
+}
+
+.de_light a {
+  color: #888;
+}
+
+.de_light a:hover {
+  color: #555;
+}
+
+a.btn-text {
+  text-decoration: none;
+  display: inline-block;
+  color: #111;
+  font-weight: 600;
+  padding: 0;
+}
+
+a.btn-text:after {
+  font-family: FontAwesome;
+  content: "\f054";
+  padding-left: 10px;
+}
+
+a.btn-text {
+  color: #fff;
+}
+
+a.btn-big {
+  font-size: 14px;
+  color: #eceff3;
+  letter-spacing: 1px;
+  line-height: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: solid 1px #fff;
+  padding: 10px 30px 10px 30px;
+}
+
+a.btn-big:after {
+  font-family: FontAwesome;
+  content: "\f054";
+  margin-left: 20px;
+}
+
+a.btn,
+.btn {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+a.btn:before {
+  content: "";
+  background: rgba(0, 0, 0, 0);
+  width: 0;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+}
+
+a.btn-fx:after {
+  font-family: FontAwesome;
+  content: "\f178";
+  margin-left: 15px;
+  position: absolute;
+  right: -20px;
+  margin-top: 0px;
+}
+
+a.btn-fx {
+  font-size: 14px;
+  color: #eceff3;
+  letter-spacing: 1px;
+  line-height: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: solid 1px #fff;
+  padding: 10px 30px 10px 30px;
+}
+
+a.btn-fx:hover {
+  padding-left: 20px;
+  padding-right: 40px;
+}
+
+a.btn-fx:before {
+  width: 0;
+  height: 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+a.btn-fx:hover:after {
+  right: 15px;
+}
+
+a.btn-fx:hover:before {
+  width: 100%;
+  background: rgba(0, 0, 0, 1);
+}
+
+a.btn-fx.light:hover:before {
+  width: 100%;
+  background: rgba(255, 255, 255, 1);
+}
+
+.btn-fullwidth {
+  width: 100%;
+}
+
+.btn-main.btn-fullwidth {
+  display: block;
+}
+
+a.btn-slider {
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+  line-height: normal;
+  text-decoration: none;
+  text-transform: uppercase;
+  border: solid 2px #fff;
+  padding: 10px 30px 10px 30px;
+  border-radius: 60px;
+}
+
+a.btn-slider:hover {
+  color: #222;
+  background: #fff;
+  border-color: #000;
+  border: solid 2px #fff;
+}
+
+a.btn-main:hover,
+.btn-main:hover {
+  color: #fff;
+  box-shadow: 2px 2px 20px 0px rgba(var(--secondary-color-rgb), 0.5);
+}
+
+a.btn-slider:hover:after {
+  color: #222;
+}
+
+a.btn-id,
+a.btn-id:hover {
+  border: none;
+}
+
+a.btn-light.btn-id {
+  color: #222;
+}
+
+a.btn-dark.btn-id {
+  color: #fff;
+}
+
+.btn-main.btn-small {
+  padding: 5px 20px 5px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.btn-fx.btn-main {
+  text-transform: normal;
+}
+
+a.btn-bg-dark {
+  background: #222;
+}
+
+a.btn-text-light {
+  color: #fff;
+}
+
+.btn-icon-left i {
+  margin-right: 12px;
+  color: #fff;
+}
+
+.btn-add_to_cart,
+a.btn-add_to_cart {
+  border: solid 1px #bbb;
+  font-size: 12px;
+  border-radius: 0;
+  padding: 3px;
+  padding-left: 40px;
+  padding-right: 20px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  color: #555;
+}
+
+.btn-add_to_cart:before,
+a.btn-add_to_cart:before {
+  font-family: "FontAwesome";
+  content: "\f07a";
+  position: absolute;
+  left: 20px;
+}
+
+a.btn-main,
+a.btn-main:active,
+a.btn-main:focus,
+a.btn-main:visited,
+.btn-main,
+input[type=button].btn-main,
+a.btn-line {
+  text-align: center;
+  color: #fff;
+  border-radius: 6px;
+  outline: 0;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 8px 40px;
+  font-size: 14px;
+  border: none;
+}
+
+a.btn-lg {
+  font-size: 16px !important;
+  padding: 12px 40px !important;
+}
+
+a.btn-line,
+a.btn-line:hover {
+  background: none;
+  color: #0d0c22;
+  border: solid 2px rgba(0, 0, 0, .1);
+}
+
+a.btn-line:hover {
+  color: #ffffff;
+  border-color: rgba(0, 0, 0, 0) !important;
+}
+
+header:not(.header-light) a.btn-line,
+.dark-scheme a.btn-line,
+.dark-schem a.btn-line:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, .1);
+}
+
+a.btn-main.btn-white {
+  background: #ffffff;
+}
+
+header a.btn-main,
+header a.btn-line {
+  padding: 6px 20px !important;
+}
+
+header a.btn-main i {
+  display: none;
+}
+
+.col-right a.btn-main {
+  font-size: 14px;
+  text-transform: none;
+}
+
+a.btn-border {
+  border: solid 2px rgba(255, 255, 255, .3);
+  border-radius: 5px;
+  min-width: 120px;
+  outline: 0;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 10px 30px;
+  min-width: 120px;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+a.btn-border:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0);
+  margin-top: -2px;
+  margin-bottom: 2px;
+  box-sizing: border-box
+}
+
+a.btn-border.light {
+  border: solid 1px #ffffff;
+  color: #ffffff;
+}
+
+a.btn-border.light:hover {
+  background: #ffffff;
+}
+
+a.btn-border:hover a {
+  color: #ffffff !important;
+}
+
+.d-btn-close {
+  color: #ffffff;
+  cursor: poInter;
+  text-align: center;
+  display: block;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  background: #333;
+  font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
+  margin: 0 auto;
+  padding-top: 12px;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+a.btn-link {
+  display: block;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.cover a.btn-link:hover {
+  color: #fff;
+}
+
+/*
+  a.btn-rsvp:before{
+  font-size:32px;
+  font-family:"FontAwesome";
+  content:"\f073";
+  margin-right:15px;
+  display:block;
+  margin:0 auto;
+  margin-bottom:10px;
+  }
+  */
+
+.play-button {
+  border-radius: 60px;
+  color: #fff;
+  text-decoration: none;
+  border: solid 5px rgba(255, 255, 255, .3);
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  padding-top: 22px;
+  padding-left: 5px;
+}
+
+.play-button:before {
+  font-family: "FontAwesome";
+  font-size: 20px;
+  content: "\f04b";
+  position: relative;
+  color: #fff;
+}
+
+.play-button:hover {
+  border: solid 5px rgba(255, 255, 255, 1);
+}
+
+.play-button.dark {
+  color: #222;
+  border: solid 5px rgba(0, 0, 0, .1);
+}
+
+.play-button.dark:before {
+  color: #222;
+}
+
+.play-button.dark:hover {
+  border: solid 5px rgba(0, 0, 0, .5);
+}
+
+.text-light .play-button {
+  border-radius: 60px;
+  color: #fff;
+  text-decoration: none;
+  border: solid 5px rgba(255, 255, 255, .3);
+  display: inline-block;
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  padding-top: 22px;
+  padding-left: 5px;
+}
+
+.text-light .play-button:before {
+  font-family: "FontAwesome";
+  font-size: 20px;
+  content: "\f04b";
+  position: relative;
+  color: #fff;
+}
+
+.text-light .play-button.dark {
+  color: #fff;
+  border: solid 5px rgba(255, 255, 255, .3);
+}
+
+.text-light .play-button.dark:before {
+  color: #fff;
+}
+
+.text-light .play-button.dark:hover {
+  border: solid 5px rgba(255, 255, 255, 1);
+}

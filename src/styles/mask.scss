@@ -1,0 +1,140 @@
+.mask {
+  width: 100%;
+  position: relative;
+  overflow: hidden !important;
+  display: inline-block;
+}
+
+.mask img {
+  width: 100%;
+  height: 100%;
+}
+
+.mask .cover {
+  display: table;
+  position: absolute;
+  z-index: 100;
+  width: 100%;
+  height: 70px;
+  padding: 25px;
+  background: #000000;
+  bottom: 0px;
+  top: 100%;
+  margin-top: -70px;
+}
+
+.mask .cover .c-inner {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.mask.light .cover {
+  background: #ffffff;
+}
+
+.mask .cover h3 {
+  font-size: 18px;
+  color: #fff;
+  line-height: 1em;
+  padding-left: 30px;
+}
+
+.mask.light .cover h3 {
+  color: #000000;
+}
+
+.mask .cover p {
+  color: #ffffff;
+  padding-top: 15px;
+  padding-right: 25px;
+}
+
+.rtl .mask .cover p {
+  padding-right: 0;
+}
+
+.mask.light .cover p {
+  color: #777777;
+}
+
+.mask:hover .cover {
+  height: 100%;
+  top: 0;
+  margin-top: -0px;
+  background: rgba(35, 37, 42, .8);
+}
+
+.mask:hover .cover p {
+  opacity: 1;
+}
+
+.mask:hover .cover p {
+  padding-top: 0px;
+}
+
+.mask .cover h3 span {
+  margin-left: 20px;
+}
+
+.rtl .mask .cover h3 span {
+  margin-right: 50px;
+}
+
+.mask .cover h3 i {
+  font-size: 32px;
+  position: absolute;
+  left: 30px;
+  margin-top: -8px;
+}
+
+.rtl .mask .cover h3 i {
+  left: auto;
+  right: 30px;
+}
+
+.mask.s1 .cover {
+  top: 0;
+  padding: 30px;
+  text-align: center;
+  background: rgba(0, 0, 0, .0);
+}
+
+.mask.s1 .cover .desc {
+  opacity: 0;
+}
+
+.mask.s1:hover .cover {
+  background: rgba(0, 0, 0, .8);
+}
+
+.mask.s1:hover .cover .desc {
+  opacity: 1;
+}
+
+.mask.s1 h3 {
+  font-size: 24px;
+}
+
+.mask .cover a.btn-main {
+  display: block;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.mask .s-gradient img {
+  filter: grayscale(100%);
+}
+
+.mask .s-gradient {
+  position: relative;
+}
+
+.mask .s-gradient .gradient-fx {
+  position: absolute;
+  background: #333;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(to right, rgba(var(--primary-color-rgb), .75) 0%, rgba(var(--primary-color-rgb), .2) 100%);
+}

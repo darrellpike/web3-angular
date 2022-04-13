@@ -1,0 +1,65 @@
+/* video */
+video,
+object {
+  display: inline-block;
+  vertical-align: baseline;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+.de-video-container {
+  top: 0%;
+  left: 0%;
+  height: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.de-video-content {
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+}
+
+.de-video-overlay {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  background: rgba(20, 20, 20, .5);
+}
+
+.de-video-overlay.dotted {
+  background: url(/assets/images/dotted.png);
+}
+
+.video-fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+/* youtube, vimeo */
+
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container iframe,
+.video-container object,
+.video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.de-video-container .btn-line:hover:after,
+.de-video-container a.btn-line:hover:after,
+.de-video-container a.btn-line.hover:after {
+  color: #eceff3;
+}
