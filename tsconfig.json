@@ -28,7 +28,7 @@
       "@components/*": ["src/app/components/*"],
       "@constants/*": ["src/app/constants/*"],
       "@core/*": ["src/app/core/*"],
-      "@datatypes/*": ["src/app/core/datatypes/*"],
+      "@datatypes/*": ["src/app/datatypes/*"],
       "@modules/*": ["src/app/modules/*"],
       "@pubpages/*": ["src/app/public-pages/*"],
       "@services/*": ["src/app/core/services/*"],

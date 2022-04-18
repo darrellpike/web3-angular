@@ -69,115 +69,53 @@
             <div class="small-border bg-color-2"></div>
           </div>
         </div>
-        <div id="collection-carousel" class="owl-carousel wow fadeIn">
 
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-1.jpg" class="lazy img-fluid" alt=""></a>
+        <div class="_owl-carousel _wow fadeIn" *ngIf="hotCollection.length > 0">
+          <owl-carousel-o [options]="hotCollectionSliderOptions">
+            <ng-template carouselSlide *ngFor="let nft of hotCollection">
+              <div class="nft_coll">
+                <div class="nft_wrap">
+                  <a [routerLink]="''">
+                    <img [src]="'/assets/images/collections/' + nft.imageUrl" class="lazy img-fluid" alt="">
+                  </a>
+                </div>
+                <div class="nft_coll_pp">
+                  <a [routerLink]="''">
+                    <img class="lazy pp-coll" [src]="'/assets/images/author/' + nft.author.avatar" alt="">
+                  </a>
+                  <i class="fa fa-check"></i>
+                </div>
+                <div class="nft_coll_info">
+                  <a [routerLink]="''"><h4>{{ nft.title }}</h4></a>
+                  <span>{{ nft.code }}</span>
+                </div>
               </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-1.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Abstraction</h4></a>
-                <span>ERC-192</span>
-              </div>
-            </div>
-
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-2.jpg" class="lazy img-fluid" alt=""></a>
-              </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-2.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Patternlicious</h4></a>
-                <span>ERC-61</span>
-              </div>
-            </div>
-
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-3.jpg" class="lazy img-fluid" alt=""></a>
-              </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-3.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Skecthify</h4></a>
-                <span>ERC-126</span>
-              </div>
-            </div>
-
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-4.jpg" class="lazy img-fluid" alt=""></a>
-              </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-4.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Cartoonism</h4></a>
-                <span>ERC-73</span>
-              </div>
-            </div>
-
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-5.jpg" class="lazy img-fluid" alt=""></a>
-              </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-5.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Virtuland</h4></a>
-                <span>ERC-85</span>
-              </div>
-            </div>
-
-            <div class="nft_coll">
-              <div class="nft_wrap">
-                <a href="collection.html"><img src="/assets/images/collections/coll-6.jpg" class="lazy img-fluid" alt=""></a>
-              </div>
-              <div class="nft_coll_pp">
-                <a href="collection.html"><img class="lazy pp-coll" src="/assets/images/author/author-6.jpg" alt=""></a>
-                <i class="fa fa-check"></i>
-              </div>
-              <div class="nft_coll_info">
-                <a href="collection.html"><h4>Papercut</h4></a>
-                <span>ERC-42</span>
-              </div>
-            </div>
-
-          </div>
+            </ng-template>
+          </owl-carousel-o>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="section-items" class="no-bottom">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-center">
-              <h2>New Items</h2>
-              <div class="small-border bg-color-2"></div>
-            </div>
+  <section id="section-items" class="no-bottom">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="text-center">
+            <h2>New Items</h2>
+            <div class="small-border bg-color-2"></div>
           </div>
-          <div id="items-carousel" class="owl-carousel wow fadeIn">
-
+        </div>
+        <div id="items-carousel" class="owl-carousel wow fadeIn" *ngIf="newItems.length > 0">
+          <owl-carousel-o [options]="newItemsSliderOptions">
+            <ng-template carouselSlide *ngFor="let nft of newItems">
               <!-- nft item begin -->
               <div class="d-item">
                 <div class="nft__item">
-                  <div class="de_countdown" data-year="2022" data-month="4" data-day="16" data-hour="8"></div>
+                  <div class="de_countdown"></div>
                   <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Monica Lucas">
-                      <img class="lazy" src="/assets/images/author/author-1.jpg" alt="">
+                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" [title]="'Creator: ' + nft.author.name">
+                      <img class="lazy" [src]="'/assets/images/author/' + nft.imageUrl" alt="">
                       <i class="fa fa-check"></i>
                     </a>
                   </div>
@@ -199,294 +137,295 @@
                   </div>
                   <div class="nft__item_info">
                     <a href="item-details.html">
-                      <h4>Pinky Ocean</h4>
+                      <h4>{{ nft.title }}</h4>
                     </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.08 ETH<span>1/20</span>
-                    </div>
+                    <div class="nft__item_click"><span></span></div>
+                    <div class="nft__item_price">{{ nft.price }} ETH<span>1/20</span></div>
                     <div class="nft__item_action">
                       <a href="#">Place a bid</a>
                     </div>
                     <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>50</span>
+                      <i class="fa fa-heart"></i><span>{{ nft.likes }}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Stacy Long">
-                      <img class="lazy" src="/assets/images/author/author-10.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/static-2.jpg" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>Deep Sea Phantasy</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.06 ETH<span>1/22</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>80</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="de_countdown" data-year="2022" data-month="4" data-day="14" data-hour="8"></div>
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Ida Chapman">
-                      <img class="lazy" src="/assets/images/author/author-11.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/static-3.jpg" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>Rainbow Style</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.05 ETH<span>1/11</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>97</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Fred Ryan">
-                      <img class="lazy" src="/assets/images/author/author-12.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/static-4.jpg" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>Two Tigers</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.02 ETH<span>1/15</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>73</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Franklin Greer">
-                      <img class="lazy" src="/assets/images/author/author-9.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/anim-4.webp" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>The Truth</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.06 ETH<span>1/20</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>26</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="de_countdown" data-year="2022" data-month="4" data-day="6" data-hour="8"></div>
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Mamie Barnett">
-                      <img class="lazy" src="/assets/images/author/author-2.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/anim-2.webp" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>Running Puppets</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.03 ETH<span>1/24</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>45</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- nft item begin -->
-              <div class="d-item">
-                <div class="nft__item">
-                  <div class="author_list_pp">
-                    <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Nicholas Daniels">
-                      <img class="lazy" src="/assets/images/author/author-3.jpg" alt="">
-                      <i class="fa fa-check"></i>
-                    </a>
-                  </div>
-                  <div class="nft__item_wrap">
-                    <div class="nft__item_extra">
-                      <div class="nft__item_buttons">
-                        <button onclick="location.href='item-details.html'">Buy Now</button>
-                        <div class="nft__item_share">
-                          <h4>Share</h4>
-                          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
-                          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
-                        </div>
-                      </div>
-                    </div>
-                    <a href="item-details.html">
-                      <img src="/assets/images/items/anim-1.webp" class="lazy nft__item_preview" alt="">
-                    </a>
-                  </div>
-                  <div class="nft__item_info">
-                    <a href="item-details.html">
-                      <h4>USA Wordmation</h4>
-                    </a>
-                    <div class="nft__item_click">
-                <span></span>
-              </div>
-              <div class="nft__item_price">
-                      0.09 ETH<span>1/25</span>
-                    </div>
-                    <div class="nft__item_action">
-                      <a href="#">Place a bid</a>
-                    </div>
-                    <div class="nft__item_like">
-                      <i class="fa fa-heart"></i><span>76</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </ng-template>
+          </owl-carousel-o>
 
+
+
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Stacy Long">
+                    <img class="lazy" src="/assets/images/author/author-10.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/static-2.jpg" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>Deep Sea Phantasy</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
             </div>
+            <div class="nft__item_price">
+                    0.06 ETH<span>1/22</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>80</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="de_countdown" data-year="2022" data-month="4" data-day="14" data-hour="8"></div>
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Ida Chapman">
+                    <img class="lazy" src="/assets/images/author/author-11.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/static-3.jpg" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>Rainbow Style</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
+            </div>
+            <div class="nft__item_price">
+                    0.05 ETH<span>1/11</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>97</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Fred Ryan">
+                    <img class="lazy" src="/assets/images/author/author-12.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/static-4.jpg" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>Two Tigers</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
+            </div>
+            <div class="nft__item_price">
+                    0.02 ETH<span>1/15</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>73</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Franklin Greer">
+                    <img class="lazy" src="/assets/images/author/author-9.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/anim-4.webp" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>The Truth</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
+            </div>
+            <div class="nft__item_price">
+                    0.06 ETH<span>1/20</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>26</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="de_countdown" data-year="2022" data-month="4" data-day="6" data-hour="8"></div>
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Mamie Barnett">
+                    <img class="lazy" src="/assets/images/author/author-2.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/anim-2.webp" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>Running Puppets</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
+            </div>
+            <div class="nft__item_price">
+                    0.03 ETH<span>1/24</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>45</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- nft item begin -->
+            <div class="d-item">
+              <div class="nft__item">
+                <div class="author_list_pp">
+                  <a href="author.html" data-bs-toggle="tooltip" data-bs-placement="top" title="Creator: Nicholas Daniels">
+                    <img class="lazy" src="/assets/images/author/author-3.jpg" alt="">
+                    <i class="fa fa-check"></i>
+                  </a>
+                </div>
+                <div class="nft__item_wrap">
+                  <div class="nft__item_extra">
+                    <div class="nft__item_buttons">
+                      <button onclick="location.href='item-details.html'">Buy Now</button>
+                      <div class="nft__item_share">
+                        <h4>Share</h4>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank"><i class="fa fa-facebook fa-lg"></i></a>
+                        <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io"><i class="fa fa-envelope fa-lg"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <a href="item-details.html">
+                    <img src="/assets/images/items/anim-1.webp" class="lazy nft__item_preview" alt="">
+                  </a>
+                </div>
+                <div class="nft__item_info">
+                  <a href="item-details.html">
+                    <h4>USA Wordmation</h4>
+                  </a>
+                  <div class="nft__item_click">
+              <span></span>
+            </div>
+            <div class="nft__item_price">
+                    0.09 ETH<span>1/25</span>
+                  </div>
+                  <div class="nft__item_action">
+                    <a href="#">Place a bid</a>
+                  </div>
+                  <div class="nft__item_like">
+                    <i class="fa fa-heart"></i><span>76</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
-      </section>
+      </div>
+  </section>
 
   <section id="section-popular" class="pb-5">
     <div class="container">
@@ -648,6 +587,7 @@
       </div>
     </div>
   </section>
+
   <section id="section-category" class="no-top">
     <div class="container">
       <div class="row">

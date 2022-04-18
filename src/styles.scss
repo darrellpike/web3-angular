@@ -2,6 +2,8 @@
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import './styles/colors/scheme-01.css';
+@import './styles/coloring';
 
 /* GIGALAND
 /* created by designesia
@@ -14,6 +16,11 @@
 @import './assets/fonts/elegant_font/style.css';
 @import './assets/fonts/et-line-font/style.css';
 @import './assets/fonts/icofont/icofont.min.css';
+
+/* throw build err
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+*/
 
 
 
