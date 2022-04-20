@@ -1,4 +1,11 @@
+.d-item {
+  height: 100%;
+}
+
 .nft__item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
   position: relative;
   padding: 20px;
   border: solid 1px #ddd;
@@ -19,6 +26,12 @@
 
 .nft__item_action {
   font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rtl .nft__item_action a {
+  order: 1;
 }
 
 .text-light .nft__item {
@@ -36,6 +49,7 @@
 }
 
 .nft__item_wrap {
+  flex-grow: 1;
   width: 100%;
   text-align: center;
   display: flex;
@@ -99,15 +113,8 @@
 }
 
 .nft__item_like {
-  position: relative;
-  bottom: 22px;
   font-size: 14px;
   color: #ddd;
-  float: right;
-}
-
-.rtl .nft__item_like {
-  float: left;
 }
 
 .dark-scheme .nft__item_like {
