@@ -15,4 +15,5 @@ export interface NftItem {
   },
   price: number;
   likes: number;
+  divider: number; // in 1/20 it's 20
 }

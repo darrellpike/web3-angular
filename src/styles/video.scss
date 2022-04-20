@@ -25,11 +25,11 @@ object {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  background: rgba(20, 20, 20, .5);
+  background: rgb(20 20 20 / 50%);
 }
 
 .de-video-overlay.dotted {
-  background: url(/assets/images/dotted.png);
+  background: url("/assets/images/dotted.png");
 }
 
 .video-fixed {
@@ -58,8 +58,8 @@ object {
   height: 100%;
 }
 
-.de-video-container .btn-line:hover:after,
-.de-video-container a.btn-line:hover:after,
-.de-video-container a.btn-line.hover:after {
+.de-video-container .btn-line:hover::after,
+.de-video-container a.btn-line:hover::after,
+.de-video-container a.btn-line.hover::after {
   color: #eceff3;
 }

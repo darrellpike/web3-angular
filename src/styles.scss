@@ -1,9 +1,12 @@
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable font-family-no-missing-generic-family-keyword */
+/* stylelint-disable no-invalid-position-at-import-rule */
+
 /* You can add global styles to this file, and also import other style files */
 
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
-@import './styles/colors/scheme-01.css';
-@import './styles/coloring';
+@import "~bootstrap/scss/bootstrap";
+@import "./styles/colors/scheme-01";
 
 /* GIGALAND
 /* created by designesia
@@ -11,22 +14,19 @@
 @charset "utf-8";
 
 /* import custom fonts */
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&display=swap');
-@import './assets/fonts/font-awesome/scss/font-awesome';
-@import './assets/fonts/elegant_font/style.css';
-@import './assets/fonts/et-line-font/style.css';
-@import './assets/fonts/icofont/icofont.min.css';
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@200;300;400;500;600;700;800&display=swap");
+@import "./assets/fonts/font-awesome/scss/font-awesome";
+@import "./assets/fonts/elegant_font/style.css";
+@import "./assets/fonts/et-line-font/style.css";
+@import "./assets/fonts/icofont/icofont.min.css";
 
 /* throw build err
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
 @import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 */
-
-
-
 * {
-  --body-font: "DM Sans", Helvetica, Arial, sans-serif;
-  --title-font: "DM Sans", Helvetica, Arial, sans-serif;
+  --body-font: "DM Sans", "Helvetica", "Arial", sans-serif;
+  --title-font: "DM Sans", "Helvetica", "Arial", sans-serif;
 }
 
 html {
@@ -41,10 +41,9 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #727272;
-  line-height: 30px;
   padding: 0;
   line-height: 26px;
-  word-spacing: 0px;
+  word-spacing: 0;
 }
 
 .dark-scheme {
@@ -52,7 +51,7 @@ body {
 }
 
 body.dark-scheme {
-  background: #161D30;
+  background: #161d30;
 }
 
 body.boxed {
@@ -63,7 +62,6 @@ body.boxed {
 
 body .owl-stage .owl-item {
   margin-bottom: 15px;
-
 }
 
 #wrapper {
@@ -100,63 +98,63 @@ a.a-underline:hover span {
 
 /* ================================================== */
 
-@import './styles/header';
-@import './styles/navigation';
-@import './styles/content';
-@import './styles/footer';
-@import './styles/topbar';
-@import './styles/blog';
-@import './styles/products';
-@import './styles/contact-form';
-@import './styles/coming-soon';
-@import './styles/elements';
-@import './styles/breadcrumbs';
-@import './styles/box-icon';
-@import './styles/btn-link';
-@import './styles/counter';
-@import './styles/divider';
-@import './styles/heading';
-@import './styles/feature-box';
-@import './styles/list';
-@import './styles/pagination';
-@import './styles/pricing-table';
-@import './styles/spinner';
-@import './styles/preloader';
-@import './styles/progress-bar';
-@import './styles/social-icons';
-@import './styles/accordion';
-@import './styles/expand';
-@import './styles/tab';
-@import './styles/team';
-@import './styles/testimonial';
-@import './styles/timeline';
-@import './styles/utils';
-@import './styles/animations';
-@import './styles/video';
-@import './styles/map';
-@import './styles/call-to-action';
-@import './styles/bootstrap-overrides';
-@import './styles/toggle';
+@import "./styles/header";
+@import "./styles/navigation";
+@import "./styles/content";
+@import "./styles/footer";
+@import "./styles/topbar";
+@import "./styles/blog";
+@import "./styles/products";
+@import "./styles/contact-form";
+@import "./styles/coming-soon";
+@import "./styles/elements";
+@import "./styles/breadcrumbs";
+@import "./styles/box-icon";
+@import "./styles/btn-link";
+@import "./styles/counter";
+@import "./styles/divider";
+@import "./styles/heading";
+@import "./styles/feature-box";
+@import "./styles/list";
+@import "./styles/pagination";
+@import "./styles/pricing-table";
+@import "./styles/spinner";
+@import "./styles/preloader";
+@import "./styles/progress-bar";
+@import "./styles/social-icons";
+@import "./styles/accordion";
+@import "./styles/expand";
+@import "./styles/tab";
+@import "./styles/team";
+@import "./styles/testimonial";
+@import "./styles/timeline";
+@import "./styles/utils";
+@import "./styles/animations";
+@import "./styles/video";
+@import "./styles/map";
+@import "./styles/call-to-action";
+@import "./styles/bootstrap-overrides";
+@import "./styles/toggle";
 
 /* bs */
 .btn-left,
 .btn-right {
   background: none;
-  border: solid 1px rgba(255, 255, 255, .2);
-  padding: 10px 20px 10px 20px;
+  border: solid 1px rgb(255 255 255 / 20%);
+  padding: 10px 20px;
   margin: 5px;
   font-family: var(--body-font);
   text-transform: uppercase;
   letter-spacing: 5px;
 }
 
-.btn-right:after {
+.btn-right::after {
   font-family: FontAwesome;
   content: "\f054";
   padding-left: 10px;
 }
 
-.btn-left:before {
+.btn-left::before {
   font-family: FontAwesome;
   content: "\f053";
   padding-right: 10px;
@@ -178,7 +176,6 @@ a.btn-right {
   margin: 5px 0 15px 15px;
 }
 
-
 /* flickr */
 #flickr-photo-stream img {
   width: 48px;
@@ -192,7 +189,7 @@ a.btn-right {
 }
 
 #flickr-photo-stream a:hover img {
-  border: solid 2px #777777;
+  border: solid 2px #777;
 }
 
 hr {
@@ -201,14 +198,12 @@ hr {
 
 hr.blank {
   border: none;
-  margin: 20px 0 20px 0;
+  margin: 20px 0;
 }
 
 /* ================================================== */
 
-
 /* font awesome icons */
-
 
 /* ================================================== */
 
@@ -248,7 +243,7 @@ i.circle-icon {
 }
 
 .fa-apple {
-  color: #0EC3F7;
+  color: #0ec3f7;
 }
 
 /* extra ^ */
@@ -264,9 +259,7 @@ i.circle-icon {
 
 /* ================================================== */
 
-
 /* transition */
-
 
 /* ================================================== */
 
@@ -274,7 +267,7 @@ a,
 a:hover,
 .test-column,
 .test-column:hover {
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .de_contact_info {
@@ -293,9 +286,7 @@ a:hover,
 
 /* ================================================== */
 
-
 /* gallery */
-
 
 /* ================================================== */
 
@@ -306,11 +297,6 @@ a:hover,
   cursor: e-resize;
 }
 
-.de_carousel .item {
-  width: 100%;
-  display: block;
-}
-
 #gallery-carousel .item img {
   width: 100%;
   height: auto;
@@ -319,6 +305,11 @@ a:hover,
 #gallery-carousel .item h4 {
   margin-bottom: 0;
   font-size: 14px;
+}
+
+.de_carousel .item {
+  width: 100%;
+  display: block;
 }
 
 .carousel-item {
@@ -332,7 +323,6 @@ a:hover,
 
 .overlay-v {
   text-align: center;
-  width: 100px;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -358,7 +348,7 @@ a:hover,
 }
 
 .overlay-v span {
-  background: #1A1C26;
+  background: #1a1c26;
   padding: 40px;
   width: 100%;
   height: 100%;
@@ -371,8 +361,8 @@ a:hover,
 }
 
 .overlay-v:hover span {
-  margin-top: 0px;
-  opacity: .9;
+  margin-top: 0;
+  opacity: 0.9;
 }
 
 .carousel-item .pf_text .title {
@@ -383,28 +373,28 @@ a:hover,
   font-size: 20px;
   font-weight: 700;
   height: 0;
-  color: rgba(255, 255, 255, 0);
+  color: rgb(255 255 255 / 0%);
   letter-spacing: 0;
 }
 
 .overlay-v:hover {
-  background: rgba(30, 30, 30, .5);
+  background: rgb(30 30 30 / 50%);
 }
 
 .carousel-item:hover .pf_text .title {
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255 255 255 / 100%);
   top: 75%;
 }
 
 .carousel-item .pf_text .title .type {
   display: block;
-  color: rgba(255, 255, 255, 0);
+  color: rgb(255 255 255 / 0%);
   font-size: 12px;
   font-weight: 400;
 }
 
 .carousel-item:hover .pf_text .title .type {
-  color: rgba(255, 255, 255, 1);
+  color: rgb(255 255 255 / 100%);
 }
 
 .pf_text {
@@ -440,8 +430,8 @@ a:hover,
 
 .project-info .details {
   padding: 20px;
-  border: solid 1px rgba(255, 255, 255, .2);
-  background: rgba(0, 0, 0, .5);
+  border: solid 1px rgb(255 255 255 / 20%);
+  background: rgb(0 0 0 / 50%);
   margin-bottom: 30px;
 }
 
@@ -465,7 +455,7 @@ a:hover,
 }
 
 .project-view {
-  padding: 120px 0 80px 0;
+  padding: 120px 0 80px;
 }
 
 .project-images img {
@@ -481,21 +471,19 @@ a:hover,
   width: 100%;
 }
 
-
-
 #d-btn-close-x {
   width: 100px;
   height: 100px;
   display: block;
-  background: url(/assets/images/close.png) center no-repeat;
+  background: url("/assets/images/close.png") center no-repeat;
   margin: 0 auto;
   margin-bottom: 80px;
-  cursor: poInter;
+  cursor: pointer;
   padding: 20px;
 }
 
 #d-btn-close-x {
-  background: url(/assets/images/close-2.png) center no-repeat;
+  background: url("/assets/images/close-2.png") center no-repeat;
 }
 
 .project-name {
@@ -518,14 +506,14 @@ span.overlay {
   text-align: center;
   display: block;
   width: 100px;
-  background: rgba(var(--primary-color-rgb), .8);
+  background: rgb(var(--primary-color-rgb) 0.8);
   position: absolute;
-  opacity: .75;
+  opacity: 0.75;
   z-index: 500;
 }
 
 span.icon {
-  cursor: poInter;
+  cursor: pointer;
 }
 
 .f_box {
@@ -538,12 +526,12 @@ span.icon {
 }
 
 .f_box:hover .f_bg {
-  opacity: .3;
+  opacity: 0.3;
 }
 
 .grid-item .f_box img {
   filter: grayscale(100%);
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .f_box:hover img {
@@ -553,13 +541,13 @@ span.icon {
 }
 
 .f_box .f_bg {
-  background: #111111;
+  background: #111;
   display: block;
   position: absolute;
   z-index: 1;
   width: 100%;
   height: 100%;
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .f_box .f_bg.s1 {
@@ -567,7 +555,7 @@ span.icon {
 }
 
 .f_box:hover .f_bg.s1 {
-  opacity: .2;
+  opacity: 0.2;
 }
 
 .f_box .f_cap_wrap {
@@ -590,7 +578,6 @@ span.icon {
   transform: scale(1.05);
 }
 
-
 .f_box .f_text {
   height: 0;
   overflow: hidden;
@@ -610,7 +597,7 @@ span.icon {
 }
 
 .f_box.s2:hover .f_bg {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .f_box.s2 .f_bg {
@@ -636,7 +623,7 @@ span.icon {
 
 .f_box .f_cap h1,
 .f_box .f_cap h4 {
-  color: #ffffff;
+  color: #fff;
 }
 
 .f_box.s2 .f_cap {
@@ -661,7 +648,7 @@ h2 span.underline {
   display: block;
   width: 0;
   height: 2px;
-  background: #ffffff;
+  background: #fff;
   position: relative;
   left: 0;
 }
@@ -703,7 +690,7 @@ h2 span.underline {
 .de-gallery .overlay .icon i {
   text-shadow: none;
   color: #fff;
-  border: solid 1px rgba(255, 255, 255, .1);
+  border: solid 1px rgb(255 255 255 / 10%);
   font-size: 22px;
   padding: 20px;
   width: 60px;
@@ -713,7 +700,7 @@ h2 span.underline {
 }
 
 .de-gallery .overlay .icon i.icon-info {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 .de-gallery .overlay .icon i:hover {
@@ -730,13 +717,12 @@ a.img-icon-zoom {
   display: inline-block;
   width: 36px;
   height: 36px;
-  background: url(/assets/images/icon-url.png) center no-repeat;
-  margin: 0 auto;
-  margin: 0 2px 0 2px;
+  background: url("/assets/images/icon-url.png") center no-repeat;
+  margin: 0 2px;
 }
 
 a.img-icon-zoom {
-  background: url(/assets/images/icon-zoom.png) center no-repeat;
+  background: url("/assets/images/icon-zoom.png") center no-repeat;
 }
 
 .pf_full_width {
@@ -783,22 +769,22 @@ a.img-icon-zoom {
 }
 
 .pf_full_width.grid {
-  padding: .75%;
+  padding: 0.75%;
   padding-bottom: 0;
 }
 
 .pf_full_width.grid .item {
-  margin: 0 .75% .75% 0;
+  margin: 0 0.75% 0.75% 0;
   width: 32%;
 }
 
 .pf_full_width.grid.pf_4_cols .item {
-  margin: 0 .75% .75% 0;
+  margin: 0 0.75% 0.75% 0;
   width: 23.9%;
 }
 
 .pf_full_width.grid.pf_2_cols .item {
-  margin: 0 .75% .75% 0;
+  margin: 0 0.75% 0.75% 0;
   width: 48.5%;
 }
 
@@ -817,8 +803,8 @@ a.img-icon-zoom {
 }
 
 /* clear fix */
-.grid:after {
-  content: '';
+.grid::after {
+  content: "";
   display: block;
   clear: both;
 }
@@ -840,18 +826,19 @@ a.img-icon-zoom {
   padding: 0;
 }
 
-@import './styles/widget';
-@import './styles/side-layout';
-@import './styles/misc';
-@import './styles/cookie-consent';
-@import './styles/owl';
-@import './styles/schedule-item';
-@import './styles/popup-box';
-@import './styles/table';
-@import './styles/mask';
-@import './styles/nft-item';
-@import './styles/misc2';
-@import './styles/quick-search';
-@import './styles/review';
-@import './styles/line-preloader';
-@import './styles/responsive';
+@import "./styles/widget";
+@import "./styles/side-layout";
+@import "./styles/misc";
+@import "./styles/cookie-consent";
+@import "./styles/owl";
+@import "./styles/schedule-item";
+@import "./styles/popup-box";
+@import "./styles/table";
+@import "./styles/mask";
+@import "./styles/nft-item";
+@import "./styles/misc2";
+@import "./styles/quick-search";
+@import "./styles/review";
+@import "./styles/line-preloader";
+@import "./styles/responsive";
+@import "./styles/coloring"; // LAST

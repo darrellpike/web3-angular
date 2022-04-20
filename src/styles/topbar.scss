@@ -17,7 +17,7 @@
 }
 
 #topbar.text-light a {
-  color: #ffffff;
+  color: #fff;
 }
 
 .topbar-left,
@@ -30,19 +30,19 @@
 }
 
 .topbar-solid {
-  background: #ffffff;
+  background: #fff;
 }
 
 .tb-light {
-  background: #ffffff;
+  background: #fff;
 }
 
 #topbar:not(.topbar-noborder) .topbar-right .topbar-widget {
-  border-left: solid 1px rgba(255, 255, 255, .1);
+  border-left: solid 1px rgb(255 255 255 / 10%);
 }
 
 #topbar:not(.topbar-noborder) .topbar-right span:last-child {
-  border-right: solid 1px rgba(255, 255, 255, .1);
+  border-right: solid 1px rgb(255 255 255 / 10%);
 }
 
 #topbar:not(.topbar-noborder) .topbar-light .topbar-right .topbar-widget {
@@ -54,11 +54,11 @@
 }
 
 #topbar:not(.topbar-noborder) .tb-light .topbar-right .topbar-widget {
-  border-left: solid 1px #eeeeee;
+  border-left: solid 1px #eee;
 }
 
 #topbar:not(.topbar-noborder) .tb-light .topbar-right span:last-child {
-  border-right: solid 1px #eeeeee;
+  border-right: solid 1px #eee;
 }
 
 /* topbar left content */
@@ -67,7 +67,7 @@
 }
 
 #topbar:not(.topbar-noborder) .topbar-left .topbar-widget {
-  border-right: solid 1px rgba(255, 255, 255, .1);
+  border-right: solid 1px rgb(255 255 255 / 10%);
 }
 
 #topbar:not(.topbar-noborder) .topbar-light .topbar-left .topbar-widget {
@@ -75,21 +75,21 @@
 }
 
 #topbar:not(.topbar-noborder) .topbar-left span:first-child {
-  border-left: solid 1px rgba(255, 255, 255, .1);
+  border-left: solid 1px rgb(255 255 255 / 10%);
 }
 
 #topbar:not(.topbar-noborder) .tb-light .topbar-left .topbar-widget {
-  border-right: solid 1px #eeeeee;
+  border-right: solid 1px #eee;
 }
 
 #topbar:not(.topbar-noborder) .tb-light .topbar-left span:first-child {
-  border-left: solid 1px #eeeeee;
+  border-left: solid 1px #eee;
 }
 
 .h-phone {
   position: relative;
   font-weight: bold;
-  color: #ffffff;
+  color: #fff;
   padding-left: 40px;
   font-size: 18px;
   padding-top: 20px;
@@ -109,7 +109,7 @@
   position: absolute;
   font-size: 32px;
   left: 0;
-  top: 12px
+  top: 12px;
 }
 
 /* topbar widget */
@@ -131,23 +131,23 @@
   padding: 12px;
 }
 
-.topbar-widget:before {
+.topbar-widget::before {
   float: left;
   position: relative;
-  font-family: "FontAwesome";
+  font-family: FontAwesome;
   font-size: 16px;
   margin-right: 10px;
 }
 
-.topbar-widget.tb-phone:before {
+.topbar-widget.tb-phone::before {
   content: "\f095";
 }
 
-.topbar-widget.tb-email:before {
+.topbar-widget.tb-email::before {
   content: "\f003";
 }
 
-.topbar-widget.tb-opening-hours:before {
+.topbar-widget.tb-opening-hours::before {
   content: "\f017";
 }
 
@@ -166,15 +166,15 @@
 
 #topbar:not(.topbar-noborder) .topbar-light .topbar-widget.tb-social a,
 #topbar:not(.topbar-noborder) .topbar-light .topbar-widget.tb-social a:first-child {
-  border-left: solid 1px #eeeeee;
+  border-left: solid 1px #eee;
 }
 
 #topbar:not(.topbar-noborder) .topbar-widget.tb-social a {
-  border-left: solid 1px rgba(255, 255, 255, .1);
+  border-left: solid 1px rgb(255 255 255 / 10%);
 }
 
 .tb-light .topbar-widget.tb-social a {
-  border-left: solid 1px #eeeeee;
+  border-left: solid 1px #eee;
 }
 
 .topbar-widget.tb-social a:first-child {
@@ -184,5 +184,5 @@
 /* topbar end here */
 
 #de-sidebar {
-  padding: 0px;
+  padding: 0;
 }

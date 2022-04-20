@@ -1,3 +1,5 @@
+/* stylelint-disable selector-class-pattern */
+
 /* testimonial */
 .de_testi {
   display: block;
@@ -8,7 +10,7 @@
   margin: 0;
   border: none;
   padding: 20px 30px 30px 80px;
-  background: rgba(var(--secondary-color-rgb), .1);
+  background: rgb(var(--secondary-color-rgb) 0.1);
   font-style: normal;
   line-height: 1.6em;
   font-weight: 500;
@@ -18,13 +20,13 @@
   margin-top: 10px;
 }
 
-.de_testi blockquote:before {
+.de_testi blockquote::before {
   font-family: FontAwesome;
   content: "\f10d";
   padding-bottom: 10px;
   font-size: 20px;
   display: inline-block;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   font-style: normal;
   background: #000;
   position: absolute;
@@ -78,8 +80,8 @@
   border: none;
   color: #606060;
   font-weight: 300;
-  padding: 30px 40px 30px 40px;
-  background: rgba(var(--secondary-color-rgb), .1);
+  padding: 30px 40px;
+  background: rgb(var(--secondary-color-rgb) 0.1);
   border-radius: 3px;
 }
 
@@ -87,11 +89,11 @@
   background: none;
 }
 
-.de_testi.opt-2 blockquote:before {
-  font-family: "FontAwesome";
+.de_testi.opt-2 blockquote::before {
+  font-family: FontAwesome;
   content: "\f10d";
   display: block;
-  color: rgba(0, 0, 0, .1);
+  color: rgb(0 0 0 / 10%);
   z-index: 100;
   font-size: 20px;
   background: none;
@@ -106,7 +108,7 @@
   padding: 50px;
 }
 
-.de_testi.opt-2.review blockquote:before {
+.de_testi.opt-2.review blockquote::before {
   display: none;
 }
 
@@ -126,12 +128,12 @@
 
 .text-light .de_testi.opt-2 blockquote {
   color: #fff;
-  background: rgba(20, 20, 20, .5);
+  background: rgb(20 20 20 / 50%);
 }
 
 .de_testi.opt-2 blockquote p {
   font-size: 16px;
-  padding: 40px 0 0 0;
+  padding: 40px 0 0;
   font-weight: 400;
   line-height: 1.7em;
 }
@@ -152,7 +154,7 @@
   font-size: 14px;
 }
 
-.de_testi.opt-3 blockquote:before {
+.de_testi.opt-3 blockquote::before {
   color: #fff;
 }
 
@@ -162,7 +164,7 @@
 }
 
 .de_testi.de-border blockquote {
-  border: solid 5px rgba(0, 0, 0, .05);
+  border: solid 5px rgb(0 0 0 / 5%);
 }
 
 #testimonial-masonry .item {
@@ -176,7 +178,7 @@
 .testimonial-list,
 .testimonial-list li {
   list-style: none;
-  padding: 0px;
+  padding: 0;
   font-size: 16px;
   line-height: 1.7em;
   padding-left: 30px;
@@ -193,25 +195,25 @@
   font-size: 28px;
 }
 
-.testimonial-list:before {
+.testimonial-list::before {
   font-family: FontAwesome;
   content: "\f10d";
   font-size: 40px;
-  color: rgba(0, 0, 0, .1);
+  color: rgb(0 0 0 / 10%);
   position: absolute;
   margin-left: -30px;
 }
 
 .testimonial-list.style-2,
 .testimonial-list.style-2 li {
-  padding-left: 0px;
+  padding-left: 0;
 }
 
 .testimonial-list.style-2 {
   text-align: center;
 }
 
-.testimonial-list.style-2:before {
+.testimonial-list.style-2::before {
   margin: 0;
   position: static;
 }
