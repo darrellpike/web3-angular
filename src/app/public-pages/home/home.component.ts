@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
+import { RoutePaths } from '@constants/routes';
 import { NftItem } from '@datatypes/collection-item';
 import { User } from '@datatypes/user';
 
@@ -13,6 +14,8 @@ import { UserService } from '@services/user.service';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  routePaths = RoutePaths;
+
   hotCollectionSliderOptions: OwlOptions = {
     center: false,
     items: 4,

@@ -1,10 +1,9 @@
+import { User } from '@datatypes/user';
 export interface NftItem {
   id: string;
   imageUrl: string;
-  author: {
-    avatar: string;
-    name: string;
-  },
+  author: User,
+  owner: User;
   title: string;
   code: string;
   created: {

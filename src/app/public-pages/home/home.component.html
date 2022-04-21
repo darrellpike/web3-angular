@@ -75,7 +75,7 @@
             <ng-template carouselSlide *ngFor="let nft of hotCollection">
               <div class="nft_coll">
                 <div class="nft_wrap">
-                  <a [routerLink]="''">
+                  <a [routerLink]="[routePaths.NftItemDetails, nft.id]">
                     <img [src]="'/assets/images/collections/' + nft.imageUrl" class="lazy img-fluid" alt="">
                   </a>
                 </div>
@@ -86,7 +86,7 @@
                   <i class="fa fa-check"></i>
                 </div>
                 <div class="nft_coll_info">
-                  <a [routerLink]="''"><h4>{{ nft.title }}</h4></a>
+                  <a [routerLink]="[routePaths.NftItemDetails, nft.id]"><h4>{{ nft.title }}</h4></a>
                   <span>{{ nft.code }}</span>
                 </div>
               </div>
@@ -149,7 +149,7 @@
                     </a>
                   </div>
                   <div class="nft__item_info">
-                    <a routerLink="">
+                    <a [routerLink]="[routePaths.NftItemDetails, nft.id]">
                       <h4>{{ nft.title }}</h4>
                     </a>
                     <div class="nft__item_click"><span></span></div>
