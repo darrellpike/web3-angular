@@ -1,7 +1,8 @@
 /*  header  */
 header {
   width: 100%;
-  position: absolute;
+  position: fixed;
+  top: 0;
   left: 0;
   z-index: 1001;
   background: #2b313f;
@@ -66,6 +67,10 @@ header.header-bg {
 
 header.transparent {
   background: none;
+}
+
+header.contrast {
+  background: url(/assets/images/background/subheader.jpg) top center / cover;
 }
 
 body:not(.side-layout) header:not(.smaller):not(.header-mobile).header-light.transparent {
@@ -568,4 +573,8 @@ header.header-light .logo {
 
 header.header-light .logo-2 {
   display: inline-block;
+}
+
+#subheader {
+  background: url("/assets/images/background/subheader.jpg") top;
 }

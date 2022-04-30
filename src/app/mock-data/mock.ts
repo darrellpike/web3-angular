@@ -1,5 +1,6 @@
 import { NftItem } from '@datatypes/collection-item';
 import { User } from '@datatypes/user';
+import { Bid } from '@datatypes/bid';
 
 export const users: User[] = [
   {
@@ -338,3 +339,44 @@ export const hotItems: NftItem[] = [
 ];
 
 export const allItems: NftItem[] = ([] as NftItem[]).concat(nftItems, hotItems);
+
+export const bidsHistory: Bid[] = [
+  {
+    id: '',
+    sum: 0.005,
+    user: users[7],
+    date: new Date('2022-03-05T11:27:54Z'),
+    accepted: false,
+  },
+  {
+    id: '',
+    sum: 0.005,
+    user: users[8],
+    date: new Date('2022-03-05T11:07:35Z'),
+    accepted: true,
+  },
+  {
+    id: '',
+    sum: 0.005,
+    user: users[9],
+    date: new Date('2022-03-05T11:05:10Z'),
+    accepted: false,
+  },
+  {
+    id: '',
+    sum: 0.004,
+    user: users[10],
+    date: new Date('2022-03-05T11:03:00Z'),
+    accepted: false,
+  },
+  {
+    id: '',
+    sum: 0.003,
+    user: users[11],
+    date: new Date('2022-03-05T10:57:01Z'),
+    accepted: false,
+  },
+];
+
+export const bids: Bid[] = [...bidsHistory];
+bids.splice(0, 1);

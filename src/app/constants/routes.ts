@@ -1,9 +1,22 @@
 export enum RoutePaths {
+  Activity = 'activity',
+  Auction = 'auction',
+  Author = 'author',
+  Collection = 'collection',
+  ConnectWallet = 'connect-wallet',
+  ContactUs = 'contact-us',
   Home = '',
-  User = 'user',
+  LoginForm = 'login',
+  News = 'news',
+  NftsCatalog = 'nfts-catalog',
   NftItemDetails = 'nft-item-details',
+  Rankings = 'rankings',
+  Register = 'register',
+  User = 'user',
 }
 
 export enum UserRoutePaths {
-  LoginForm = 'login',
+  CreateCollectible = 'create-collectible',
+  CreateNft = 'create-nft',
+  Profile = 'profile',
 }

@@ -73,6 +73,10 @@
   cursor: pointer;
 }
 
+.dropdown:hover ul {
+  display: block;
+}
+
 .dropdown li span {
   background: #ffffff;
   display: block;
