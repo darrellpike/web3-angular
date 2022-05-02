@@ -380,3 +380,43 @@ export const bidsHistory: Bid[] = [
 
 export const bids: Bid[] = [...bidsHistory];
 bids.splice(0, 1);
+
+export const auctionItems: NftItem[] = [
+  {
+    id: '',
+    imageUrl: 'coll-5.jpg',
+    author: users[4],
+    owner: users[10],
+    created: {
+      year: 2022,
+      month: 9,
+      day: 16,
+      hour: 10,
+    },
+    title: 'Virtuland',
+    code: 'ERC-85',
+    price: 0.08,
+    likes: 50,
+    divider: 1,
+  },
+];
+
+export const collectionItems: NftItem[] = [
+  {
+    id: '',
+    imageUrl: 'coll-5.jpg',
+    author: users[4],
+    owner: users[10],
+    created: {
+      year: 2022,
+      month: 9,
+      day: 16,
+      hour: 10,
+    },
+    title: 'Virtuland',
+    code: 'ERC-85',
+    price: 0.08,
+    likes: 50,
+    divider: 1,
+  },
+];

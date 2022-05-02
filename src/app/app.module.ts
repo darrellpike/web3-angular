@@ -27,6 +27,9 @@ import { NftItemDetailsComponent } from '@pubpages/nft-item-details/nft-item-det
 import { RankingsComponent } from '@pubpages/rankings/rankings.component';
 import { RegisterComponent } from '@pubpages/register/register.component';
 
+import { NftItemComponent } from '@components/nft-item/nft-item.component';
+// import { DropdownComponent } from '@components/dropdown/dropdown.component';
+
 @NgModule({
   declarations: [
     ActivityComponent,
@@ -38,11 +41,14 @@ import { RegisterComponent } from '@pubpages/register/register.component';
     ConnectWalletComponent,
     ContactUsComponent,
 
+    // DropdownComponent,
+
     HomeComponent,
 
     LoginFormComponent,
 
     NewsComponent,
+    NftItemComponent,
     NftsCatalogComponent,
     NftItemDetailsComponent,
 

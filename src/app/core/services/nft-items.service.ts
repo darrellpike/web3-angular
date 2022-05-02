@@ -1,7 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { NftItem } from '@datatypes/collection-item';
-import { allItems, nftItems, hotItems, bids, bidsHistory } from '@app/mock-data/mock';
+import {
+  allItems, nftItems, hotItems, bids, bidsHistory,
+  auctionItems, collectionItems,
+} from '@app/mock-data/mock';
 
 @Injectable({
   providedIn: 'root',
@@ -28,5 +32,17 @@ export class NftItemsService {
 
   getItemBidsHistory(id: string) {
     return of(bidsHistory);
+  }
+
+  getAuctionItems() {
+    return of(auctionItems);
+  }
+
+  getOwnedItems(userId: string) {
+    return of(collectionItems);
+  }
+
+  getOnSaleItems(userId: string) {
+    return of(collectionItems);
   }
 }

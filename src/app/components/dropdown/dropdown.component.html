@@ -1,0 +1,11 @@
+<div class="dropdown">
+  <a class="btn-selector">{{ value }}</a>
+  <ul>
+    <li *ngFor="let item of options"
+      [ngClass]="{'active': item.value === value}"
+      (click)="writeValue(item.value)"
+    >
+    <span>{{ item.name }}</span>
+  </li>
+  </ul>
+</div>

@@ -10,4 +10,9 @@ export class UserService {
   getTopSellers(): Observable<User[]> {
     return of(users);
   }
+
+  getUser(id: string) {
+    const user = users.find(u => u.id === id);
+    return of(user);
+  }
 }

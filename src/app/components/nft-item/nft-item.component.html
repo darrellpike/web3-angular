@@ -1,0 +1,58 @@
+<div [ngClass]="['nft__item', class]">
+  <div class="de_countdown" *ngIf="countdown">
+    <span class="countdown-row countdown-show3">
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.hours }}h</span>
+      </span>
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.minutes }}m</span>
+      </span>
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.seconds }}s</span>
+      </span>
+    </span>
+  </div>
+  <div class="author_list_pp">
+    <a [routerLink]="[routePaths.Author, item.author.id]" data-bs-toggle="tooltip" data-bs-placement="top"
+      [title]="'Creator: ' + item.author.name"
+      >
+      <img class="lazy" [src]="'/assets/images/author/' + item.author.avatar" alt="" />
+      <i class="fa fa-check"></i>
+    </a>
+  </div>
+  <div class="nft__item_wrap">
+    <div class="nft__item_extra">
+      <div class="nft__item_buttons">
+        <button (click)="onBuyNow()">Buy Now</button>
+        <div class="nft__item_share">
+          <h4>Share</h4>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank">
+            <i class="fa fa-facebook fa-lg"></i>
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank">
+            <i class="fa fa-twitter fa-lg"></i>
+          </a>
+          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io">
+            <i class="fa fa-envelope fa-lg"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <a [routerLink]="[routePaths.NftItemDetails, item.id]">
+      <img [src]="'/assets/images/items/' + item.imageUrl" class="lazy nft__item_preview" alt="" />
+    </a>
+  </div>
+  <div class="nft__item_info">
+    <a [routerLink]="[routePaths.NftItemDetails, item.id]">
+      <h4>{{ item.title }}</h4>
+    </a>
+    <div class="nft__item_click"><span></span></div>
+    <div class="nft__item_price">{{ item.price }} ETH<span>1/{{ item.divider }}</span></div>
+    <div class="nft__item_action">
+      <a (click)="onPlaceBid()">Place a bid</a>
+      <div class="nft__item_like">
+        <i class="fa fa-heart"></i><span>{{ item.likes }}</span>
+      </div>
+    </div>
+  </div>
+</div>
