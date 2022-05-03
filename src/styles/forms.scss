@@ -18,7 +18,6 @@
 .form-border input[type=date],
 .form-border select {
   padding: 8px;
-  margin-bottom: 20px;
   border: none;
   border: solid 1px #dddddd;
   background: none;
@@ -58,6 +57,10 @@
 .form-border input[type=date]:focus,
 .form-border select:focus {
   background: rgba(var(--secondary-color-rgb), .1);
+}
+
+.field-set {
+  margin-bottom: 20px;
 }
 
 .form-subscribe {
@@ -183,4 +186,10 @@
 
 .item_filter_group h4 {
   font-size: 18px;
+}
+
+.form-error {
+  margin-top: 0.3rem;
+  color: #bb0000;
+  font-size: 0.8rem;
 }

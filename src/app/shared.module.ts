@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { UserService } from '@services/user.service';
+import { EmailService } from '@services/email.service';
 
 @NgModule({
   declarations: [],
@@ -10,6 +11,7 @@ import { UserService } from '@services/user.service';
     RouterModule,
   ],
   providers: [
+    EmailService,
     UserService,
   ],
   exports: [],

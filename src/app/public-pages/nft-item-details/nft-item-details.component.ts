@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { RoutePaths } from '@constants/routes';
-import { NftItem } from '@app/datatypes/collection-item';
+import { NftItem } from '@app/datatypes/nft-item';
 import { Bid } from '@app/datatypes/bid';
 import { NftItemsService } from '@services/nft-items.service';
 

@@ -1,7 +1,10 @@
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ClipboardModule } from 'ngx-clipboard';
+import { HotToastModule } from '@ngneat/hot-toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -60,7 +63,14 @@ import { NftItemComponent } from '@components/nft-item/nft-item.component';
     BrowserModule,
     BrowserAnimationsModule,
     CarouselModule,
+    ClipboardModule,
+    HotToastModule.forRoot({
+      reverseOrder: true,
+      dismissible: true,
+      // autoClose: false,
+    }),
     NgbModule,
+    ReactiveFormsModule,
     SharedModule,
   ],
   providers: [],

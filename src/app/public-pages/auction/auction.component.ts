@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { RoutePaths } from '@constants/routes';
-import { NftItem } from '@datatypes/collection-item';
+import { NftItem } from '@app/datatypes/nft-item';
 // import { User } from '@datatypes/user';
 
 import { NftItemsService } from '@services/nft-items.service';

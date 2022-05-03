@@ -8,14 +8,14 @@
          <div class="d_profile de-flex">
           <div class="de-flex-col">
             <div class="profile_avatar">
-            <img [src]="'images/author_single/' + user.avatar" alt="">
+            <img [src]="'/assets/images/author/' + user.avatar" alt="">
               <i class="fa fa-check"></i>
               <div class="profile_name">
                 <h4>
                   {{ user.name }}
-                  <span class="profile_username">@monicaaa</span>
-                  <span id="wallet" class="profile_wallet">DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME</span>
-                  <button id="btn_copy" title="Copy Text">Copy</button>
+                  <span class="profile_username">{{ user.nickname }}</span>
+                  <span id="wallet" class="profile_wallet">{{ user.wallet }}</span>
+                  <button id="btn_copy" title="Copy Wallet" (click)="copyToClipboard(user.wallet)">Copy</button>
                 </h4>
               </div>
             </div>
@@ -34,15 +34,29 @@
 
       <div class="col-md-12">
         <div class="de_tab tab_simple">
-
           <ul class="de_nav">
-            <li class="active"><span>On Sale</span></li>
-            <li><span>Created</span></li>
-            <li><span>Liked</span></li>
+            <li
+              [ngClass]="{ active: activeTab === tabs.OnSale}"
+              (click)="activeTab = tabs.OnSale"
+              >
+              <span>On Sale</span>
+            </li>
+            <li
+              [ngClass]="{ active: activeTab === tabs.Created}"
+              (click)="activeTab = tabs.Created"
+              >
+              <span>Created</span>
+            </li>
+            <li
+              [ngClass]="{ active: activeTab === tabs.Linked}"
+              (click)="activeTab = tabs.Linked"
+              >
+              <span>Liked</span>
+            </li>
           </ul>
 
           <div class="de_tab_content">
-            <div class="tab-1">
+            <div class="tab-1" [hidden]="activeTab !== tabs.OnSale">
               <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor="let item of onSaleItems">
                   <app-nft-item [item]="item"></app-nft-item>
@@ -50,7 +64,7 @@
               </div>
             </div>
 
-            <div class="tab-2">
+            <div class="tab-2" [hidden]="activeTab !== tabs.Created">
               <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12" *ngFor="let item of createdItems">
                   <app-nft-item [item]="item"></app-nft-item>
@@ -58,7 +72,7 @@
               </div>
             </div>
 
-            <div class="tab-3">
+            <div class="tab-3" [hidden]="activeTab !== tabs.Linked">
               <div class="row">
                 <div class="col-lg-3 col-md-6" *ngFor="let item of linkedItems">
                   <app-nft-item [item]="item"></app-nft-item>

@@ -1,17 +1,10 @@
-<div [ngClass]="['nft__item', class]">
-  <div class="de_countdown" *ngIf="countdown">
-    <span class="countdown-row countdown-show3">
-      <span class="countdown-section">
-        <span class="countdown-amount">{{ countdown.hours }}h</span>
-      </span>
-      <span class="countdown-section">
-        <span class="countdown-amount">{{ countdown.minutes }}m</span>
-      </span>
-      <span class="countdown-section">
-        <span class="countdown-amount">{{ countdown.seconds }}s</span>
-      </span>
-    </span>
-  </div>
+<div [ngClass]="['nft__item', class, !countdownAtTop ? 'nft_layout-2' : '']">
+  <ng-container *ngIf="countdown && countdownAtTop">
+    <ng-container
+      *ngTemplateOutlet="countdownTemplate; context: { countdown }"
+    ></ng-container>
+  </ng-container>
+
   <div class="author_list_pp">
     <a [routerLink]="[routePaths.Author, item.author.id]" data-bs-toggle="tooltip" data-bs-placement="top"
       [title]="'Creator: ' + item.author.name"
@@ -20,6 +13,7 @@
       <i class="fa fa-check"></i>
     </a>
   </div>
+
   <div class="nft__item_wrap">
     <div class="nft__item_extra">
       <div class="nft__item_buttons">
@@ -42,6 +36,13 @@
       <img [src]="'/assets/images/items/' + item.imageUrl" class="lazy nft__item_preview" alt="" />
     </a>
   </div>
+
+  <ng-container *ngIf="countdown && !countdownAtTop">
+    <ng-container
+      *ngTemplateOutlet="countdownTemplate; context: { countdown }"
+    ></ng-container>
+  </ng-container>
+
   <div class="nft__item_info">
     <a [routerLink]="[routePaths.NftItemDetails, item.id]">
       <h4>{{ item.title }}</h4>
@@ -56,3 +57,20 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #countdownTemplate let-countdown="countdown">
+  <div class="de_countdown">
+    <span class="countdown-row countdown-show3">
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.hours }}h</span>
+      </span>
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.minutes }}m</span>
+      </span>
+      <span class="countdown-section">
+        <span class="countdown-amount">{{ countdown.seconds }}s</span>
+      </span>
+    </span>
+  </div>
+</ng-template>

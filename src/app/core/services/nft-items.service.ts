@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { NftItem } from '@datatypes/collection-item';
+import { NftItem } from '@app/datatypes/nft-item';
+import { Collection } from '@app/datatypes/collection';
 import {
-  allItems, nftItems, hotItems, bids, bidsHistory,
-  auctionItems, collectionItems,
+  allItems, nftItems, hotCollections, bids, bidsHistory,
+  auctionItems, collectionItems, collections, categories,
 } from '@app/mock-data/mock';
 
 @Injectable({
@@ -13,8 +14,8 @@ import {
 export class NftItemsService {
   // constructor() { }
 
-  getHotCollection(): Observable<NftItem[]> {
-    return of(hotItems);
+  getHotCollection(): Observable<Collection[]> {
+    return of(hotCollections);
   }
 
   getNewItems(): Observable<NftItem[]> {
@@ -38,11 +39,31 @@ export class NftItemsService {
     return of(auctionItems);
   }
 
-  getOwnedItems(userId: string) {
+  getUserOwnedItems(userId: string) {
     return of(collectionItems);
   }
 
-  getOnSaleItems(userId: string) {
+  getUserOnSaleItems(userId: string) {
     return of(collectionItems);
+  }
+
+  getUserCreatedItems(userId: string) {
+    return of(collectionItems);
+  }
+
+  getUserLinkedItems(userId: string) {
+    return of(collectionItems);
+  }
+
+  getFilteredItems() {
+    return of(nftItems);
+  }
+
+  getCollections() {
+    return of(collections);
+  }
+
+  getCategories() {
+    return of(categories);
   }
 }

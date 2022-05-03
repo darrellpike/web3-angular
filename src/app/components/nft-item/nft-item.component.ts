@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { NftItem } from '@datatypes/collection-item';
+import { NftItem } from '@app/datatypes/nft-item';
 import { Countdown } from '@datatypes/countdown';
 import { RoutePaths } from '@constants/routes';
 
@@ -13,6 +13,7 @@ export class NftItemComponent {
 
   @Input() item!: NftItem;
   @Input() countdown?: Countdown;
+  @Input() countdownAtTop: boolean = true;
   @Input() class: string = '';
 
   onBuyNow() {

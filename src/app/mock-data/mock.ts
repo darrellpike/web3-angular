@@ -1,79 +1,105 @@
-import { NftItem } from '@datatypes/collection-item';
+import { NftItem } from '@app/datatypes/nft-item';
 import { User } from '@datatypes/user';
 import { Bid } from '@datatypes/bid';
+import { Collection } from '@datatypes/collection';
+import { Category } from '@datatypes/category';
 
 export const users: User[] = [
   {
     id: '1',
     avatar: 'author-1.jpg',
     name: 'Monica Lucas',
+    nickname: '@monicaaa',
     balance: 0,
+    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '2',
     avatar: 'author-2.jpg',
     name: 'Mamie Barnett',
+    nickname: '@mamieba',
     balance: 0,
+    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX888koDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '3',
     avatar: 'author-3.jpg',
     name: 'Nicholas Daniels',
+    nickname: '@nickdan',
     balance: 0,
+    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DY36CkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '4',
     avatar: 'author-4.jpg',
     name: 'Nakamoto',
+    nickname: '@nakmoto456',
     balance: 0,
+    wallet: 'EuzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '5',
     avatar: 'author-5.jpg',
     name: 'Ariella Lopez',
+    nickname: '@arilope',
     balance: 0,
+    wallet: 'TwzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '6',
     avatar: 'author-6.jpg',
     name: 'Herbert Walles',
+    nickname: '@hwall',
     balance: 0,
+    wallet: 'MuzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '7',
     avatar: 'author-7.jpg',
     name: 'James Woods',
+    nickname: '@jawod',
     balance: 0,
+    wallet: 'HyzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '8',
     avatar: 'author-8.jpg',
     name: 'Jane Martini',
+    nickname: '@janedoe',
     balance: 0,
+    wallet: 'QtzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '9',
     avatar: 'author-9.jpg',
     name: 'Franklin Greer',
+    nickname: '@frankling',
     balance: 0,
+    wallet: 'RYzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '10',
     avatar: 'author-10.jpg',
     name: 'Stacy Long',
+    nickname: '@stlong',
     balance: 0,
+    wallet: 'ROzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '11',
     avatar: 'author-11.jpg',
     name: 'Ida Chapman',
+    nickname: '@idachapman11',
     balance: 0,
+    wallet: 'WIzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '12',
     avatar: 'author-12.jpg',
     name: 'Fred Ryan',
+    nickname: '@frodo',
     balance: 0,
+    wallet: 'SUzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
 ];
 
@@ -233,112 +259,7 @@ export const nftItems: NftItem[] = [
   },
 ];
 
-export const hotItems: NftItem[] = [
-  {
-    id: '',
-    imageUrl: 'coll-1.jpg',
-    author: users[0],
-    owner: users[7],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Abstraction',
-    code: 'ERC-192',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-  {
-    id: '',
-    imageUrl: 'coll-2.jpg',
-    author: users[1],
-    owner: users[8],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Patternlicious',
-    code: 'ERC-61',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-  {
-    id: '',
-    imageUrl: 'coll-3.jpg',
-    author: users[2],
-    owner: users[9],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Skecthify',
-    code: 'ERC-126',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-  {
-    id: '',
-    imageUrl: 'coll-4.jpg',
-    author: users[3],
-    owner: users[8],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Cartoonism',
-    code: 'ERC-73',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-  {
-    id: '',
-    imageUrl: 'coll-5.jpg',
-    author: users[4],
-    owner: users[10],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Virtuland',
-    code: 'ERC-85',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-  {
-    id: '',
-    imageUrl: 'coll-6.jpg',
-    author: users[5],
-    owner: users[11],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Papercut',
-    code: 'ERC-42',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
-  },
-];
-
-export const allItems: NftItem[] = ([] as NftItem[]).concat(nftItems, hotItems);
+export const allItems: NftItem[] = ([] as NftItem[]).concat(nftItems);
 
 export const bidsHistory: Bid[] = [
   {
@@ -381,42 +302,95 @@ export const bidsHistory: Bid[] = [
 export const bids: Bid[] = [...bidsHistory];
 bids.splice(0, 1);
 
-export const auctionItems: NftItem[] = [
+export const auctionItems = nftItems;
+export const collectionItems = nftItems;
+
+export const collections: Collection[] = [
   {
-    id: '',
-    imageUrl: 'coll-5.jpg',
-    author: users[4],
-    owner: users[10],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Virtuland',
-    code: 'ERC-85',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
+    id: '1',
+    name: 'Abstraction',
+    image: 'coll-1.jpg',
+    code: 'ERC-123',
+    owner: users[0],
+  },
+  {
+    id: '2',
+    name: 'Patternlicious',
+    image: 'coll-2.jpg',
+    code: 'ERC-46',
+    owner: users[1],
+  },
+  {
+    id: '3',
+    name: 'Skecthify',
+    image: 'coll-3.jpg',
+    code: 'ERC-11',
+    owner: users[2],
+  },
+  {
+    id: '4',
+    name: 'Cartoonism',
+    image: 'coll-4.jpg',
+    code: 'ERC-105',
+    owner: users[3],
+  },
+  {
+    id: '5',
+    name: 'Virtuland',
+    image: 'coll-5.jpg',
+    code: 'ERC-86',
+    owner: users[4],
+  },
+  {
+    id: '6',
+    name: 'Papercut',
+    image: 'coll-6.jpg',
+    code: 'ERC-159',
+    owner: users[5],
   },
 ];
 
-export const collectionItems: NftItem[] = [
+export const hotCollections = collections;
+
+export const categories: Category[] = [
   {
-    id: '',
-    imageUrl: 'coll-5.jpg',
-    author: users[4],
-    owner: users[10],
-    created: {
-      year: 2022,
-      month: 9,
-      day: 16,
-      hour: 10,
-    },
-    title: 'Virtuland',
-    code: 'ERC-85',
-    price: 0.08,
-    likes: 50,
-    divider: 1,
+    id: '1',
+    name: 'Art',
+    icon: 'fa-image',
+  },
+  {
+    id: '2',
+    name: 'Music',
+    icon: 'fa-music',
+  },
+  {
+    id: '3',
+    name: 'Domain Names',
+    icon: 'fa-search',
+  },
+  {
+    id: '4',
+    name: 'Virtual World',
+    icon: 'fa-globe',
+  },
+  {
+    id: '4',
+    name: 'Trading Cards',
+    icon: 'fa-vcard',
+  },
+  {
+    id: '6',
+    name: 'Collectibles',
+    icon: 'fa-th',
+  },
+  {
+    id: '7',
+    name: 'Sports',
+    icon: 'fa-clock-o',
+  },
+  {
+    id: '8',
+    name: 'Utility',
+    icon: 'fa-wrench',
   },
 ];

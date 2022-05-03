@@ -71,22 +71,22 @@
 
       <div class="_owl-carousel _wow fadeIn" *ngIf="hotCollection.length > 0">
         <owl-carousel-o [options]="hotCollectionSliderOptions">
-          <ng-template carouselSlide *ngFor="let nft of hotCollection">
+          <ng-template carouselSlide *ngFor="let coll of hotCollection">
             <div class="nft_coll">
               <div class="nft_wrap">
-                <a [routerLink]="[routePaths.NftItemDetails, nft.id]">
-                  <img [src]="'/assets/images/collections/' + nft.imageUrl" class="lazy img-fluid" alt="">
+                <a [routerLink]="[routePaths.Collection, coll.id]">
+                  <img [src]="'/assets/images/collections/' + coll.image" class="lazy img-fluid" alt="">
                 </a>
               </div>
               <div class="nft_coll_pp">
-                <a [routerLink]="''">
-                  <img class="lazy pp-coll" [src]="'/assets/images/author/' + nft.author.avatar" alt="">
+                <a [routerLink]="[routePaths.Collection, coll.id]">
+                  <img class="lazy pp-coll" [src]="'/assets/images/author/' + coll.owner.avatar" alt="">
                 </a>
                 <i class="fa fa-check"></i>
               </div>
               <div class="nft_coll_info">
-                <a [routerLink]="[routePaths.NftItemDetails, nft.id]"><h4>{{ nft.title }}</h4></a>
-                <span>{{ nft.code }}</span>
+                <a [routerLink]="[routePaths.Collection, coll.id]"><h4>{{ coll.name }}</h4></a>
+                <span>{{ coll.code }}</span>
               </div>
             </div>
           </ng-template>
@@ -156,40 +156,12 @@
           <div class="small-border bg-color-2"></div>
         </div>
       </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".1s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-image"></i>
-          <span>Art</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".2s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-music"></i>
-          <span>Music</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".3s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-search"></i>
-          <span>Domain Names</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".4s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-globe"></i>
-          <span>Virtual Worlds</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".5s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-vcard"></i>
-          <span>Trading Cards</span>
-        </a>
-      </div>
-      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".6s">
-        <a routerLink="" class="icon-box style-2 rounded">
-          <i class="fa fa-th"></i>
-          <span>Collectibles</span>
+      <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".1s"
+        *ngFor="let cat of categories"
+        >
+        <a [routerLink]="[]" class="icon-box style-2 rounded"> <!-- TODO set link -->
+          <i [ngClass]="['fa', cat.icon]"></i>
+          <span>{{ cat.name }}</span>
         </a>
       </div>
     </div>

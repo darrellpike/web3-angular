@@ -1,4 +1,5 @@
 import { User } from '@datatypes/user';
+
 export interface NftItem {
   id: string;
   imageUrl: string;

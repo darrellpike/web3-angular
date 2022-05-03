@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 
 import { RoutePaths } from '@constants/routes';
-import { NftItem } from '@datatypes/collection-item';
+import { Category } from '@app/datatypes/category';
+import { Collection } from '@app/datatypes/collection';
+import { NftItem } from '@app/datatypes/nft-item';
 import { User } from '@datatypes/user';
 
 import { NftItemsService } from '@services/nft-items.service';
@@ -58,11 +60,10 @@ export class HomeComponent implements OnInit {
     },
   };
 
-  hotCollection: NftItem[] = [];
-
+  hotCollection: Collection[] = [];
   newItems: NftItem[] = [];
-
   topSellers: User[] = [];
+  categories: Category[] = [];
 
   constructor(
     private nftItemsService: NftItemsService,
@@ -72,17 +73,18 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.nftItemsService.getHotCollection().subscribe((data) => {
       this.hotCollection = data;
-      console.log('hot', data);
     });
 
     this.nftItemsService.getNewItems().subscribe((data) => {
       this.newItems = data;
-      console.log('new items', data);
     });
 
     this.userService.getTopSellers().subscribe((data) => {
       this.topSellers = data;
-      console.log('top sellers', data);
+    });
+
+    this.nftItemsService.getCategories().subscribe((data) => {
+      this.categories = data.splice(0, 6);
     });
   }
 

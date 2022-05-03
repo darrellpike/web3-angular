@@ -57,14 +57,14 @@ const routes: Routes = [
     },
   },
   {
-    path: `${RoutePaths.Author}`,
+    path: `${RoutePaths.Author}/:id`,
     component: AuthorComponent,
     data: {
       headerClass: CLASS_LIGHT_SMALLER,
     },
   },
   {
-    path: `${RoutePaths.Collection}`,
+    path: `${RoutePaths.Collection}/:id`,
     component: CollectionComponent,
     data: {
       headerClass: CLASS_LIGHT_SMALLER,
