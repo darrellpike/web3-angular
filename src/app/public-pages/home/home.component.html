@@ -12,7 +12,7 @@
           <p class="wow fadeInUp lead" data-wow-delay="1s">
           Unit of data stored on a digital ledger, called a blockchain, that certifies a digital asset to be unique and therefore not interchangeable</p>
           <div class="spacer-10"></div>
-          <a routerLink="" class="btn-main wow fadeInUp lead" data-wow-delay="1.25s">Explore</a>
+          <a [routerLink]="[routePaths.NftsCatalog]" class="btn-main wow fadeInUp lead">Explore</a>
           <div class="mb-sm-30"></div>
         </div>
         <div class="col-md-6 xs-hide">
@@ -131,7 +131,7 @@
         <ol class="author_list">
           <li *ngFor="let user of topSellers">
             <div class="author_list_pp">
-                <a routerLink="">
+                <a [routerLink]="[routePaths.Author, user.id]">
                 <img class="lazy pp-author" [src]="'/assets/images/author/' + user.avatar" alt="" />
                 <i class="fa fa-check"></i>
               </a>
@@ -159,7 +159,10 @@
       <div class="col-md-2 col-sm-4 col-6 mb-sm-30 wow fadeInRight" data-wow-delay=".1s"
         *ngFor="let cat of categories"
         >
-        <a [routerLink]="[]" class="icon-box style-2 rounded"> <!-- TODO set link -->
+        <a class="icon-box style-2 rounded"
+          [routerLink]="[routePaths.NftsCatalog]"
+          [queryParams]="{ category: cat.id }"
+          >
           <i [ngClass]="['fa', cat.icon]"></i>
           <span>{{ cat.name }}</span>
         </a>

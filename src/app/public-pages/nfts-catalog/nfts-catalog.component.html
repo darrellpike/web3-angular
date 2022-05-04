@@ -8,7 +8,7 @@
             <div class="de_checkbox" *ngFor="let cat of categories">
               <input  type="checkbox"
                 [id]="'cat_' + cat.id"
-                [formControl]="getControl('categories', cat.name)"
+                [formControl]="getControl('categories', cat.id)"
               />
               <label [for]="'cat_' + cat.id">{{ cat.name }}</label>
             </div>
@@ -56,7 +56,7 @@
             <div class="de_checkbox" *ngFor="let coll of collections">
               <input  type="checkbox"
                 [id]="coll.id"
-                [formControl]="getControl('collections', coll.name)"
+                [formControl]="getControl('collections', coll.id)"
               />
               <label [for]="coll.id">{{ coll.name }}</label>
             </div>

@@ -2,7 +2,11 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
 
-import { fieldHasErr, markControlsAsTouched, showFieldErrs, showFormErrs } from '@utils/forms';
+import {
+  fieldHasErr, markControlsAsTouched,
+  phoneValidator,
+  showFieldErrs, showFormErrs,
+} from '@utils/forms';
 import { EmailService } from '@services/email.service';
 
 @Component({
@@ -14,7 +18,7 @@ export class ContactUsComponent {
   form = new FormGroup({
     name: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('', [Validators.required, Validators.pattern(/^[0-9 \-]{6,}$/)]), // TODO: check if phone validator correct
+    phone: new FormControl('', [phoneValidator]),
     message: new FormControl('', [Validators.required]),
   });
 
@@ -29,7 +33,6 @@ export class ContactUsComponent {
   markControlsAsTouched = markControlsAsTouched;
 
   sendMessage() {
-    debugger;
     this.markControlsAsTouched(this.form);
     if (!this.form.valid) return;
 

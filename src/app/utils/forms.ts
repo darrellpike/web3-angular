@@ -1,4 +1,4 @@
-import { FormArray, FormGroup } from '@angular/forms';
+import { FormArray, FormGroup, ValidatorFn } from '@angular/forms';
 
 export function showFieldErrs(form: FormGroup, fieldName: string) {
   const field = form.get(fieldName);
@@ -40,3 +40,14 @@ export function markControlsAsTouched(rootControl: FormGroup | FormArray,
     });
   }
 }
+
+export const phoneValidator: ValidatorFn = (ctrl) => {
+  let val = ctrl.value.trim();
+  if (val.length === 0) return { required: true };
+  const charsOk = val.match(/^\+[0-9 \-]{1,}$/);
+  val = val.replace(/[^0-9]/, '');
+
+  if (val.length < 6 || val.length > 15 || !charsOk) return { incorrectFormat: true };
+
+  return null;
+};

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 
@@ -38,18 +39,15 @@ export class NftsCatalogComponent implements OnInit {
 
   constructor(
     private nftItemsService: NftItemsService,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
-    this.nftItemsService.getFilteredItems().subscribe((data) => {
-      this.items = data;
-    });
-
     this.nftItemsService.getCategories().subscribe((data) => {
       this.categories = data;
 
       data.forEach((cat) => {
-        (this.filters.get('categories') as FormGroup).addControl(cat.name, new FormControl(false));
+        (this.filters.get('categories') as FormGroup).addControl(cat.id, new FormControl(false));
       });
     });
 
@@ -57,7 +55,7 @@ export class NftsCatalogComponent implements OnInit {
       this.collections = data;
 
       data.forEach((coll) => {
-        (this.filters.get('collections') as FormGroup).addControl(coll.name, new FormControl(false));
+        (this.filters.get('collections') as FormGroup).addControl(coll.id, new FormControl(false));
       });
     });
 
@@ -70,7 +68,37 @@ export class NftsCatalogComponent implements OnInit {
           this.items = data;
         });
         */
+        this.nftItemsService.getFilteredItems().subscribe((data) => {
+          this.items = data;
+        });
       });
+
+    // after filters.valueChanges!
+    this.route.queryParams.subscribe((qparams) => {
+      if (qparams['category']) {
+        const categoriesGrp = this.filters.get('categories');
+        if (categoriesGrp) {
+          const cat = categoriesGrp.get(qparams['category']);
+          if (cat) cat.patchValue(true);
+        }
+      }
+
+      if (qparams['collection']) {
+        const collectionsGrp = this.filters.get('collections');
+        if (collectionsGrp) {
+          const coll = collectionsGrp.get(qparams['collection']);
+          if (coll) coll.patchValue(true);
+        }
+      }
+
+      if (qparams['status']) {
+        const statusesGrp = this.filters.get('statuses');
+        if (statusesGrp) {
+          const stat = statusesGrp.get(qparams['status']);
+          if (stat) stat.patchValue(true);
+        }
+      }
+    });
   }
 
   getControl(groupName: string, ctrlName: string): FormControl {

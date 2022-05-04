@@ -36,7 +36,14 @@
 
           <div class="field-set">
             <input type="text" formControlName="phone" class="form-control" placeholder="Your Phone" required />
-            <div class="form-error" *ngIf="showFieldErrs(form, 'phone')">Phone is required</div>
+            <div class="form-error" *ngIf="showFieldErrs(form, 'phone')">
+              <span *ngIf="fieldHasErr(form, 'phone', 'required')">
+                Phone is required
+              </span>
+              <span *ngIf="fieldHasErr(form, 'phone', 'incorrectFormat')">
+                Expected formats: +18001234567 or +1 800 123-45-67
+              </span>
+            </div>
           </div>
 
           <div class="field-set">
