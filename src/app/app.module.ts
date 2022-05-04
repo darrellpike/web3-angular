@@ -19,6 +19,7 @@ import { CollectionComponent } from '@pubpages/collection/collection.component';
 import { ConnectWalletComponent } from '@pubpages/connect-wallet/connect-wallet.component';
 import { ContactUsComponent } from '@pubpages/contact-us/contact-us.component';
 
+import { HelpCenterComponent } from '@pubpages/help-center/help-center.component';
 import { HomeComponent } from './public-pages/home/home.component';
 
 import { LoginFormComponent } from '@pubpages/login-form/login-form.component';
@@ -46,6 +47,7 @@ import { NftItemComponent } from '@components/nft-item/nft-item.component';
 
     // DropdownComponent,
 
+    HelpCenterComponent,
     HomeComponent,
 
     LoginFormComponent,

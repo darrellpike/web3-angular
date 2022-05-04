@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
+import { merge, Subject } from 'rxjs';
 
 import { Category } from '@app/datatypes/category';
 import { Collection } from '@app/datatypes/collection';
@@ -20,6 +21,7 @@ export class NftsCatalogComponent implements OnInit {
   items: NftItem[] = [];
   collections: Collection[] = [];
   categories: Category[] = [];
+  reload = new Subject<boolean>();
 
   filters = new FormGroup({
     categories: new FormGroup({}),
@@ -59,9 +61,14 @@ export class NftsCatalogComponent implements OnInit {
       });
     });
 
-    this.filters.valueChanges
+
+    merge(
+      this.filters.valueChanges,
+      this.reload,
+    )
       .pipe(untilDestroyed(this))
-      .subscribe((filters) => {
+      .subscribe(() => {
+        const filters = this.filters.value;
         console.log('new filters', filters);
         /* TODO prepare & run search request
         this.nftItemsService.getFilteredItems(...).subscribe((data) => {
@@ -99,6 +106,8 @@ export class NftsCatalogComponent implements OnInit {
         }
       }
     });
+
+    this.reload.next(true);
   }
 
   getControl(groupName: string, ctrlName: string): FormControl {

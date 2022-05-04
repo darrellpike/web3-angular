@@ -50,7 +50,7 @@
     <div class="nft__item_click"><span></span></div>
     <div class="nft__item_price">{{ item.price }} ETH<span>1/{{ item.divider }}</span></div>
     <div class="nft__item_action">
-      <a (click)="onPlaceBid()">Place a bid</a>
+      <a class="place-bid" (click)="onPlaceBid()">Place a bid</a>
       <div class="nft__item_like">
         <i class="fa fa-heart"></i><span>{{ item.likes }}</span>
       </div>

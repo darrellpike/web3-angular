@@ -5,6 +5,8 @@ export enum RoutePaths {
   Collection = 'collection',
   ConnectWallet = 'connect-wallet',
   ContactUs = 'contact-us',
+  HelpCenter = 'help',
+  HelpTopic = 'help-topic',
   Home = '',
   LoginForm = 'login',
   News = 'news',

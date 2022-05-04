@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { fromEvent } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+
 import { RoutePaths, UserRoutePaths } from '@constants/routes';
 
 @Component({
@@ -7,13 +10,16 @@ import { RoutePaths, UserRoutePaths } from '@constants/routes';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'web3-marketplace';
 
   routePaths = RoutePaths;
   UserRoutePaths = UserRoutePaths;
   headerClass = '';
   contentClass = '';
+
+  @ViewChild('content') content!: ElementRef<HTMLElement>;
+  @ViewChild('quickSearch') quickSearch!: ElementRef<HTMLElement>;
 
   constructor(
     private router: Router,
@@ -36,6 +42,28 @@ export class AppComponent implements OnInit {
         } else this.contentClass = 'no-bottom no-top';
       }
     });
+  }
 
+  ngAfterViewInit(): void {
+    fromEvent(this.quickSearch.nativeElement, 'input') // quick search
+      .pipe(
+        map((ev) => (ev.target as HTMLInputElement).value),
+        debounceTime(600),
+        distinctUntilChanged(),
+      )
+      .subscribe((str) => {
+        console.log('TODO: quick search', str);
+        if (str === '') return;
+        // TODO: implement quick seqrch
+      });
+
+  }
+
+  onActivate() {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
   }
 }

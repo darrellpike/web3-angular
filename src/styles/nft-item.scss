@@ -87,8 +87,9 @@
 }
 
 
-.nft__item_info a {
+.nft__item_info a.place-bid {
   font-weight: bold;
+  color: var(--secondary-color);
 }
 
 .nft__item_price {
