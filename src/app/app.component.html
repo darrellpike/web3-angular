@@ -78,7 +78,14 @@
                 </li>
               </ul>
               <div class="menu_side_area">
-                <a [routerLink]="[routePaths.ConnectWallet]" class="btn-main btn-wallet"><i class="icon_wallet_alt"></i><span>Connect Wallet</span></a>
+                <!--
+                <a [routerLink]="[routePaths.ConnectWallet]" class="btn-main btn-wallet">
+                  <i class="icon_wallet_alt"></i><span>Connect Wallet</span>
+                </a>
+                -->
+                <span (click)="connectWallet()" class="btn btn-main btn-wallet">
+                  Connect Wallet
+                </span>
                 <span id="menu-btn"></span>
               </div>
             </div>
@@ -179,3 +186,13 @@
     </div>
   </footer>
 </div>
+
+<m-web3-modal
+  title="Connect to your wallet"
+  dismissText="Cancel"
+></m-web3-modal>
+<!--
+  description="Modal description"
+  descriptionGray="Modal subtitle"
+
+-->

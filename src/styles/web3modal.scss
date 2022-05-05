@@ -1,0 +1,28 @@
+m-web3-modal {
+  m-modal .m-modal-container {
+    width: auto;
+  }
+
+  m-modal .m-modal-bg {
+    background-color: #0008;
+  }
+
+  .m-web3Modal {
+    border-radius: 6px;
+  }
+
+  .m-web3ModalBody__provider {
+    justify-content: center;
+  }
+
+  .m-web3ModalProvider__body {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .m-web3ModalHeader__description {
+    display: block;
+    min-height: unset;
+    padding: 1rem 0;
+  }
+}

@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ClipboardModule } from 'ngx-clipboard';
 import { HotToastModule } from '@ngneat/hot-toast';
+import { Web3ModalModule, Web3ModalService } from '@mindsorg/web3modal-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -74,8 +75,30 @@ import { NftItemComponent } from '@components/nft-item/nft-item.component';
     NgbModule,
     ReactiveFormsModule,
     SharedModule,
+    Web3ModalModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: Web3ModalService,
+      useFactory: () => {
+        return new Web3ModalService({
+          network: 'mainnet',
+          cacheProvider: false,
+          disableInjectedProvider: false,
+          providerOptions: {
+            injected: {
+              display: {
+                name: 'MetaMask',
+                description: 'Connect with the provider in your Browser',
+              },
+              package: null,
+            },
+            // TODO: more providers
+          },
+        });
+      },
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

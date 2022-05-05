@@ -4,6 +4,7 @@ import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 import { RoutePaths, UserRoutePaths } from '@constants/routes';
+import { ContractService } from '@services/contract.service';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
+    private contractService: ContractService,
   ) {}
 
   ngOnInit(): void {
@@ -40,6 +42,16 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (routeDate['contentClass']) {
           this.contentClass = routeDate['contentClass'];
         } else this.contentClass = 'no-bottom no-top';
+      }
+    });
+
+    this.contractService.accounts$.subscribe((accounts) => {
+      console.log('accs', accounts);
+
+      if (accounts.length > 0) { // DEBUG
+        this.contractService.accountInfo(accounts[0]).subscribe((info) => {
+          console.log('balance', info.balance);
+        });
       }
     });
   }
@@ -64,6 +76,15 @@ export class AppComponent implements OnInit, AfterViewInit {
       top: 0,
       left: 0,
       behavior: 'smooth',
+    });
+  }
+
+  connectWallet() {
+    this.contractService.connectAccount().subscribe({
+      next: () => {},
+      error: (err) => {
+        console.log('err', err);
+      },
     });
   }
 }
