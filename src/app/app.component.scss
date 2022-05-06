@@ -1,3 +1,41 @@
 ::ng-root .m-web3ModalHeader__description {
   min-height: unset;
 }
+
+.account-id {
+  display: flex;
+
+  span:first-child {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  span:last-child {
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+.submenu-underlayer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  background: transparent;
+  z-index: 999;
+
+  &.visible {
+    display: block;
+  }
+}
+
+.de-menu-profile,
+.de-menu-notification {
+  display: inline-block;
+  margin-left: 0.4rem;
+}

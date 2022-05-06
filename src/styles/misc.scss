@@ -2174,25 +2174,24 @@ a.read_more i {
 }
 
 .author_list li {
-  position: relative;
   margin-bottom: 30px;
 }
 
+.author_list_item {
+  display: flex;
+}
+
 .author_list_pp {
-  margin-top: 2px;
-  position: absolute;
+  position: relative;
   display: inline-block;
   width: 50px;
   height: auto;
-  margin-left: 10px;
-  z-index: 10;
+  margin: 0 10px;
 }
 
 .author_list_pp img {
   width: 100%;
   border-radius: 100% !important;
-  position: relative;
-  z-index: 1;
 }
 
 .author_list_pp a:hover img {
@@ -2230,7 +2229,9 @@ a.read_more i {
 
 .author_list_info {
   font-weight: bold;
-  padding-left: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .rtl .author_list_info {

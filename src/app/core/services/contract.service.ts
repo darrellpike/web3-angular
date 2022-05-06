@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import Web3 from 'web3';
 // import WalletConnectProvider from '@walletconnect/web3-provider';
-import { BehaviorSubject, defer, from } from 'rxjs';
+import { BehaviorSubject, defer, forkJoin, from } from 'rxjs';
 import { Web3ModalService } from '@mindsorg/web3modal-angular';
-
+import { Account } from '@datatypes/account';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,7 @@ import { Web3ModalService } from '@mindsorg/web3modal-angular';
 export class ContractService {
   private web3!: Web3;
   // private provider: any;
-  private accountsSource = new BehaviorSubject<string[]>([]);
+  private accountsSource = new BehaviorSubject<Account[]>([]);
   accounts$ = this.accountsSource.asObservable();
 
   constructor(
@@ -29,7 +29,12 @@ export class ContractService {
           // console.log('w3', this.web3);
 
           const accounts = await this.web3.eth.getAccounts();
-          this.accountsSource.next(accounts);
+
+          forkJoin(
+            accounts.map((accId) => this.accountInfo(accId)),
+          ).subscribe((data) => {
+            this.accountsSource.next(data);
+          });
         }
       })(),
     ));
@@ -41,8 +46,17 @@ export class ContractService {
         // DEMO
         const initialvalue = await this.web3.eth.getBalance(address);
         const balance = this.web3.utils.fromWei(initialvalue, 'ether');
-        return { balance };
+
+        const acc: Account = {
+          id: address,
+          balance,
+        };
+        return acc;
       })(),
     ));
+  }
+
+  disconnectAccount() {
+    this.accountsSource.next([]);
   }
 }

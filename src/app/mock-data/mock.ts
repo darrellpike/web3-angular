@@ -3,6 +3,7 @@ import { User } from '@datatypes/user';
 import { Bid } from '@datatypes/bid';
 import { Collection } from '@datatypes/collection';
 import { Category } from '@datatypes/category';
+import { UserNotification, UserNotificationEvent } from '@datatypes/notification';
 
 export const users: User[] = [
   {
@@ -10,96 +11,72 @@ export const users: User[] = [
     avatar: 'author-1.jpg',
     name: 'Monica Lucas',
     nickname: '@monicaaa',
-    balance: 0,
-    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '2',
     avatar: 'author-2.jpg',
     name: 'Mamie Barnett',
     nickname: '@mamieba',
-    balance: 0,
-    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX888koDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '3',
     avatar: 'author-3.jpg',
     name: 'Nicholas Daniels',
     nickname: '@nickdan',
-    balance: 0,
-    wallet: 'DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DY36CkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '4',
     avatar: 'author-4.jpg',
     name: 'Nakamoto',
     nickname: '@nakmoto456',
-    balance: 0,
-    wallet: 'EuzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '5',
     avatar: 'author-5.jpg',
     name: 'Ariella Lopez',
     nickname: '@arilope',
-    balance: 0,
-    wallet: 'TwzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '6',
     avatar: 'author-6.jpg',
     name: 'Herbert Walles',
     nickname: '@hwall',
-    balance: 0,
-    wallet: 'MuzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '7',
     avatar: 'author-7.jpg',
     name: 'James Woods',
     nickname: '@jawod',
-    balance: 0,
-    wallet: 'HyzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '8',
     avatar: 'author-8.jpg',
     name: 'Jane Martini',
     nickname: '@janedoe',
-    balance: 0,
-    wallet: 'QtzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '9',
     avatar: 'author-9.jpg',
     name: 'Franklin Greer',
     nickname: '@frankling',
-    balance: 0,
-    wallet: 'RYzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '10',
     avatar: 'author-10.jpg',
     name: 'Stacy Long',
     nickname: '@stlong',
-    balance: 0,
-    wallet: 'ROzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '11',
     avatar: 'author-11.jpg',
     name: 'Ida Chapman',
     nickname: '@idachapman11',
-    balance: 0,
-    wallet: 'WIzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
   {
     id: '12',
     avatar: 'author-12.jpg',
     name: 'Fred Ryan',
     nickname: '@frodo',
-    balance: 0,
-    wallet: 'SUzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME',
   },
 ];
 
@@ -392,5 +369,43 @@ export const categories: Category[] = [
     id: '8',
     name: 'Utility',
     icon: 'fa-wrench',
+  },
+];
+
+export const notifications: UserNotification[] = [
+  {
+    toUser: users[0],
+    fromUser: users[11],
+    message: null,
+    event: UserNotificationEvent.StartedFollowing,
+    dateTime: new Date(2022, 4, 6),
+  },
+  {
+    toUser: users[0],
+    fromUser: users[11],
+    message: null,
+    event: UserNotificationEvent.LikedItem,
+    dateTime: new Date(2022, 4, 6),
+  },
+  {
+    toUser: users[0],
+    fromUser: users[10],
+    message: null,
+    event: UserNotificationEvent.StartedFollowing,
+    dateTime: new Date(2022, 4, 4),
+  },
+  {
+    toUser: users[0],
+    fromUser: users[9],
+    message: null,
+    event: UserNotificationEvent.LikedItem,
+    dateTime: new Date(2022, 4, 3),
+  },
+  {
+    toUser: users[0],
+    fromUser: users[7],
+    message: null,
+    event: UserNotificationEvent.StartedFollowing,
+    dateTime: new Date(2022, 4, 2),
   },
 ];

@@ -70,7 +70,7 @@
       </div>
 
       <div class="_owl-carousel _wow fadeIn" *ngIf="hotCollection.length > 0">
-        <owl-carousel-o [options]="hotCollectionSliderOptions">
+        <owl-carousel-o [options]="hotCollectionSliderOptions" class="owl-carousel-here">
           <ng-template carouselSlide *ngFor="let coll of hotCollection">
             <div class="nft_coll">
               <div class="nft_wrap">
@@ -106,7 +106,7 @@
         </div>
       </div>
       <div class="_owl-carousel _wow fadeIn" *ngIf="newItems.length > 0">
-        <owl-carousel-o [options]="newItemsSliderOptions">
+        <owl-carousel-o [options]="newItemsSliderOptions" class="owl-carousel-here">
           <ng-template carouselSlide *ngFor="let nft of newItems">
             <div class="d-item">
               <app-nft-item [item]="nft"></app-nft-item>
@@ -130,15 +130,17 @@
       <div class="col-md-12 wow fadeIn">
         <ol class="author_list">
           <li *ngFor="let user of topSellers">
-            <div class="author_list_pp">
-                <a [routerLink]="[routePaths.Author, user.id]">
-                <img class="lazy pp-author" [src]="'/assets/images/author/' + user.avatar" alt="" />
-                <i class="fa fa-check"></i>
-              </a>
-            </div>
-            <div class="author_list_info">
-              <a routerLink="">{{ user.name }}</a>
-              <span>{{ user.balance }} ETH</span>
+            <div class="author_list_item">
+              <div class="author_list_pp">
+                  <a [routerLink]="[routePaths.Author, user.id]">
+                  <img class="lazy pp-author" [src]="'/assets/images/author/' + user.avatar" alt="" />
+                  <i class="fa fa-check"></i>
+                </a>
+              </div>
+              <div class="author_list_info">
+                <a routerLink="">{{ user.name }}</a>
+                <!-- <span>{{ user.balance }} ETH</span> -->
+              </div>
             </div>
           </li>
         </ol>

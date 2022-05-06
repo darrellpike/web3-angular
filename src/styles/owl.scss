@@ -414,3 +414,33 @@
 .owl-carousel .owl-stage {
   display: flex;
 }
+
+.owl-carousel-here .owl-nav {
+  .owl-prev,
+  .owl-next {
+    background: #fff;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      background: #fff;
+    }
+
+    i {
+      color: #000;
+      position: static;
+    }
+  }
+
+  .owl-next {
+    right: -21px;
+  }
+
+  .owl-prev {
+    left: -21px;
+  }
+}

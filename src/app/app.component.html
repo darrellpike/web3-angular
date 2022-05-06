@@ -83,10 +83,82 @@
                   <i class="icon_wallet_alt"></i><span>Connect Wallet</span>
                 </a>
                 -->
-                <span (click)="connectWallet()" class="btn btn-main btn-wallet">
+                <span (click)="connectWallet()" class="btn btn-main btn-wallet" *ngIf="!user">
                   Connect Wallet
                 </span>
-                <span id="menu-btn"></span>
+                <div class="de-login-menu" *ngIf="user">
+                  <a [routerLink]="[]" class="btn-main"><i class="fa fa-plus"></i><span>Create</span></a>
+
+                  <span id="de-click-menu-notification" class="de-menu-notification"
+                    (click)="onOpenNotificationMenu()"
+                    >
+                    <span class="d-count" *ngIf="userNotifications.unreadCount > 0">
+                      {{ userNotifications.unreadCount }}
+                    </span>
+                    <i class="fa fa-bell"></i>
+                  </span>
+
+                  <span id="de-click-menu-profile" class="de-menu-profile"
+                    (click)="onOpenProfileMenu()"
+                    >
+                    <img [src]="'/assets/images/author/' + user.avatar" class="img-fluid" alt="">
+                  </span>
+
+                  <div id="de-submenu-notification" [ngClass]="['de-submenu', showNotificationMenu ? 'open' : '']">
+                    <div class="de-flex">
+                      <div><h4>Notifications</h4></div>
+
+                      <!-- TODO add link to page with all notifications -->
+                      <a [routerLink]="[]">
+                        Show all
+                      </a>
+                    </div>
+
+                    <ul>
+                      <li *ngFor="let notify of userNotifications.items">
+                        <a>
+                          <img class="lazy" [src]="'/assets/images/author/' + notify.fromUser.avatar">
+                          <div class="d-desc">
+                            <span class="d-name"><b>{{ notify.fromUser.name }}</b> {{ notify.message }}</span>
+                            <span class="d-time">{{ notify.dateTime | timeAgo }}</span>
+                          </div>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div id="de-submenu-profile" [ngClass]="['de-submenu', showProfileMenu ? 'open' : '']">
+                    <div class="d-name">
+                      <h4>{{ user.name }}</h4>
+                      <a [routerLink]="[routePaths.User, UserRoutePaths.Profile]">Set display name</a>
+                    </div>
+                    <div class="spacer-10"></div>
+                    <div class="d-balance">
+                      <h4>Balance</h4>
+                      <div class="account-id" *ngFor="let userAccount of userAccounts">
+                        <span>{{ userAccount.id }}:</span>
+                        <span>{{ userAccount.balance}} ETH</span>
+                      </div>
+                    </div>
+                    <!-- do we need it?
+                    <div class="spacer-10"></div>
+                    <div class="d-wallet">
+                      <h4>My Wallet</h4>
+                      <span id="wallet" class="d-wallet-address">DdzFFzCqrhshMSxb9oW3mRo4MJrQkusV3fGFSTwaiu4wPBqMryA9DYVJCkW9n7twCffG5f5wX2sSkoDXGiZB1HPa7K7f865Kk4LqnrME</span>
+                      <button id="btn_copy" title="Copy Text">Copy</button>
+                    </div>
+                    -->
+
+                    <div class="d-line"></div>
+
+                    <ul class="de-submenu-profile">
+                      <li><a [routerLink]="[routePaths.Author, user.id]"><i class="fa fa-user"></i> My NFTs</a>
+                      <li><a [routerLink]="[routePaths.User, UserRoutePaths.Profile]"><i class="fa fa-pencil"></i> Edit profile</a>
+                      <li><a class="link" (click)="onSignOut()"><i class="fa fa-sign-out"></i> Sign out</a>
+                    </ul>
+                  </div>
+                  <span id="menu-btn"></span>
+                </div>
               </div>
             </div>
           </div>
@@ -186,6 +258,11 @@
     </div>
   </footer>
 </div>
+
+<div
+  [ngClass]="['submenu-underlayer', (showNotificationMenu || showProfileMenu) ? 'visible': '']"
+  (click)="closeSubmenus($event)"
+></div>
 
 <m-web3-modal
   title="Connect to your wallet"

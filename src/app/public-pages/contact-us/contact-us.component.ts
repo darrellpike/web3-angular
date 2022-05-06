@@ -30,10 +30,9 @@ export class ContactUsComponent {
   showFieldErrs = showFieldErrs;
   showFormErrs = showFormErrs;
   fieldHasErr = fieldHasErr;
-  markControlsAsTouched = markControlsAsTouched;
 
   sendMessage() {
-    this.markControlsAsTouched(this.form);
+    markControlsAsTouched(this.form);
     if (!this.form.valid) return;
 
     const data = this.form.value;

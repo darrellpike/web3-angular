@@ -3,6 +3,6 @@ export interface User {
   name: string;
   nickname: string;
   avatar: string;
-  balance: number;
-  wallet: string;
+  // balance: number; this data in account, not here
+  // wallet: string;
 }

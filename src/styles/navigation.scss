@@ -375,6 +375,7 @@ header.header-mobile.header-light #menu-btn {
 }
 
 .de-submenu {
+  display: none;
   text-align: left;
   opacity: 0;
   position: absolute;
@@ -400,6 +401,7 @@ header.header-mobile.header-light #menu-btn {
 
 .de-submenu.open {
   opacity: 1;
+  display: block;
 }
 
 .de-submenu .d-balance {

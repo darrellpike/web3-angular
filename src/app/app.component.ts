@@ -1,10 +1,18 @@
-import { Component, ElementRef, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit, Component, ElementRef, HostListener, OnInit, ViewChild,
+} from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 
 import { RoutePaths, UserRoutePaths } from '@constants/routes';
 import { ContractService } from '@services/contract.service';
+import { UserService } from '@services/user.service';
+import { User } from './datatypes/user';
+import { UserNotifications, UserNotificationEvent } from '@datatypes/notification';
+import { Account } from './datatypes/account';
+
+const SHOW_NOTIFICATIONS = 5;
 
 @Component({
   selector: 'app-root',
@@ -18,14 +26,39 @@ export class AppComponent implements OnInit, AfterViewInit {
   UserRoutePaths = UserRoutePaths;
   headerClass = '';
   contentClass = '';
+  user: User | null = null;
+  userNotifications: UserNotifications = {
+    items: [],
+    unreadCount: 0,
+  };
+  userNotificationsUnreadCount = 0;
+  userAccounts: Account[] = [];
+
+  showNotificationMenu = false;
+  showProfileMenu = false;
 
   @ViewChild('content') content!: ElementRef<HTMLElement>;
   @ViewChild('quickSearch') quickSearch!: ElementRef<HTMLElement>;
+
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if (
+      event.key === 'Escape'
+      && (
+        this.showNotificationMenu
+        || this.showProfileMenu
+      )
+    ) {
+      this.showNotificationMenu = false;
+      this.showProfileMenu = false;
+    }
+  }
 
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private contractService: ContractService,
+    private userService: UserService,
   ) {}
 
   ngOnInit(): void {
@@ -42,17 +75,44 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (routeDate['contentClass']) {
           this.contentClass = routeDate['contentClass'];
         } else this.contentClass = 'no-bottom no-top';
+
+        this.closeSubmenus(null);
       }
     });
 
     this.contractService.accounts$.subscribe((accounts) => {
       console.log('accs', accounts);
+      this.userAccounts = accounts;
 
       if (accounts.length > 0) { // DEBUG
-        this.contractService.accountInfo(accounts[0]).subscribe((info) => {
-          console.log('balance', info.balance);
-        });
+        this.userService.loginUserByAccountId(accounts[0].id);
       }
+    });
+
+    this.userService.currentUser$.subscribe((data) => {
+      console.log('user', data);
+      this.user = data;
+    });
+
+    this.userService.notifications$.subscribe((data) => {
+      data.items = data.items
+        .slice(0, SHOW_NOTIFICATIONS)
+        .map((item) => {
+          switch (item.event) {
+            case UserNotificationEvent.StartedFollowing:
+              item.message = 'started following you';
+              break;
+
+            case UserNotificationEvent.LikedItem:
+              item.message = 'liked your item';
+              break;
+          }
+
+          return item;
+        });
+
+      this.userNotifications = data;
+      console.log('notifications', data);
     });
   }
 
@@ -68,6 +128,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (str === '') return;
         // TODO: implement quick seqrch
       });
+
 
   }
 
@@ -86,5 +147,28 @@ export class AppComponent implements OnInit, AfterViewInit {
         console.log('err', err);
       },
     });
+  }
+
+  closeSubmenus(event: MouseEvent | null) {
+    if (event) {
+      event.stopPropagation();
+    }
+    this.showNotificationMenu = false;
+    this.showProfileMenu = false;
+  }
+
+  onSignOut() {
+    this.closeSubmenus(null);
+    this.userService.signOut();
+  }
+
+  onOpenNotificationMenu() {
+    this.showNotificationMenu = !this.showNotificationMenu;
+    this.showProfileMenu = false;
+  }
+
+  onOpenProfileMenu() {
+    this.showNotificationMenu = false;
+    this.showProfileMenu = !this.showProfileMenu;
   }
 }
