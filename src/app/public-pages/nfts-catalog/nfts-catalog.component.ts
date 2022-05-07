@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
-import { merge, Subject } from 'rxjs';
+import { forkJoin, merge, Subject } from 'rxjs';
+import { filter, tap } from 'rxjs/operators';
 
 import { Category } from '@app/datatypes/category';
 import { Collection } from '@app/datatypes/collection';
@@ -45,28 +46,16 @@ export class NftsCatalogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.nftItemsService.getCategories().subscribe((data) => {
-      this.categories = data;
-
-      data.forEach((cat) => {
-        (this.filters.get('categories') as FormGroup).addControl(cat.id, new FormControl(false));
-      });
-    });
-
-    this.nftItemsService.getCollections().subscribe((data) => {
-      this.collections = data;
-
-      data.forEach((coll) => {
-        (this.filters.get('collections') as FormGroup).addControl(coll.id, new FormControl(false));
-      });
-    });
-
+    let initialize = true;
 
     merge(
       this.filters.valueChanges,
       this.reload,
     )
-      .pipe(untilDestroyed(this))
+      .pipe(
+        untilDestroyed(this),
+        filter(() => !initialize),
+      )
       .subscribe(() => {
         const filters = this.filters.value;
         console.log('new filters', filters);
@@ -80,34 +69,61 @@ export class NftsCatalogComponent implements OnInit {
         });
       });
 
-    // after filters.valueChanges!
-    this.route.queryParams.subscribe((qparams) => {
-      if (qparams['category']) {
-        const categoriesGrp = this.filters.get('categories');
-        if (categoriesGrp) {
-          const cat = categoriesGrp.get(qparams['category']);
-          if (cat) cat.patchValue(true);
-        }
-      }
+    const oCategories = this.nftItemsService.getCategories()
+      .pipe(
+        tap((data) => {
+          this.categories = data;
 
-      if (qparams['collection']) {
-        const collectionsGrp = this.filters.get('collections');
-        if (collectionsGrp) {
-          const coll = collectionsGrp.get(qparams['collection']);
-          if (coll) coll.patchValue(true);
-        }
-      }
+          data.forEach((cat) => {
+            (this.filters.get('categories') as FormGroup).addControl(cat.id, new FormControl(false));
+          });
+        }),
+      );
 
-      if (qparams['status']) {
-        const statusesGrp = this.filters.get('statuses');
-        if (statusesGrp) {
-          const stat = statusesGrp.get(qparams['status']);
-          if (stat) stat.patchValue(true);
+    const oCollections = this.nftItemsService.getCollections()
+      .pipe(
+        tap((data) => {
+          this.collections = data;
+
+          data.forEach((coll) => {
+            (this.filters.get('collections') as FormGroup).addControl(coll.id, new FormControl(false));
+          });
+        }),
+      );
+
+    forkJoin([oCategories, oCollections]).subscribe(() => {
+      // checkboxes should be added & initialized before handle query params,
+      // so subscribe from here
+
+      this.route.queryParams.subscribe((qparams) => {
+        if (qparams['category']) {
+          const categoriesGrp = this.filters.get('categories');
+          if (categoriesGrp) {
+            const cat = categoriesGrp.get(qparams['category']);
+            if (cat) cat.patchValue(true);
+          }
         }
-      }
+
+        if (qparams['collection']) {
+          const collectionsGrp = this.filters.get('collections');
+          if (collectionsGrp) {
+            const coll = collectionsGrp.get(qparams['collection']);
+            if (coll) coll.patchValue(true);
+          }
+        }
+
+        if (qparams['status']) {
+          const statusesGrp = this.filters.get('statuses');
+          if (statusesGrp) {
+            const stat = statusesGrp.get(qparams['status']);
+            if (stat) stat.patchValue(true);
+          }
+        }
+
+        initialize = false;
+        this.reload.next(true);
+      });
     });
-
-    this.reload.next(true);
   }
 
   getControl(groupName: string, ctrlName: string): FormControl {

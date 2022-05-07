@@ -23,7 +23,7 @@
     <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 collection-item" *ngFor="let item of items">
       <app-nft-item class="d-item"
         [item]="item"
-        [countdown]="{hours: 0, minutes: 0, seconds: 0}"
+        [countdownUntil]="item.untilDate"
         [countdownAtTop]="false"
       ></app-nft-item>
     </div>

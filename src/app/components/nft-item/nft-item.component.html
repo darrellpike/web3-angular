@@ -1,12 +1,10 @@
 <div [ngClass]="['nft__item', class, !countdownAtTop ? 'nft_layout-2' : '']">
-  <ng-container *ngIf="countdown && countdownAtTop">
-    <ng-container
-      *ngTemplateOutlet="countdownTemplate; context: { countdown }"
-    ></ng-container>
-  </ng-container>
+  <app-countdown *ngIf="countdownUntil && countdownAtTop"
+    [untilDate]="countdownUntil"
+  ></app-countdown>
 
   <div class="author_list_pp">
-    <a [routerLink]="[routePaths.Author, item.author.id]" data-bs-toggle="tooltip" data-bs-placement="top"
+    <a [routerLink]="['/', routePaths.Author, item.author.id]" data-bs-toggle="tooltip" data-bs-placement="top"
       [title]="'Creator: ' + item.author.name"
       >
       <img class="lazy" [src]="'/assets/images/author/' + item.author.avatar" alt="" />
@@ -32,19 +30,17 @@
         </div>
       </div>
     </div>
-    <a [routerLink]="[routePaths.NftItemDetails, item.id]">
+    <a [routerLink]="['/', routePaths.NftItemDetails, item.id]">
       <img [src]="'/assets/images/items/' + item.imageUrl" class="lazy nft__item_preview" alt="" />
     </a>
   </div>
 
-  <ng-container *ngIf="countdown && !countdownAtTop">
-    <ng-container
-      *ngTemplateOutlet="countdownTemplate; context: { countdown }"
-    ></ng-container>
-  </ng-container>
+  <app-countdown *ngIf="countdownUntil && !countdownAtTop"
+    [untilDate]="countdownUntil"
+  ></app-countdown>
 
   <div class="nft__item_info">
-    <a [routerLink]="[routePaths.NftItemDetails, item.id]">
+    <a [routerLink]="['/', routePaths.NftItemDetails, item.id]">
       <h4>{{ item.title }}</h4>
     </a>
     <div class="nft__item_click"><span></span></div>
@@ -58,7 +54,7 @@
   </div>
 </div>
 
-
+<!--
 <ng-template #countdownTemplate let-countdown="countdown">
   <div class="de_countdown">
     <span class="countdown-row countdown-show3">
@@ -74,3 +70,4 @@
     </span>
   </div>
 </ng-template>
+-->

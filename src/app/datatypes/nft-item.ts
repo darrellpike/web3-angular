@@ -1,4 +1,5 @@
 import { User } from '@datatypes/user';
+import { Collection } from './collection';
 
 export interface NftItem {
   id: string;
@@ -16,4 +17,9 @@ export interface NftItem {
   price: number;
   likes: number;
   divider: number; // in 1/20 it's 20
+  collection: Collection | null;
+}
+
+export interface AuctionNftItem extends NftItem {
+  untilDate?: Date;
 }

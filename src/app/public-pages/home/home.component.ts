@@ -4,7 +4,7 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
 import { RoutePaths } from '@constants/routes';
 import { Category } from '@app/datatypes/category';
 import { Collection } from '@app/datatypes/collection';
-import { NftItem } from '@app/datatypes/nft-item';
+import { AuctionNftItem } from '@app/datatypes/nft-item';
 import { User } from '@datatypes/user';
 
 import { NftItemsService } from '@services/nft-items.service';
@@ -61,7 +61,7 @@ export class HomeComponent implements OnInit {
   };
 
   hotCollection: Collection[] = [];
-  newItems: NftItem[] = [];
+  newItems: AuctionNftItem[] = [];
   topSellers: User[] = [];
   categories: Category[] = [];
 
@@ -76,7 +76,19 @@ export class HomeComponent implements OnInit {
     });
 
     this.nftItemsService.getNewItems().subscribe((data) => {
-      this.newItems = data;
+      this.newItems = data.map((item) => {
+        const ai = item as AuctionNftItem;
+        const isAuctioned = Math.random();
+
+        if (isAuctioned > 0.5) {
+          ai.untilDate = new Date();
+
+          const shift = 1 + Math.round(47 * Math.random());
+          ai.untilDate.setHours(ai.untilDate.getHours() + shift);
+        }
+
+        return ai;
+      });
     });
 
     this.userService.getTopSellers().subscribe((data) => {

@@ -12,7 +12,7 @@
           <p class="wow fadeInUp lead" data-wow-delay="1s">
           Unit of data stored on a digital ledger, called a blockchain, that certifies a digital asset to be unique and therefore not interchangeable</p>
           <div class="spacer-10"></div>
-          <a [routerLink]="[routePaths.NftsCatalog]" class="btn-main wow fadeInUp lead">Explore</a>
+          <a [routerLink]="['/', routePaths.NftsCatalog]" class="btn-main wow fadeInUp lead">Explore</a>
           <div class="mb-sm-30"></div>
         </div>
         <div class="col-md-6 xs-hide">
@@ -74,18 +74,18 @@
           <ng-template carouselSlide *ngFor="let coll of hotCollection">
             <div class="nft_coll">
               <div class="nft_wrap">
-                <a [routerLink]="[routePaths.Collection, coll.id]">
+                <a [routerLink]="['/', routePaths.Collection, coll.id]">
                   <img [src]="'/assets/images/collections/' + coll.image" class="lazy img-fluid" alt="">
                 </a>
               </div>
               <div class="nft_coll_pp">
-                <a [routerLink]="[routePaths.Collection, coll.id]">
+                <a [routerLink]="['/', routePaths.Collection, coll.id]">
                   <img class="lazy pp-coll" [src]="'/assets/images/author/' + coll.owner.avatar" alt="">
                 </a>
                 <i class="fa fa-check"></i>
               </div>
               <div class="nft_coll_info">
-                <a [routerLink]="[routePaths.Collection, coll.id]"><h4>{{ coll.name }}</h4></a>
+                <a [routerLink]="['/', routePaths.Collection, coll.id]"><h4>{{ coll.name }}</h4></a>
                 <span>{{ coll.code }}</span>
               </div>
             </div>
@@ -109,7 +109,7 @@
         <owl-carousel-o [options]="newItemsSliderOptions" class="owl-carousel-here">
           <ng-template carouselSlide *ngFor="let nft of newItems">
             <div class="d-item">
-              <app-nft-item [item]="nft"></app-nft-item>
+              <app-nft-item [item]="nft" [countdownUntil]="nft.untilDate"></app-nft-item>
             </div>
           </ng-template>
         </owl-carousel-o>
@@ -132,7 +132,7 @@
           <li *ngFor="let user of topSellers">
             <div class="author_list_item">
               <div class="author_list_pp">
-                  <a [routerLink]="[routePaths.Author, user.id]">
+                  <a [routerLink]="['/', routePaths.Author, user.id]">
                   <img class="lazy pp-author" [src]="'/assets/images/author/' + user.avatar" alt="" />
                   <i class="fa fa-check"></i>
                 </a>
@@ -162,7 +162,7 @@
         *ngFor="let cat of categories"
         >
         <a class="icon-box style-2 rounded"
-          [routerLink]="[routePaths.NftsCatalog]"
+          [routerLink]="['/', routePaths.NftsCatalog]"
           [queryParams]="{ category: cat.id }"
           >
           <i [ngClass]="['fa', cat.icon]"></i>

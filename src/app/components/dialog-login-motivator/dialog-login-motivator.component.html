@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+    <ng-container *ngIf="type === MotivatorTypes.Bid">Place a bid</ng-container>
+    <ng-container *ngIf="type === MotivatorTypes.Buy">Buy NFT item</ng-container>
+  </h4>
+</div>
+<div class="modal-body text-center">
+  Please, login to
+  <ng-container *ngIf="type === MotivatorTypes.Bid">place a bid</ng-container>
+  <ng-container *ngIf="type === MotivatorTypes.Buy">buy NFT item</ng-container>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="close()">Close</button>
+</div>

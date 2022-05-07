@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">
+    Place a bid for &quot;{{ nft ? nft.title : ''}}&quot;
+  </h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="cancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="bidForm">
+    <div class="mb-3">
+      <label for="dateOfBirth">Your bid</label>
+      <div class="input-group">
+        <input class="form-control" type="number" formControlName="bid" required>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="placeBid()">Place bid</button>
+</div>
+
+<!-- place a bid -->
+<!-- theme dialog version
+<div class="modal fade" id="place_a_bid" tabindex="-1" aria-labelledby="place_a_bid" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered de-modal">
+    <div class="modal-content">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div class="modal-body">
+        <div class="p-3 form-border">
+          <h3>Place a Bid</h3>
+          You are about to place a bid for <b>AnimeSailorClub #304</b> from <b>Monica Lucas</b>
+          <div class="spacer-single"></div>
+          <h6>Your bid (ETH)</h6>
+          <input type="text" name="bid_value" id="bid_value" class="form-control" placeholder="Enter bid" />
+          <div class="spacer-single"></div>
+          <h6>Enter quantity. <span class="id-color-2">10 available</span></h6>
+          <input type="text" name="bid_qty" id="bid_qty" class="form-control" value="1" />
+          <div class="spacer-single"></div>
+          <div class="de-flex">
+            <div>Your bidding balance</div>
+            <div><b>0.013325 ETH</b></div>
+          </div>
+          <div class="de-flex">
+            <div>Your balance</div>
+            <div><b>10.67856 ETH</b></div>
+          </div>
+          <div class="de-flex">
+            <div>Service fee 2.5%</div>
+            <div><b>0.00325 ETH</b></div>
+          </div>
+          <div class="de-flex">
+            <div>You will pay</div>
+            <div><b>0.013325 ETH</b></div>
+          </div>
+          <div class="spacer-single"></div>
+          <a href="wallet.html" target="_blank" class="btn-main btn-fullwidth">Place a bid</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+-->

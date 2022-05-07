@@ -11,11 +11,22 @@
   position: absolute;
   right: 20px;
   background: #ffffff;
-  padding: 0 0 1px 10px;
+  padding: 0 5px;
   border-radius: 30px;
   border: solid 2px #dddddd;
   z-index: 100;
   color: #0d0c22;
+
+  .countdown-parts {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 0.4rem;
+    align-items: center;
+
+    .countdown-section:first-of-type {
+      text-align: center;
+    }
+  }
 }
 
 .de_countdown.bg-color-secondary{
@@ -48,13 +59,12 @@
 
 .countdown-section {
   font-size: 14px;
-  margin-right: 8px;
   font-weight: bold;
 }
 
 .nft_layout-2 .countdown-section {
   font-size: 15px;
-  padding: 5px;
+  padding: 5px 0;
 }
 
 .d_profile {

@@ -4,13 +4,22 @@ import {
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+
+import { DialogBuyNowComponent } from '@components/dialog-buy-now/dialog-buy-now.component';
+import {
+  DialogLoginMotivatorComponent, MotivatorTypes,
+} from '@components/dialog-login-motivator/dialog-login-motivator.component';
+import { DialogPlaceBidComponent } from '@components/dialog-place-bid/dialog-place-bid.component';
 
 import { RoutePaths, UserRoutePaths } from '@constants/routes';
 import { ContractService } from '@services/contract.service';
+import { NftItemsService } from '@services/nft-items.service';
 import { UserService } from '@services/user.service';
-import { User } from './datatypes/user';
+
+import { Account } from '@datatypes/account';
+import { User } from '@datatypes/user';
 import { UserNotifications, UserNotificationEvent } from '@datatypes/notification';
-import { Account } from './datatypes/account';
 
 const SHOW_NOTIFICATIONS = 5;
 
@@ -40,6 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('content') content!: ElementRef<HTMLElement>;
   @ViewChild('quickSearch') quickSearch!: ElementRef<HTMLElement>;
 
+
   @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
     if (
@@ -58,7 +68,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     private router: Router,
     private route: ActivatedRoute,
     private contractService: ContractService,
+    private nftItemsService: NftItemsService,
     private userService: UserService,
+    private modalService: NgbModal,
   ) {}
 
   ngOnInit(): void {
@@ -114,6 +126,50 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.userNotifications = data;
       console.log('notifications', data);
     });
+
+    this.nftItemsService.requestBid$.subscribe((nft) => {
+      if (!this.user) {
+        // show dialog to login
+        const modalRefMot = this.modalService.open(DialogLoginMotivatorComponent);
+        modalRefMot.componentInstance.type = MotivatorTypes.Bid;
+        return;
+      }
+
+      const modalRefBid = this.modalService.open(DialogPlaceBidComponent);
+      modalRefBid.componentInstance.nft = nft;
+      modalRefBid.result
+        .then((result) => {
+          console.log('bid dialog result', result);
+          // TODO
+        })
+        .catch((err) => {
+          if (![ModalDismissReasons.BACKDROP_CLICK, ModalDismissReasons.ESC].includes(err)) {
+            console.log('bid dialog err', err);
+          }
+        });
+    });
+
+    this.nftItemsService.requestBuy$.subscribe((nft) => {
+      if (!this.user) {
+        // show dialog to login
+        const modalRefMot = this.modalService.open(DialogLoginMotivatorComponent);
+        modalRefMot.componentInstance.type = MotivatorTypes.Buy;
+        return;
+      }
+
+      const modalRefBuy = this.modalService.open(DialogBuyNowComponent);
+      modalRefBuy.componentInstance.nft = nft;
+      modalRefBuy.result
+        .then((result) => {
+          console.log('buy dialog result', result);
+          // TODO
+        })
+        .catch((err) => {
+          if (![ModalDismissReasons.BACKDROP_CLICK, ModalDismissReasons.ESC].includes(err)) {
+            console.log('buy dialog err', err);
+          }
+        });
+    });
   }
 
   ngAfterViewInit(): void {
@@ -126,10 +182,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       .subscribe((str) => {
         console.log('TODO: quick search', str);
         if (str === '') return;
-        // TODO: implement quick seqrch
+        // TODO: implement quick search
       });
-
-
   }
 
   onActivate() {

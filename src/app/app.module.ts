@@ -32,6 +32,10 @@ import { NftItemDetailsComponent } from '@pubpages/nft-item-details/nft-item-det
 import { RankingsComponent } from '@pubpages/rankings/rankings.component';
 import { RegisterComponent } from '@pubpages/register/register.component';
 
+import { CountdownComponent } from '@components/countdown/countdown.component';
+import { DialogBuyNowComponent } from '@components/dialog-buy-now/dialog-buy-now.component';
+import { DialogLoginMotivatorComponent } from '@components/dialog-login-motivator/dialog-login-motivator.component';
+import { DialogPlaceBidComponent } from '@components/dialog-place-bid/dialog-place-bid.component';
 import { NftItemComponent } from '@components/nft-item/nft-item.component';
 // import { DropdownComponent } from '@components/dropdown/dropdown.component';
 
@@ -45,7 +49,11 @@ import { NftItemComponent } from '@components/nft-item/nft-item.component';
     CollectionComponent,
     ConnectWalletComponent,
     ContactUsComponent,
+    CountdownComponent,
 
+    DialogBuyNowComponent,
+    DialogLoginMotivatorComponent,
+    DialogPlaceBidComponent,
     // DropdownComponent,
 
     HelpCenterComponent,

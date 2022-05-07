@@ -41,7 +41,7 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #727272;
-  padding: 0;
+  padding: 0 !important;
   line-height: 26px;
   word-spacing: 0;
 }
@@ -845,4 +845,9 @@ a.img-icon-zoom {
 @import "./styles/line-preloader";
 @import "./styles/web3modal";
 @import "./styles/responsive";
+
+input, button {
+  outline: none !important;
+}
+
 @import "./styles/coloring"; // LAST

@@ -8,7 +8,7 @@
               <div class="de-flex-col">
                 <!-- logo begin -->
                 <div id="logo">
-                  <a [routerLink]="[routePaths.Home]">
+                  <a [routerLink]="['/', routePaths.Home]">
                     <img alt="" class="logo" src="/assets/images/logo-light.png" />
                     <img alt="" class="logo-2" src="/assets/images/logo.png" />
                   </a>
@@ -47,23 +47,23 @@
                 <li>
                   <a href="explore.html">Explore<span></span></a>
                   <ul>
-                    <li><a [routerLink]="[routePaths.NftsCatalog]">Explore</a></li>
-                    <li><a [routerLink]="[routePaths.Collection]">Collections</a></li>
-                    <li><a [routerLink]="[routePaths.Auction]">Live Auction</a></li>
-                    <li><a [routerLink]="[routePaths.HelpCenter]">Help Center</a></li>
+                    <li><a [routerLink]="['/', routePaths.NftsCatalog]">Explore</a></li>
+                    <li><a [routerLink]="['/', routePaths.Collection]">Collections</a></li>
+                    <li><a [routerLink]="['/', routePaths.Auction]">Live Auction</a></li>
+                    <li><a [routerLink]="['/', routePaths.HelpCenter]">Help Center</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">Pages<span></span></a>
                   <ul>
-                    <li><a [routerLink]="[routePaths.Author]">Author</a></li>
-                    <li><a [routerLink]="[routePaths.News]">News</a></li>
+                    <li><a [routerLink]="['/', routePaths.Author]">Author</a></li>
+                    <li><a [routerLink]="['/', routePaths.News]">News</a></li>
                     <li><a [routerLink]="[]">Gallery</a></li>
-                    <li><a [routerLink]="[routePaths.LoginForm]">Login</a></li>
-                    <li><a [routerLink]="[routePaths.Register]">Register</a></li>
-                    <li><a [routerLink]="[routePaths.ContactUs]">Contact Us</a></li>
+                    <li><a [routerLink]="['/', routePaths.LoginForm]">Login</a></li>
+                    <li><a [routerLink]="['/', routePaths.Register]">Register</a></li>
+                    <li><a [routerLink]="['/', routePaths.ContactUs]">Contact Us</a></li>
                     <!-- for logged user only
-                    <li><a [routerLink]="[UserRoutePaths.Profile]">Profile</a></li>
+                    <li><a [routerLink]="['/', UserRoutePaths.Profile]">Profile</a></li>
                     <li><a [routerLink]="[]">Wallet</a></li>
                     <li><a [routerLink]="[]">Create</a></li>
                     -->
@@ -72,14 +72,14 @@
                 <li>
                   <a href="#">Stats<span></span></a>
                   <ul>
-                    <li><a [routerLink]="[routePaths.Activity]">Activity</a></li>
-                    <li><a [routerLink]="[routePaths.Rankings]">Rankings</a></li>
+                    <li><a [routerLink]="['/', routePaths.Activity]">Activity</a></li>
+                    <li><a [routerLink]="['/', routePaths.Rankings]">Rankings</a></li>
                   </ul>
                 </li>
               </ul>
               <div class="menu_side_area">
                 <!--
-                <a [routerLink]="[routePaths.ConnectWallet]" class="btn-main btn-wallet">
+                <a [routerLink]="['/', routePaths.ConnectWallet]" class="btn-main btn-wallet">
                   <i class="icon_wallet_alt"></i><span>Connect Wallet</span>
                 </a>
                 -->
@@ -130,7 +130,7 @@
                   <div id="de-submenu-profile" [ngClass]="['de-submenu', showProfileMenu ? 'open' : '']">
                     <div class="d-name">
                       <h4>{{ user.name }}</h4>
-                      <a [routerLink]="[routePaths.User, UserRoutePaths.Profile]">Set display name</a>
+                      <a [routerLink]="['/', routePaths.User, UserRoutePaths.Profile]">Set display name</a>
                     </div>
                     <div class="spacer-10"></div>
                     <div class="d-balance">
@@ -152,8 +152,8 @@
                     <div class="d-line"></div>
 
                     <ul class="de-submenu-profile">
-                      <li><a [routerLink]="[routePaths.Author, user.id]"><i class="fa fa-user"></i> My NFTs</a>
-                      <li><a [routerLink]="[routePaths.User, UserRoutePaths.Profile]"><i class="fa fa-pencil"></i> Edit profile</a>
+                      <li><a [routerLink]="['/', routePaths.Author, user.id]"><i class="fa fa-user"></i> My NFTs</a>
+                      <li><a [routerLink]="['/', routePaths.User, UserRoutePaths.Profile]"><i class="fa fa-pencil"></i> Edit profile</a>
                       <li><a class="link" (click)="onSignOut()"><i class="fa fa-sign-out"></i> Sign out</a>
                     </ul>
                   </div>
@@ -271,5 +271,4 @@
 <!--
   description="Modal description"
   descriptionGray="Modal subtitle"
-
 -->

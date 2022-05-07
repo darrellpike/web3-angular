@@ -7,11 +7,11 @@
       <div class="col-md-6">
         <div class="item_info">
           Auctions ends in <div class="de_countdown" data-year="2022" data-month="4" data-day="16" data-hour="8"></div>
-          <h2>AnimeSailorClub #304</h2>
+          <h2>{{ item.title }}</h2>
           <div class="item_info_counts">
-            <div class="item_info_type"><i class="fa fa-image"></i>Art</div>
-            <div class="item_info_views"><i class="fa fa-eye"></i>250</div>
-            <div class="item_info_like"><i class="fa fa-heart"></i>18</div>
+            <div class="item_info_type"><i class="fa fa-image"></i>[Art]</div>
+            <div class="item_info_views"><i class="fa fa-eye"></i>[250]</div>
+            <div class="item_info_like"><i class="fa fa-heart"></i>{{ item.likes }}</div>
           </div>
           <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
 
@@ -20,27 +20,27 @@
               <h6>Creator</h6>
               <div class="item_author">
                 <div class="author_list_pp">
-                  <a [routerLink]="[routePaths.User, item.author.id]">
+                  <a [routerLink]="['/', routePaths.User, item.author.id]">
                     <img class="lazy" [src]="'/assets/images/author/' + item.author.avatar" alt="">
                     <i class="fa fa-check"></i>
                   </a>
                 </div>
                 <div class="author_list_info">
-                  <a [routerLink]="[routePaths.User, item.author.id]">{{ item.author.name }}</a>
+                  <a [routerLink]="['/', routePaths.User, item.author.id]">{{ item.author.name }}</a>
                 </div>
               </div>
             </div>
-            <div>
+            <div *ngIf="item.collection">
               <h6>Collection</h6>
               <div class="item_author">
                 <div class="author_list_pp">
-                  <a href="collection.html">
-                    <img class="lazy" src="'/assets/images/collections/coll-thumbnail-1.jpg" alt="">
+                  <a [routerLink]="['/', routePaths.Collection, item.collection.id]">
+                    <img class="lazy" [src]="'/assets/images/collections/' + item.collection.image" alt="">
                     <i class="fa fa-check"></i>
                   </a>
                 </div>
                 <div class="author_list_info">
-                  <a href="collection.html">AnimeSailorClub</a>
+                  <a [routerLink]="['/', routePaths.Collection, item.collection.id]">{{ item.collection.name}}</a>
                 </div>
               </div>
             </div>
@@ -49,7 +49,6 @@
           <div class="spacer-40"></div>
 
           <div class="de_tab tab_simple">
-
             <ul class="de_nav">
               <li
                 [ngClass]="{ active: activeTab === tabs.Details }"
@@ -82,7 +81,7 @@
                     </a>
                   </div>
                   <div class="author_list_info">
-                    <a [routerLink]="[routePaths.User, item.owner.id]">{{ item.owner.name }}</a>
+                    <a [routerLink]="['/', routePaths.User, item.owner.id]">{{ item.owner.name }}</a>
                   </div>
                 </div>
 
@@ -173,17 +172,15 @@
             <div class="spacer-10"></div>
 
             <h6>Price</h6>
-            <div class="nft-item-price"><img src="/assets/images/misc/ethereum.svg" alt=""><span>0.059</span>($253.67)</div>
+            <div class="nft-item-price">
+              <img src="/assets/images/misc/ethereum.svg" alt="">
+              <span>{{ item.price }}</span>
+            </div>
 
             <!-- Button trigger modal -->
-            <a href="#" class="btn-main btn-lg" data-bs-toggle="modal" data-bs-target="#buy_now">
-              Buy Now
-            </a>
+            <a class="btn btn-main btn-lg" (click)="buyNow()">Buy Now</a>
             &nbsp;
-            <a href="#" class="btn-main btn-lg btn-light" data-bs-toggle="modal" data-bs-target="#place_a_bid">
-              Place a Bid
-            </a>
-
+            <a class="btn btn-main btn-lg btn-light" (click)="placeBid()">Place a Bid</a>
           </div>
         </div>
       </div>
@@ -191,91 +188,18 @@
   </div>
 </section>
 
-<!-- buy now -->
-<div class="modal fade" id="buy_now" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered de-modal">
-  <div class="modal-content">
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    <div class="modal-body">
-    <div class="p-3 form-border">
-      <h3>Checkout</h3>
-      You are about to purchase a <b>AnimeSailorClub #304</b> from <b>Monica Lucas</b>
-      <div class="spacer-single"></div>
-      <h6>Enter quantity. <span class="id-color-2">10 available</span></h6>
-      <input type="text" name="buy_now_qty" id="buy_now_qty" class="form-control" value="1" />
-      <div class="spacer-single"></div>
-      <div class="de-flex">
-        <div>Your balance</div>
-        <div><b>10.67856 ETH</b></div>
-      </div>
-      <div class="de-flex">
-        <div>Service fee 2.5%</div>
-        <div><b>0.00325 ETH</b></div>
-      </div>
-      <div class="de-flex">
-        <div>You will pay</div>
-        <div><b>0.013325 ETH</b></div>
-      </div>
-      <div class="spacer-single"></div>
-      <a href="wallet.html" target="_blank" class="btn-main btn-fullwidth">Add funds</a>
-    </div>
-    </div>
-  </div>
-  </div>
-</div>
-
-<!-- place a bid -->
-<div class="modal fade" id="place_a_bid" tabindex="-1" aria-labelledby="place_a_bid" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered de-modal">
-  <div class="modal-content">
-    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    <div class="modal-body">
-    <div class="p-3 form-border">
-      <h3>Place a Bid</h3>
-      You are about to place a bid for <b>AnimeSailorClub #304</b> from <b>Monica Lucas</b>
-      <div class="spacer-single"></div>
-      <h6>Your bid (ETH)</h6>
-      <input type="text" name="bid_value" id="bid_value" class="form-control" placeholder="Enter bid" />
-      <div class="spacer-single"></div>
-      <h6>Enter quantity. <span class="id-color-2">10 available</span></h6>
-      <input type="text" name="bid_qty" id="bid_qty" class="form-control" value="1" />
-      <div class="spacer-single"></div>
-      <div class="de-flex">
-        <div>Your bidding balance</div>
-        <div><b>0.013325 ETH</b></div>
-      </div>
-      <div class="de-flex">
-        <div>Your balance</div>
-        <div><b>10.67856 ETH</b></div>
-      </div>
-      <div class="de-flex">
-        <div>Service fee 2.5%</div>
-        <div><b>0.00325 ETH</b></div>
-      </div>
-      <div class="de-flex">
-        <div>You will pay</div>
-        <div><b>0.013325 ETH</b></div>
-      </div>
-      <div class="spacer-single"></div>
-      <a href="wallet.html" target="_blank" class="btn-main btn-fullwidth">Place a bid</a>
-    </div>
-    </div>
-  </div>
-  </div>
-</div>
-
 <ng-template #bidTemplate let-bid="bid">
   <!-- <div>bid: {{ bid | json }}</div> -->
   <div class="p_list">
     <div class="p_list_pp">
-      <a [routerLink]="[routePaths.User, bid.user.id]">
+      <a [routerLink]="['/', routePaths.User, bid.user.id]">
         <img class="lazy" [src]="'/assets/images/author/' + bid.user.avatar" alt="">
         <i class="fa fa-check"></i>
       </a>
     </div>
     <div class="p_list_info">
       Bid <ng-container *ngIf="bid.accepted">accepted </ng-container> <b>{{ bid.sum }} ETH</b>
-      <span>by <b>{{ bid.user.name }}</b> at {{ bid.date }}</span> <!-- 6/15/2021, 3:20 AM -->
+      <span>by <b>{{ bid.user.name }}</b> {{ bid.date | timeAgo }}</span> <!-- 6/15/2021, 3:20 AM -->
     </div>
   </div>
 </ng-template>
