@@ -80,7 +80,7 @@
               </div>
               <div class="nft_coll_pp">
                 <a [routerLink]="['/', routePaths.Collection, coll.id]">
-                  <img class="lazy pp-coll" [src]="'/assets/images/author/' + coll.owner.avatar" alt="">
+                  <img class="lazy pp-coll" [src]="coll.owner.avatar" alt="">
                 </a>
                 <i class="fa fa-check"></i>
               </div>
@@ -132,8 +132,8 @@
           <li *ngFor="let user of topSellers">
             <div class="author_list_item">
               <div class="author_list_pp">
-                  <a [routerLink]="['/', routePaths.Author, user.id]">
-                  <img class="lazy pp-author" [src]="'/assets/images/author/' + user.avatar" alt="" />
+                  <a [routerLink]="['/', routePaths.Author, user.data.userId]">
+                  <img class="lazy pp-author" [src]="user.avatar" alt="" />
                   <i class="fa fa-check"></i>
                 </a>
               </div>

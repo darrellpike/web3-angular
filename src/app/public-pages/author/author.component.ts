@@ -46,15 +46,15 @@ export class AuthorComponent implements OnInit {
       if (data) {
         this.user = data;
 
-        this.nftItemsService.getUserOnSaleItems(this.user.id).subscribe((data2) => {
+        this.nftItemsService.getUserOnSaleItems(this.user.data.userId).subscribe((data2) => {
           this.onSaleItems = data2;
         });
 
-        this.nftItemsService.getUserCreatedItems(this.user.id).subscribe((data3) => {
+        this.nftItemsService.getUserCreatedItems(this.user.data.userId).subscribe((data3) => {
           this.createdItems = data3;
         });
 
-        this.nftItemsService.getUserLinkedItems(this.user.id).subscribe((data4) => {
+        this.nftItemsService.getUserLinkedItems(this.user.data.userId).subscribe((data4) => {
           this.linkedItems = data4;
         });
       }

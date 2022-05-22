@@ -4,6 +4,17 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyDVCUnO2OShzWK3H29bx5fQiZWoNw3CB44',
+    authDomain: 'localhost',
+    databaseURL: 'http://localhost:9000/?ns=readymaker-bfb5f',
+    projectId: 'readymaker-bfb5f',
+    storageBucket: 'gs://readymaker-bfb5f.appspot.com/',
+    messagingSenderId: '329721838987',
+    appId: '1:329721838987:web:8740d0973b8f070838c38e',
+    // measurementId: '<your-measurement-id>',
+  },
+  useEmulators: true,
 };
 
 /*

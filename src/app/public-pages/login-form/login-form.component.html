@@ -12,33 +12,39 @@
           <div class="col-lg-4 offset-lg-2 wow fadeIn" data-wow-delay=".5s">
             <div class="box-rounded padding40 form-wrapper">
               <h3 class="mb10">Sign In</h3>
-              <p>Login using an existing account or create a new account <a href="register.html">here<span></span></a>.</p>
-              <form name="contactForm" id='contact_form' class="form-border" method="post" action='blank.php'>
+              <p>Login using an existing account or create a new account
+                <a [routerLink]="[RoutePaths.Register]">here</a>.
+              </p>
 
+              <form [formGroup]="form" class="form-border">
                 <div class="field-set">
-                  <input type='text' name='email' id='email' class="form-control" placeholder="username">
+                  <input type='text' formControlName='email' class="form-control" placeholder="username">
+                  <div class="error" *ngIf="showFieldErrs(form, 'email')">
+                    <span *ngIf="fieldHasErr(form, 'email', 'required')">Email is required</span>
+                    <span *ngIf="fieldHasErr(form, 'email', 'email')">Valid Email is required</span>
+                  </div>
                 </div>
 
-                 <div class="field-set">
-                  <input type='password' name='password' id='password' class="form-control" placeholder="password">
+                <div class="field-set">
+                  <input type='password' formControlName='password' class="form-control" placeholder="password">
+                  <div class="error" *ngIf="showFieldErrs(form, 'password')">password is required</div>
                 </div>
 
                 <div class="field-set">
-                  <input type='submit' id='send_message' value='Submit' class="btn btn-main btn-fullwidth color-2">
+                  <input type='submit' value='Submit' class="btn btn-main btn-fullwidth color-2"
+                    (click)="loginByEmail()"
+                  />
                 </div>
 
                 <div class="clearfix"></div>
-
                 <div class="spacer-single"></div>
 
-              <!-- social icons -->
-              <ul class="list s3">
-                <li>Login with:</li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Google</a></li>
-              </ul>
-              <!-- social icons close -->
-          </form>
+                <ul class="list s3">
+                  <li>Login with:</li>
+                  <li><a class="link" (click)="loginByFb()">Facebook</a></li>
+                  <li><a class="link" (click)="loginByGoogle()">Google</a></li>
+                </ul>
+              </form>
             </div>
           </div>
         </div>

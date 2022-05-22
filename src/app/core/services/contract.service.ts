@@ -189,7 +189,6 @@ export class ContractService {
     return new this.web3.eth.Contract(jsonInterface, address, options);
   }
 
-
   // eth personal
   ethPersonalSign(dataToSign: string, address: string, password: string) {
     return defer(() => from((async () => {

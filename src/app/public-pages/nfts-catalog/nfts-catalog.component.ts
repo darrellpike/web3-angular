@@ -4,6 +4,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { untilDestroyed, UntilDestroy } from '@ngneat/until-destroy';
 import { forkJoin, merge, Subject } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
+import { NGXLogger } from 'ngx-logger';
 
 import { Category } from '@app/datatypes/category';
 import { Collection } from '@app/datatypes/collection';
@@ -43,6 +44,7 @@ export class NftsCatalogComponent implements OnInit {
   constructor(
     private nftItemsService: NftItemsService,
     private route: ActivatedRoute,
+    private logger: NGXLogger,
   ) { }
 
   ngOnInit(): void {
@@ -58,7 +60,7 @@ export class NftsCatalogComponent implements OnInit {
       )
       .subscribe(() => {
         const filters = this.filters.value;
-        console.log('new filters', filters);
+        this.logger.debug('new filters', filters);
         /* TODO prepare & run search request
         this.nftItemsService.getFilteredItems(...).subscribe((data) => {
           this.items = data;

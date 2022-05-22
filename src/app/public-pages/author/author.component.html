@@ -8,12 +8,12 @@
          <div class="d_profile de-flex">
           <div class="de-flex-col">
             <div class="profile_avatar">
-            <img [src]="'/assets/images/author/' + user.avatar" alt="">
+            <img [src]="user.avatar" alt="">
               <i class="fa fa-check"></i>
               <div class="profile_name">
                 <h4>
-                  {{ user.name }}
-                  <span class="profile_username">{{ user.nickname }}</span>
+                  {{ user.data.name }}
+                  <span class="profile_username">{{ user.data.name }}</span>
                   <!--
                   <span id="wallet" class="profile_wallet">{{ user.wallet }}</span>
                   <button id="btn_copy" title="Copy Wallet" (click)="copyToClipboard(user.wallet)">Copy</button>

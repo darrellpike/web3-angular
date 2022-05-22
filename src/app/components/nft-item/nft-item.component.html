@@ -4,10 +4,10 @@
   ></app-countdown>
 
   <div class="author_list_pp">
-    <a [routerLink]="['/', routePaths.Author, item.author.id]" data-bs-toggle="tooltip" data-bs-placement="top"
+    <a [routerLink]="['/', routePaths.Author, item.author.data.userId]" data-bs-toggle="tooltip" data-bs-placement="top"
       [title]="'Creator: ' + item.author.name"
       >
-      <img class="lazy" [src]="'/assets/images/author/' + item.author.avatar" alt="" />
+      <img class="lazy" [src]="item.author.avatar" alt="" />
       <i class="fa fa-check"></i>
     </a>
   </div>

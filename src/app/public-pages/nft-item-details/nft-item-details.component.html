@@ -20,13 +20,13 @@
               <h6>Creator</h6>
               <div class="item_author">
                 <div class="author_list_pp">
-                  <a [routerLink]="['/', routePaths.User, item.author.id]">
-                    <img class="lazy" [src]="'/assets/images/author/' + item.author.avatar" alt="">
+                  <a [routerLink]="['/', routePaths.User, item.author.data.userId]">
+                    <img class="lazy" [src]="item.author.avatar" alt="">
                     <i class="fa fa-check"></i>
                   </a>
                 </div>
                 <div class="author_list_info">
-                  <a [routerLink]="['/', routePaths.User, item.author.id]">{{ item.author.name }}</a>
+                  <a [routerLink]="['/', routePaths.User, item.author.data.userId]">{{ item.author.name }}</a>
                 </div>
               </div>
             </div>
@@ -76,12 +76,12 @@
                 <div class="item_author">
                   <div class="author_list_pp">
                     <a href="author.html">
-                      <img class="lazy" [src]="'/assets/images/author/' + item.owner.avatar" alt="">
+                      <img class="lazy" [src]="item.owner.avatar" alt="">
                       <i class="fa fa-check"></i>
                     </a>
                   </div>
                   <div class="author_list_info">
-                    <a [routerLink]="['/', routePaths.User, item.owner.id]">{{ item.owner.name }}</a>
+                    <a [routerLink]="['/', routePaths.User, item.owner.data.userId]">{{ item.owner.name }}</a>
                   </div>
                 </div>
 
@@ -193,7 +193,7 @@
   <div class="p_list">
     <div class="p_list_pp">
       <a [routerLink]="['/', routePaths.User, bid.user.id]">
-        <img class="lazy" [src]="'/assets/images/author/' + bid.user.avatar" alt="">
+        <img class="lazy" [src]="bid.user.avatar" alt="">
         <i class="fa fa-check"></i>
       </a>
     </div>

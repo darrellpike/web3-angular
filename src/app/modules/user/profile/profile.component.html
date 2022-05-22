@@ -19,165 +19,182 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 offset-lg-2">
-        <form id="form-create-item" class="form-border" method="post" action="email.php">
-        <div class="de_tab tab_simple">
+        <form id="form-create-item" class="form-border" [formGroup]="form">
+          <div class="de_tab tab_simple">
 
-          <ul class="de_nav">
-            <li
-              [ngClass]="{ active: activeTab === tabs.Profile}"
-              (click)="activeTab = tabs.Profile"
-              >
-              <span><i class="fa fa-user"></i>Profile</span>
-            </li>
-            <li
-              [ngClass]="{ active: activeTab === tabs.Notifications}"
-              (click)="activeTab = tabs.Notifications"
-              >
-              <span><i class="fa fa-exclamation-circle"></i>Notifications</span>
-            </li>
-          </ul>
+            <ul class="de_nav">
+              <li
+                [ngClass]="{ active: activeTab === tabs.Profile}"
+                (click)="activeTab = tabs.Profile"
+                >
+                <span><i class="fa fa-user"></i>Profile</span>
+              </li>
+              <li
+                [ngClass]="{ active: activeTab === tabs.Notifications}"
+                (click)="activeTab = tabs.Notifications"
+                >
+                <span><i class="fa fa-exclamation-circle"></i>Notifications</span>
+              </li>
+            </ul>
 
-          <div class="de_tab_content">
-            <div class="tab-1" [hidden]="activeTab !== tabs.Profile">
-              <div class="row wow fadeIn">
-                <div class="col-lg-8 mb-sm-20">
+            <div class="de_tab_content">
+              <div class="tab-1" [hidden]="activeTab !== tabs.Profile">
+                <div class="row wow fadeIn">
+                  <div class="col-lg-8 mb-sm-20">
                     <div class="field-set">
-                      <h5>Username</h5>
-                      <input type="text" name="username" id="username" class="form-control" placeholder="Enter username" />
-
-                      <div class="spacer-20"></div>
-
-                      <h5>Custom URL</h5>
-                      <input type="text" name="custom_url" id="custom_url" class="form-control" placeholder="Enter your custom URL" />
-
-                      <div class="spacer-20"></div>
-
-                      <h5>Bio</h5>
-                      <textarea name="bio" id="bio" class="form-control" placeholder="Tell the world who you are!" ></textarea>
-
-                      <div class="spacer-20"></div>
-
-                      <h5>Email Address*</h5>
-                      <input type="text" name="email_address" id="email_address" class="form-control" placeholder="Enter email" />
-
-                      <div class="spacer-20"></div>
-
-                      <h5><i class="fa fa-link"></i> Your site</h5>
-                      <input type="text" name="your_site" id="your_site" class="form-control" placeholder="Enter Website URL" />
-
-                      <div class="spacer-20"></div>
-
-                      <h5><i class="fa fa-twitter"></i> Twitter username</h5>
-                      <input type="text" name="twitter_usernam" id="twitter_usernam" class="form-control" placeholder="Enter Twitter username" />
-
-                      <div class="spacer-20"></div>
-
-                      <h5><i class="fa fa-instagram"></i> Instagram username</h5>
-                      <input type="text" name="instagram_username" id="instagram_username" class="form-control" placeholder="Enter Instagram username" />
-
+                      <h5>Name*</h5>
+                      <input type="text" class="form-control" placeholder="Enter name"
+                        formControlName="name"
+                      />
+                      <div class="error" *ngIf="showFieldErrs(form, 'name')">
+                        Name is required
+                      </div>
                     </div>
-                </div>
 
-                <div id="sidebar" class="col-lg-4">
-                  <h5>Profile image <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 400 x 400. Max size: 50MB. Click the image to upload."></i></h5>
+                    <div class="field-set">
+                      <h5>Nickame</h5>
+                      <input type="text" class="form-control" placeholder="Enter nickname"
+                        formControlName="nickname"
+                      />
+                    </div>
 
-                  <img [src]="'/assets/images/author/' + user.avatar" id="click_profile_img" class="d-profile-img-edit img-fluid" alt="">
-                  <input type="file" id="upload_profile_img">
+                    <div class="field-set">
+                      <h5>Email Address*</h5>
+                      <input type="text" class="form-control" placeholder="Enter email"
+                        formControlName="email"
+                      />
+                      <div class="error" *ngIf="showFieldErrs(form, 'email')">
+                        <span *ngIf="fieldHasErr(form, 'email', 'required')">Email is required</span>
+                        <span *ngIf="fieldHasErr(form, 'email', 'email')">Invalid Email</span>
+                      </div>
+                    </div>
 
-                  <!--
-                  <div class="spacer-30"></div>
+                    <div class="field-set">
+                      <h5>Phone number</h5>
+                      <input type="text" class="form-control" placeholder="Enter your phone number" formControlName="phoneNumber" />
+                    </div>
 
-                  <h5>Profile banner <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 1500 x 500. Max size: 50MB. Click the image to upload."></i></h5>
-                  <img src="images/author_single/author_banner.jpg" id="click_banner_img" class="d-banner-img-edit img-fluid" alt="">
-                  <input type="file" id="upload_banner_img">
-                  -->
+                    <div class="field-set">
+                      <h5><i class="fa fa-link"></i> Your site</h5>
+                      <input type="text" class="form-control" placeholder="Enter Website URL" formControlName="site" />
+                      <div class="error" *ngIf="showFieldErrs(form, 'name') && fieldHasErr(form, 'name', 'url')">
+                        Valid URL is required
+                      </div>
+                    </div>
 
+                    <div class="field-set">
+                      <h5><i class="fa fa-twitter"></i> Twitter username</h5>
+                      <input type="text" class="form-control" placeholder="Enter Twitter username" formControlName="twitterName" />
+                    </div>
+
+                    <div class="field-set">
+                      <h5><i class="fa fa-instagram"></i> Instagram username</h5>
+                      <input type="text" class="form-control" placeholder="Enter Instagram username" formControlName="instagramName" />
+                    </div>
+                  </div>
+
+                  <div id="sidebar" class="col-lg-4">
+                    <h5>Profile image <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 400 x 400. Max size: 50MB. Click the image to upload."></i></h5>
+
+                    <img [src]="user.data.photoUrl" id="click_profile_img" class="d-profile-img-edit img-fluid" alt="">
+                    <input type="file" id="upload_profile_img">
+
+                    <!--
+                    <div class="spacer-30"></div>
+
+                    <h5>Profile banner <i class="fa fa-info-circle id-color-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Recommend 1500 x 500. Max size: 50MB. Click the image to upload."></i></h5>
+                    <img src="images/author_single/author_banner.jpg" id="click_banner_img" class="d-banner-img-edit img-fluid" alt="">
+                    <input type="file" id="upload_banner_img">
+                    -->
+
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div class="tab-2" [hidden]="activeTab !== tabs.Notifications">
-              <div class="row wow fadeIn">
-                <div class="col-md-6 mb-sm-20">
-                  <div class="switch-with-title s2">
-                    <h5>Item Sold</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-item-sold" class="checkbox">
-                      <label for="notif-item-sold"></label>
+              <div class="tab-2" [hidden]="activeTab !== tabs.Notifications" formGroupName="notifications">
+                <div class="row wow fadeIn">
+                  <div class="col-md-6 mb-sm-20">
+                    <div class="switch-with-title s2">
+                      <h5>Item Sold</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-item-sold" class="checkbox" formControlName="itemSold">
+                        <label for="notif-item-sold"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When someone purhased your item.</p>
                     </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When someone purhased your item.</p>
+
+                    <div class="spacer-20"></div>
+
+                    <div class="switch-with-title s2">
+                      <h5>Bid Activity</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-bid-activity" class="checkbox" formControlName="bidActivity">
+                        <label for="notif-bid-activity"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When someone purhased your item.</p>
+                    </div>
+
+                    <div class="spacer-20"></div>
+
+                    <div class="switch-with-title s2">
+                      <h5>Price Change</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-price-change" class="checkbox" formControlName="priceChange">
+                        <label for="notif-price-change"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When an item you made an offer on changes in price.</p>
+                    </div>
+
                   </div>
 
-                  <div class="spacer-20"></div>
-
-                  <div class="switch-with-title s2">
-                    <h5>Bid Activity</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-bid-activity" class="checkbox">
-                      <label for="notif-bid-activity"></label>
+                  <div class="col-md-6">
+                    <div class="switch-with-title s2">
+                      <h5>Auction Expiration</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-auction-expiration" class="checkbox" formControlName="auctionExpiration">
+                        <label for="notif-auction-expiration"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When an auction you created ends.</p>
                     </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When someone purhased your item.</p>
-                  </div>
 
-                  <div class="spacer-20"></div>
+                    <div class="spacer-20"></div>
 
-                  <div class="switch-with-title s2">
-                    <h5>Price Change</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-price-change" class="checkbox">
-                      <label for="notif-price-change"></label>
+                    <div class="switch-with-title s2">
+                      <h5>Outbid</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-outbid" class="checkbox" formControlName="outbid">
+                        <label for="notif-outbid"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When an offer you placed is exceeded by another user.</p>
                     </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When an item you made an offer on changes in price.</p>
-                  </div>
 
-                </div>
+                    <div class="spacer-20"></div>
 
-                <div class="col-md-6">
-                  <div class="switch-with-title s2">
-                    <h5>Auction Expiration</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-auction-expiration" class="checkbox">
-                      <label for="notif-auction-expiration"></label>
+                    <div class="switch-with-title s2">
+                      <h5>Successful Purchase</h5>
+                      <div class="de-switch">
+                        <input type="checkbox" id="notif-successful-purchase" class="checkbox" formControlName="successfulPurchase">
+                        <label for="notif-successful-purchase"></label>
+                      </div>
+                      <div class="clearfix"></div>
+                      <p class="p-info">When you successfully buy an item.</p>
                     </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When an auction you created ends.</p>
+
                   </div>
-
-                  <div class="spacer-20"></div>
-
-                  <div class="switch-with-title s2">
-                    <h5>Outbid</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-outbid" class="checkbox">
-                      <label for="notif-outbid"></label>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When an offer you placed is exceeded by another user.</p>
-                  </div>
-
-                  <div class="spacer-20"></div>
-
-                  <div class="switch-with-title s2">
-                    <h5>Successful Purchase</h5>
-                    <div class="de-switch">
-                      <input type="checkbox" id="notif-successful-purchase" class="checkbox">
-                      <label for="notif-successful-purchase"></label>
-                    </div>
-                    <div class="clearfix"></div>
-                    <p class="p-info">When you successfully buy an item.</p>
-                  </div>
-
                 </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="spacer-30"></div>
-        <input type="button" id="submit" class="btn-main" value="Update profile">
+          <div class="spacer-30"></div>
+          <input type="button" id="submit" class="btn-main" value="Update profile"
+            (click)="updateProfile()"
+          />
         </form>
       </div>
     </div>

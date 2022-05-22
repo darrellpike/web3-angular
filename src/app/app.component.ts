@@ -5,6 +5,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map } from 'rxjs/operators';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { NGXLogger } from 'ngx-logger';
+import { HotToastService } from '@ngneat/hot-toast';
 
 import { DialogBuyNowComponent } from '@components/dialog-buy-now/dialog-buy-now.component';
 import {
@@ -18,7 +20,7 @@ import { NftItemsService } from '@services/nft-items.service';
 import { UserService } from '@services/user.service';
 
 import { Account } from '@datatypes/account';
-import { User } from '@datatypes/user';
+import { LoggedUser } from '@datatypes/user';
 import { UserNotifications, UserNotificationEvent } from '@datatypes/notification';
 
 const SHOW_NOTIFICATIONS = 5;
@@ -35,7 +37,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   UserRoutePaths = UserRoutePaths;
   headerClass = '';
   contentClass = '';
-  user: User | null = null;
+  user: LoggedUser | null = null;
   userNotifications: UserNotifications = {
     items: [],
     unreadCount: 0,
@@ -71,12 +73,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     private nftItemsService: NftItemsService,
     private userService: UserService,
     private modalService: NgbModal,
+    private logger: NGXLogger,
+    private toast: HotToastService,
   ) {}
 
   ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        console.log('route data', this.route.snapshot.firstChild?.data);
+        this.logger.debug('route data', this.route.snapshot.firstChild?.data);
 
         const routeDate = this.route.snapshot.firstChild?.data || {};
 
@@ -93,16 +97,16 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
 
     this.contractService.accounts$.subscribe((accounts) => {
-      console.log('accs', accounts);
       this.userAccounts = accounts;
 
+      /*
       if (accounts.length > 0) { // DEBUG
         this.userService.loginUserByAccountId(accounts[0].id);
       }
+      */
     });
 
     this.userService.currentUser$.subscribe((data) => {
-      console.log('user', data);
       this.user = data;
     });
 
@@ -124,7 +128,6 @@ export class AppComponent implements OnInit, AfterViewInit {
         });
 
       this.userNotifications = data;
-      console.log('notifications', data);
     });
 
     this.nftItemsService.requestBid$.subscribe((nft) => {
@@ -139,12 +142,12 @@ export class AppComponent implements OnInit, AfterViewInit {
       modalRefBid.componentInstance.nft = nft;
       modalRefBid.result
         .then((result) => {
-          console.log('bid dialog result', result);
+          this.logger.debug('bid dialog result', result);
           // TODO
         })
         .catch((err) => {
           if (![ModalDismissReasons.BACKDROP_CLICK, ModalDismissReasons.ESC].includes(err)) {
-            console.log('bid dialog err', err);
+            this.logger.error('bid dialog err', err);
           }
         });
     });
@@ -161,12 +164,12 @@ export class AppComponent implements OnInit, AfterViewInit {
       modalRefBuy.componentInstance.nft = nft;
       modalRefBuy.result
         .then((result) => {
-          console.log('buy dialog result', result);
+          this.logger.debug('buy dialog result', result);
           // TODO
         })
         .catch((err) => {
           if (![ModalDismissReasons.BACKDROP_CLICK, ModalDismissReasons.ESC].includes(err)) {
-            console.log('buy dialog err', err);
+            this.logger.error('buy dialog err', err);
           }
         });
     });
@@ -180,7 +183,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         distinctUntilChanged(),
       )
       .subscribe((str) => {
-        console.log('TODO: quick search', str);
+        this.logger.debug('TODO: quick search', str);
         if (str === '') return;
         // TODO: implement quick search
       });
@@ -198,7 +201,8 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.contractService.connectAccount().subscribe({
       next: () => {},
       error: (err) => {
-        console.log('err', err);
+        this.logger.debug('err', err);
+        this.toast.error('Error on connect to wallet');
       },
     });
   }

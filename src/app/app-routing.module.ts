@@ -134,6 +134,7 @@ const routes: Routes = [
       (m) => m.UserModule,
     ),
     canActivate: [UserGuard],
+    canLoad: [UserGuard],
   },
   {
     path: '**',

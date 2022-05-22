@@ -1,9 +1,17 @@
 /* contact form */
 .error {
   clear: both;
-  display: none;
   color: #e7505a;
-  padding-top: 20px;
+  padding-top: 3px;
+  font-size: 0.85rem;
+
+  & > span::before {
+    content: ', ';
+  }
+
+  & > span:first-of-type::before {
+    content: '';
+  }
 }
 
 .success {

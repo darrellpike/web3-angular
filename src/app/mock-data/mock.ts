@@ -6,78 +6,78 @@ import { Category } from '@datatypes/category';
 import { UserNotification, UserNotificationEvent } from '@datatypes/notification';
 
 export const users: User[] = [
-  {
-    id: '1',
-    avatar: 'author-1.jpg',
+  User.createFromPartial({
+    userId: '1',
+    photoUrl: '/assets/images/author/author-1.jpg',
     name: 'Monica Lucas',
     nickname: '@monicaaa',
-  },
-  {
-    id: '2',
-    avatar: 'author-2.jpg',
+  }),
+  User.createFromPartial({
+    userId: '2',
+    photoUrl: '/assets/images/author/author-2.jpg',
     name: 'Mamie Barnett',
     nickname: '@mamieba',
-  },
-  {
-    id: '3',
-    avatar: 'author-3.jpg',
+  }),
+  User.createFromPartial({
+    userId: '3',
+    photoUrl: '/assets/images/author/author-3.jpg',
     name: 'Nicholas Daniels',
     nickname: '@nickdan',
-  },
-  {
-    id: '4',
-    avatar: 'author-4.jpg',
+  }),
+  User.createFromPartial({
+    userId: '4',
+    photoUrl: '/assets/images/author/author-4.jpg',
     name: 'Nakamoto',
     nickname: '@nakmoto456',
-  },
-  {
-    id: '5',
-    avatar: 'author-5.jpg',
+  }),
+  User.createFromPartial({
+    userId: '5',
+    photoUrl: '/assets/images/author/author-5.jpg',
     name: 'Ariella Lopez',
     nickname: '@arilope',
-  },
-  {
-    id: '6',
-    avatar: 'author-6.jpg',
+  }),
+  User.createFromPartial({
+    userId: '6',
+    photoUrl: '/assets/images/author/author-6.jpg',
     name: 'Herbert Walles',
     nickname: '@hwall',
-  },
-  {
-    id: '7',
-    avatar: 'author-7.jpg',
+  }),
+  User.createFromPartial({
+    userId: '7',
+    photoUrl: '/assets/images/author/author-7.jpg',
     name: 'James Woods',
     nickname: '@jawod',
-  },
-  {
-    id: '8',
-    avatar: 'author-8.jpg',
+  }),
+  User.createFromPartial({
+    userId: '8',
+    photoUrl: '/assets/images/author/author-8.jpg',
     name: 'Jane Martini',
     nickname: '@janedoe',
-  },
-  {
-    id: '9',
-    avatar: 'author-9.jpg',
+  }),
+  User.createFromPartial({
+    userId: '9',
+    photoUrl: '/assets/images/author/author-9.jpg',
     name: 'Franklin Greer',
     nickname: '@frankling',
-  },
-  {
-    id: '10',
-    avatar: 'author-10.jpg',
+  }),
+  User.createFromPartial({
+    userId: '10',
+    photoUrl: '/assets/images/author/author-10.jpg',
     name: 'Stacy Long',
     nickname: '@stlong',
-  },
-  {
-    id: '11',
-    avatar: 'author-11.jpg',
+  }),
+  User.createFromPartial({
+    userId: '11',
+    photoUrl: '/assets/images/author/author-11.jpg',
     name: 'Ida Chapman',
     nickname: '@idachapman11',
-  },
-  {
-    id: '12',
-    avatar: 'author-12.jpg',
+  }),
+  User.createFromPartial({
+    userId: '12',
+    photoUrl: '/assets/images/author/author-12.jpg',
     name: 'Fred Ryan',
     nickname: '@frodo',
-  },
+  }),
 ];
 
 export const collections: Collection[] = [
@@ -340,7 +340,6 @@ bids.splice(0, 1);
 
 export const auctionItems = nftItems;
 export const collectionItems = nftItems;
-
 export const hotCollections = collections;
 
 export const categories: Category[] = [
