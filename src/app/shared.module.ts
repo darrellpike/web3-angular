@@ -4,9 +4,11 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { TimeAgoPipe } from '@core/pipes/timeago.pipe';
+import { LinkPipe } from '@core/pipes/link.pipe';
 
 const pipes = [
   TimeAgoPipe,
+  LinkPipe,
 ];
 
 const modules = [

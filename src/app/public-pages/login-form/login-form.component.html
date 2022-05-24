@@ -13,12 +13,12 @@
             <div class="box-rounded padding40 form-wrapper">
               <h3 class="mb10">Sign In</h3>
               <p>Login using an existing account or create a new account
-                <a [routerLink]="[RoutePaths.Register]">here</a>.
+                <a [routerLink]="RoutePaths.Register | link">here</a>.
               </p>
 
               <form [formGroup]="form" class="form-border">
                 <div class="field-set">
-                  <input type='text' formControlName='email' class="form-control" placeholder="username">
+                  <input type='text' formControlName='email' class="form-control" placeholder="Email">
                   <div class="error" *ngIf="showFieldErrs(form, 'email')">
                     <span *ngIf="fieldHasErr(form, 'email', 'required')">Email is required</span>
                     <span *ngIf="fieldHasErr(form, 'email', 'email')">Valid Email is required</span>
@@ -37,7 +37,10 @@
                 </div>
 
                 <div class="clearfix"></div>
-                <div class="spacer-single"></div>
+                <!-- div class="spacer-single"></div -->
+                <p>
+                  <a [routerLink]="RoutePaths.ForgotPassword | link">I forgot password</a>
+                </p>
 
                 <ul class="list s3">
                   <li>Login with:</li>

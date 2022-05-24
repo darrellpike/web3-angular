@@ -11,6 +11,8 @@ import { CollectionComponent } from '@pubpages/collection/collection.component';
 import { ConnectWalletComponent } from '@pubpages/connect-wallet/connect-wallet.component';
 import { ContactUsComponent } from '@pubpages/contact-us/contact-us.component';
 
+import { ForgotPasswordComponent } from '@pubpages/forgot-password/forgot-password.component';
+
 import { HelpCenterComponent } from '@pubpages/help-center/help-center.component';
 import { HomeComponent } from '@pubpages/home/home.component';
 
@@ -135,6 +137,13 @@ const routes: Routes = [
     ),
     canActivate: [UserGuard],
     canLoad: [UserGuard],
+  },
+  {
+    path: `${RoutePaths.ForgotPassword}`,
+    component: ForgotPasswordComponent,
+    data: {
+      headerClass: CLASS_CONTRAST,
+    },
   },
   {
     path: '**',

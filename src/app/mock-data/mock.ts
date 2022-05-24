@@ -80,6 +80,8 @@ export const users: User[] = [
   }),
 ];
 
+console.log('users', users);
+
 export const collections: Collection[] = [
   {
     id: '1',

@@ -29,21 +29,14 @@ export interface UserData {
 const defaultAvatar = '/assets/images/user1.svg';
 
 export class User {
-  avatar: string;
-  name: string;
   data: UserData;
 
   constructor(data?: UserData) {
-    if (data) {
-      this.data = data;
-      this.avatar = (data && data.photoUrl) !== '' ? data.photoUrl : defaultAvatar;
-      this.name = (data && data.nickname) !== '' ? data.nickname : data.name;
-    } else {
-      this.data = User.getDefaultData();
-      this.avatar = defaultAvatar;
-      this.name = '';
-    }
+    this.data = data ? data : User.getDefaultData();
   }
+
+  get name() { return this.data.nickname || this.data.name || ''; }
+  get avatar() { return  this.data.photoUrl !== '' ? this.data.photoUrl : defaultAvatar; }
 
   static getDefaultData() {
     const now = new Date();
@@ -74,26 +67,26 @@ export class User {
   }
 
   static createFromPartial(data: Partial<UserData>) { // for mock data
-    const newUser = new User();
+    const def = User.getDefaultData();
 
-    if (data.userId) newUser.data.userId = data.userId;
-    if (data.name) newUser.data.name = data.name;
-    if (data.nickname) newUser.data.nickname = data.nickname;
-    if (data.photoUrl) newUser.data.photoUrl = data.photoUrl;
-    if (data.email) newUser.data.email = data.email;
-    if (data.emailVerified) newUser.data.emailVerified = data.emailVerified;
-    if (data.phoneNumber) newUser.data.phoneNumber = data.phoneNumber;
-    if (data.createdAt) newUser.data.createdAt = data.createdAt;
-    if (data.lastLoginAt) newUser.data.lastLoginAt = data.lastLoginAt;
+    if (data.userId) def.userId = data.userId;
+    if (data.name) def.name = data.name;
+    if (data.nickname) def.nickname = data.nickname;
+    if (data.photoUrl) def.photoUrl = data.photoUrl;
+    if (data.email) def.email = data.email;
+    if (data.emailVerified) def.emailVerified = data.emailVerified;
+    if (data.phoneNumber) def.phoneNumber = data.phoneNumber;
+    if (data.createdAt) def.createdAt = data.createdAt;
+    if (data.lastLoginAt) def.lastLoginAt = data.lastLoginAt;
 
-    if (data.site) newUser.data.site = data.site;
-    if (data.twitterName) newUser.data.twitterName = data.twitterName;
-    if (data.instagramName) newUser.data.instagramName = data.instagramName;
+    if (data.site) def.site = data.site;
+    if (data.twitterName) def.twitterName = data.twitterName;
+    if (data.instagramName) def.instagramName = data.instagramName;
     if (typeof(data.notifications) === 'object' && data.notifications !== null) {
-      newUser.data.notifications = data.notifications;
+      def.notifications = data.notifications;
     }
 
-    return newUser;
+    return new User(def);
   }
 }
 

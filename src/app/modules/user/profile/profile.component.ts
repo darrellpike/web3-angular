@@ -34,7 +34,10 @@ export class ProfileComponent implements OnInit {
     site: new FormControl('', [(ctrl) => {
       if (ctrl.value.length > 0) {
         const tmp = ctrl.value.trim();
-        if (!tmp.match(/^http(s{0,1}):\/\/.*\..*$/)) return { url: true };
+
+        if (!tmp.match(/^http(s{0,1}):\/\/.*\..*$/)) {
+          return { url: true };
+        }
       }
 
       return null;

@@ -1,10 +1,12 @@
-<div [ngClass]="['nft__item', class, !countdownAtTop ? 'nft_layout-2' : '']">
+<div [ngClass]="['nft__item', class, !countdownAtTop ? 'nft_layout-2' : '']"
+  (mouseleave)="hideExtra()"
+  >
   <app-countdown *ngIf="countdownUntil && countdownAtTop"
     [untilDate]="countdownUntil"
   ></app-countdown>
 
   <div class="author_list_pp">
-    <a [routerLink]="['/', routePaths.Author, item.author.data.userId]" data-bs-toggle="tooltip" data-bs-placement="top"
+    <a [routerLink]="[routePaths.Author, item.author.data.userId] | link" data-bs-toggle="tooltip" data-bs-placement="top"
       [title]="'Creator: ' + item.author.name"
       >
       <img class="lazy" [src]="item.author.avatar" alt="" />
@@ -13,24 +15,24 @@
   </div>
 
   <div class="nft__item_wrap">
-    <div class="nft__item_extra">
+    <div [ngClass]="['nft__item_extra', showBuyShare ? 'nft__item_extra_visible' : '']">
       <div class="nft__item_buttons">
         <button (click)="onBuyNow()">Buy Now</button>
         <div class="nft__item_share">
           <h4>Share</h4>
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://gigaland.io" target="_blank">
+          <a [href]="fbShare" target="_blank">
             <i class="fa fa-facebook fa-lg"></i>
           </a>
-          <a href="https://twitter.com/intent/tweet?url=https://gigaland.io" target="_blank">
+          <a [href]="twShare" target="_blank">
             <i class="fa fa-twitter fa-lg"></i>
           </a>
-          <a href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site https://gigaland.io">
+          <a [href]="mailTo">
             <i class="fa fa-envelope fa-lg"></i>
           </a>
         </div>
       </div>
     </div>
-    <a [routerLink]="['/', routePaths.NftItemDetails, item.id]">
+    <a [routerLink]="[routePaths.NftItemDetails, item.id] | link">
       <img [src]="'/assets/images/items/' + item.imageUrl" class="lazy nft__item_preview" alt="" />
     </a>
   </div>
@@ -40,10 +42,10 @@
   ></app-countdown>
 
   <div class="nft__item_info">
-    <a [routerLink]="['/', routePaths.NftItemDetails, item.id]">
+    <a [routerLink]="[routePaths.NftItemDetails, item.id] | link">
       <h4>{{ item.title }}</h4>
     </a>
-    <div class="nft__item_click"><span></span></div>
+    <div class="nft__item_click" (click)="toggleExtra()"><span></span></div>
     <div class="nft__item_price">{{ item.price }} ETH<span>1/{{ item.divider }}</span></div>
     <div class="nft__item_action">
       <a class="place-bid" (click)="onPlaceBid()">Place a bid</a>

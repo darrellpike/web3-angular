@@ -20,13 +20,13 @@
               <h6>Creator</h6>
               <div class="item_author">
                 <div class="author_list_pp">
-                  <a [routerLink]="['/', routePaths.User, item.author.data.userId]">
+                  <a [routerLink]="[routePaths.User, item.author.data.userId] | link">
                     <img class="lazy" [src]="item.author.avatar" alt="">
                     <i class="fa fa-check"></i>
                   </a>
                 </div>
                 <div class="author_list_info">
-                  <a [routerLink]="['/', routePaths.User, item.author.data.userId]">{{ item.author.name }}</a>
+                  <a [routerLink]="[routePaths.User, item.author.data.userId] | link">{{ item.author.name }}</a>
                 </div>
               </div>
             </div>
@@ -34,13 +34,13 @@
               <h6>Collection</h6>
               <div class="item_author">
                 <div class="author_list_pp">
-                  <a [routerLink]="['/', routePaths.Collection, item.collection.id]">
+                  <a [routerLink]="[routePaths.Collection, item.collection.id] | link">
                     <img class="lazy" [src]="'/assets/images/collections/' + item.collection.image" alt="">
                     <i class="fa fa-check"></i>
                   </a>
                 </div>
                 <div class="author_list_info">
-                  <a [routerLink]="['/', routePaths.Collection, item.collection.id]">{{ item.collection.name}}</a>
+                  <a [routerLink]="[routePaths.Collection, item.collection.id] | link">{{ item.collection.name}}</a>
                 </div>
               </div>
             </div>
@@ -81,7 +81,7 @@
                     </a>
                   </div>
                   <div class="author_list_info">
-                    <a [routerLink]="['/', routePaths.User, item.owner.data.userId]">{{ item.owner.name }}</a>
+                    <a [routerLink]="[routePaths.User, item.owner.data.userId] | link">{{ item.owner.name }}</a>
                   </div>
                 </div>
 
@@ -192,7 +192,7 @@
   <!-- <div>bid: {{ bid | json }}</div> -->
   <div class="p_list">
     <div class="p_list_pp">
-      <a [routerLink]="['/', routePaths.User, bid.user.id]">
+      <a [routerLink]="[routePaths.User, bid.user.id] | link">
         <img class="lazy" [src]="bid.user.avatar" alt="">
         <i class="fa fa-check"></i>
       </a>

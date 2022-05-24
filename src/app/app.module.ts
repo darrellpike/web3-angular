@@ -1,21 +1,27 @@
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getAuth, provideAuth, connectAuthEmulator } from '@angular/fire/auth';
+import {
+  getFirestore, provideFirestore, connectFirestoreEmulator, enableIndexedDbPersistence,
+} from '@angular/fire/firestore';
+import { getStorage, provideStorage, connectStorageEmulator } from '@angular/fire/storage';
+import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
+import { getFunctions, provideFunctions, connectFunctionsEmulator } from '@angular/fire/functions';
+
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { ClipboardModule } from 'ngx-clipboard';
 import { HotToastModule } from '@ngneat/hot-toast';
-import { Web3ModalModule, Web3ModalService } from '@mindsorg/web3modal-angular';
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SharedModule } from '@app/shared.module';
 import { LoggerModule, NgxLoggerLevel } from 'ngx-logger';
+import { Web3ModalModule, Web3ModalService } from '@mindsorg/web3modal-angular';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { UserService } from '@services/user.service';
-import { EmailService } from '@services/email.service';
-import { ContractService } from '@services/contract.service';
+import { SharedModule } from '@app/shared.module';
+import { AppRoutingModule } from './app-routing.module';
 
+import { AppComponent } from './app.component';
 import { ActivityComponent } from '@pubpages/activity/activity.component';
 import { AuctionComponent } from '@pubpages/auction/auction.component';
 import { AuthorComponent } from '@pubpages/author/author.component';
@@ -23,6 +29,8 @@ import { AuthorComponent } from '@pubpages/author/author.component';
 import { CollectionComponent } from '@pubpages/collection/collection.component';
 import { ConnectWalletComponent } from '@pubpages/connect-wallet/connect-wallet.component';
 import { ContactUsComponent } from '@pubpages/contact-us/contact-us.component';
+
+import { ForgotPasswordComponent } from '@pubpages/forgot-password/forgot-password.component';
 
 import { HelpCenterComponent } from '@pubpages/help-center/help-center.component';
 import { HomeComponent } from './public-pages/home/home.component';
@@ -41,14 +49,11 @@ import { DialogBuyNowComponent } from '@components/dialog-buy-now/dialog-buy-now
 import { DialogLoginMotivatorComponent } from '@components/dialog-login-motivator/dialog-login-motivator.component';
 import { DialogPlaceBidComponent } from '@components/dialog-place-bid/dialog-place-bid.component';
 import { NftItemComponent } from '@components/nft-item/nft-item.component';
-import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
-import { getAuth, provideAuth, connectAuthEmulator } from '@angular/fire/auth';
-import {
-  getFirestore, provideFirestore, connectFirestoreEmulator, enableIndexedDbPersistence,
-} from '@angular/fire/firestore';
-import { getStorage, provideStorage, connectStorageEmulator } from '@angular/fire/storage';
-import { getAnalytics, provideAnalytics } from '@angular/fire/analytics';
-import { getFunctions, provideFunctions, connectFunctionsEmulator } from '@angular/fire/functions';
+
+import { ContractService } from '@services/contract.service';
+import { EmailService } from '@services/email.service';
+import { UserService } from '@services/user.service';
+
 // import { DropdownComponent } from '@components/dropdown/dropdown.component';
 import { environment } from '@env';
 
@@ -68,6 +73,8 @@ import { environment } from '@env';
     DialogLoginMotivatorComponent,
     DialogPlaceBidComponent,
     // DropdownComponent,
+
+    ForgotPasswordComponent,
 
     HelpCenterComponent,
     HomeComponent,
@@ -138,7 +145,7 @@ import { environment } from '@env';
     LoggerModule.forRoot({
       // serverLoggingUrl: '/api/logs',
       // serverLogLevel: NgxLoggerLevel.ERROR
-      level: isDevMode() ? NgxLoggerLevel.DEBUG : NgxLoggerLevel.OFF,
+      level: isDevMode() ? NgxLoggerLevel.TRACE : NgxLoggerLevel.OFF,
     }),
   ],
   providers: [

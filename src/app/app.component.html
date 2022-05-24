@@ -8,7 +8,7 @@
               <div class="de-flex-col">
                 <!-- logo begin -->
                 <div id="logo">
-                  <a [routerLink]="['/', routePaths.Home]">
+                  <a [routerLink]="routePaths.Home | link">
                     <img alt="" class="logo" src="/assets/images/logo-light.png" />
                     <img alt="" class="logo-2" src="/assets/images/logo.png" />
                   </a>
@@ -47,23 +47,23 @@
                 <li>
                   <a href="explore.html">Explore<span></span></a>
                   <ul>
-                    <li><a [routerLink]="['/', routePaths.NftsCatalog]">Explore</a></li>
-                    <li><a [routerLink]="['/', routePaths.Collection]">Collections</a></li>
-                    <li><a [routerLink]="['/', routePaths.Auction]">Live Auction</a></li>
-                    <li><a [routerLink]="['/', routePaths.HelpCenter]">Help Center</a></li>
+                    <li><a [routerLink]="routePaths.NftsCatalog | link">Explore</a></li>
+                    <li><a [routerLink]="routePaths.Collection | link">Collections</a></li>
+                    <li><a [routerLink]="routePaths.Auction | link">Live Auction</a></li>
+                    <li><a [routerLink]="routePaths.HelpCenter | link">Help Center</a></li>
                   </ul>
                 </li>
                 <li>
                   <a href="#">Pages<span></span></a>
                   <ul>
-                    <li><a [routerLink]="['/', routePaths.Author]">Author</a></li>
-                    <li><a [routerLink]="['/', routePaths.News]">News</a></li>
+                    <li><a [routerLink]="routePaths.Author | link">Author</a></li>
+                    <li><a [routerLink]="routePaths.News | link">News</a></li>
                     <li><a [routerLink]="[]">Gallery</a></li>
-                    <li><a [routerLink]="['/', routePaths.LoginForm]">Login</a></li>
-                    <li><a [routerLink]="['/', routePaths.Register]">Register</a></li>
-                    <li><a [routerLink]="['/', routePaths.ContactUs]">Contact Us</a></li>
+                    <li><a [routerLink]="routePaths.LoginForm | link">Login</a></li>
+                    <li><a [routerLink]="routePaths.Register | link">Register</a></li>
+                    <li><a [routerLink]="routePaths.ContactUs | link">Contact Us</a></li>
                     <!-- for logged user only
-                    <li><a [routerLink]="['/', UserRoutePaths.Profile]">Profile</a></li>
+                    <li><a [routerLink]="[UserRoutePaths.Profile] | link">Profile</a></li>
                     <li><a [routerLink]="[]">Wallet</a></li>
                     <li><a [routerLink]="[]">Create</a></li>
                     -->
@@ -72,18 +72,21 @@
                 <li>
                   <a href="#">Stats<span></span></a>
                   <ul>
-                    <li><a [routerLink]="['/', routePaths.Activity]">Activity</a></li>
-                    <li><a [routerLink]="['/', routePaths.Rankings]">Rankings</a></li>
+                    <li><a [routerLink]="routePaths.Activity | link">Activity</a></li>
+                    <li><a [routerLink]="routePaths.Rankings | link">Rankings</a></li>
                   </ul>
                 </li>
               </ul>
               <div class="menu_side_area">
                 <!--
-                <a [routerLink]="['/', routePaths.ConnectWallet]" class="btn-main btn-wallet">
+                <a [routerLink]="routePaths.ConnectWallet | link" class="btn-main btn-wallet">
                   <i class="icon_wallet_alt"></i><span>Connect Wallet</span>
                 </a>
                 -->
-                <a  [routerLink]="['/', routePaths.LoginForm]" class="btn btn-main btn-wallet" *ngIf="!user">
+                <a class="btn btn-main btn-wallet" *ngIf="!user"
+                  [routerLink]="routePaths.LoginForm | link"
+                  [queryParams]="{ returnUrl }"
+                  >
                   Sign In
                 </a>
                 <div class="de-login-menu" *ngIf="user">
@@ -109,7 +112,7 @@
                       <div><h4>Notifications</h4></div>
 
                       <!-- TODO add link to page with all notifications -->
-                      <a [routerLink]="[]">
+                      <a [routerLink]="[]" *ngIf="userNotifications.items.length > 0">
                         Show all
                       </a>
                     </div>
@@ -125,13 +128,16 @@
                         </a>
                       </li>
                     </ul>
+                    <div *ngIf="userNotifications.items.length === 0">
+                      No notifications
+                    </div>
                   </div>
 
                   <div id="de-submenu-profile" [ngClass]="['de-submenu', showProfileMenu ? 'open' : '']">
                     <div class="d-name">
                       <h4>{{ user.data.name }}</h4>
                       <!--
-                      <a [routerLink]="['/', routePaths.User, UserRoutePaths.Profile]">Set display name</a>
+                      <a [routerLink]="[routePaths.User, UserRoutePaths.Profile] | link">Set display name</a>
                       -->
                     </div>
                     <div class="spacer-10"></div>
@@ -161,12 +167,12 @@
 
                     <ul class="de-submenu-profile">
                       <li>
-                        <a [routerLink]="['/', routePaths.Author, user.data.userId]">
+                        <a [routerLink]="[routePaths.Author, user.data.userId] | link">
                           <i class="fa fa-user"></i> My NFTs
                         </a>
                       </li>
                       <li>
-                        <a [routerLink]="['/', routePaths.User, UserRoutePaths.Profile]">
+                        <a [routerLink]="[routePaths.User, UserRoutePaths.Profile] | link">
                           <i class="fa fa-pencil"></i> Edit profile
                         </a>
                       </li>

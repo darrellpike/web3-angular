@@ -15,6 +15,7 @@ export enum RoutePaths {
   Rankings = 'rankings',
   Register = 'register',
   User = 'user',
+  ForgotPassword = 'forgot-password',
 }
 
 export enum UserRoutePaths {

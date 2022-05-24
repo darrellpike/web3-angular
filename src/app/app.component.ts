@@ -48,6 +48,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   showNotificationMenu = false;
   showProfileMenu = false;
 
+  returnUrl = '';
+
   @ViewChild('content') content!: ElementRef<HTMLElement>;
   @ViewChild('quickSearch') quickSearch!: ElementRef<HTMLElement>;
 
@@ -91,6 +93,8 @@ export class AppComponent implements OnInit, AfterViewInit {
         if (routeDate['contentClass']) {
           this.contentClass = routeDate['contentClass'];
         } else this.contentClass = 'no-bottom no-top';
+
+        this.returnUrl = encodeURIComponent(event.url);
 
         this.closeSubmenus(null);
       }

@@ -32,50 +32,19 @@
     <div>You will pay</div>
     <div class="sum">{{ totalPrice }} ETH</div>
   </form>
-  <!--
-  <div class="spacer-single"></div>
-  <div class="de-flex">
-    <div>Service fee {{ serviceFeePercent }}%</div>
-    <div class="b">{{ serviceFee }} ETH</div>
-  </div>
-  <div class="de-flex">
-    <div>You will pay</div>
-    <div class="b">{{ totalPrice }} ETH</div>
-  </div>
-  -->
 </div>
-<div class="modal-footer">
+<div class="modal-footer" *ngIf="userAccounts.length > 0">
   <button type="button" class="btn btn-outline-dark" (click)="buy()" *ngIf="enoughFunds">Buy</button>
-  <span class="not-enough-funds" *ngIf="!enoughFunds">Selected account have not ehough funds to purchase this item</span>
+  <span class="not-enough-funds" *ngIf="!enoughFunds">
+    Selected account have not ehough funds to purchase this item
+  </span>
 </div>
-<!-- theme dialog version
-<div class="modal fade" id="buy_now" tabindex="-1" aria-labelledby="buy_now" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered de-modal">
-    <div class="modal-content">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      <div class="modal-body">
-        <div class="p-3 form-border">
-          <h3>Checkout</h3>
-          You are about to purchase a <b>AnimeSailorClub #304</b> from <b>Monica Lucas</b>
-          <div class="spacer-single"></div>
-          <h6>Enter quantity. <span class="id-color-2">10 available</span></h6>
-          <input type="text" name="buy_now_qty" id="buy_now_qty" class="form-control" value="1" />
-          <div class="spacer-single"></div>
-          <div class="de-flex">
-            <div>Your balance</div>
-            <div><b>10.67856 ETH</b></div>
-          </div>
-          <div class="de-flex">
-            <div>Service fee 2.5%</div>
-            <div><b>0.00325 ETH</b></div>
-          </div>
-          <div class="de-flex">
-            <div>You will pay</div>
-            <div><b>0.013325 ETH</b></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
+<div class="modal-footer justify-content-between" *ngIf="userAccounts.length === 0">
+  <span class="not-enough-funds">
+    No accounts to pay from
+  </span>
+  <a class="btn btn-main" (click)="connectWallet()">
+    Connect Wallet
+  </a>
 </div>
--->

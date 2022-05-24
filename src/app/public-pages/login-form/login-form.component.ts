@@ -1,6 +1,6 @@
-import { Component/*, OnInit*/ } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 
 import { RoutePaths } from '@constants/routes';
@@ -12,7 +12,7 @@ import { UserService } from '@services/user.service';
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.scss'],
 })
-export class LoginFormComponent/* implements OnInit*/ {
+export class LoginFormComponent {
   RoutePaths = RoutePaths;
   fieldHasErr = fieldHasErr;
   showFieldErrs = showFieldErrs;
@@ -26,16 +26,19 @@ export class LoginFormComponent/* implements OnInit*/ {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private userService: UserService,
     private toast: HotToastService,
   ) {}
 
-  /*
-  ngOnInit(): void {
-    //
+  private navTargetRoute() {
+    if (this.route.snapshot.queryParams['returnUrl']) {
+      const url = decodeURIComponent(this.route.snapshot.queryParams['returnUrl']);
+      this.router.navigateByUrl(url);
+    } else {
+      this.router.navigate(['/', RoutePaths.Home]);
+    }
   }
-  */
-
 
   async loginByEmail() {
     markControlsAsTouched(this.form);
@@ -45,7 +48,7 @@ export class LoginFormComponent/* implements OnInit*/ {
     this.busy = true;
     const res = await this.userService.loginByEmail(data.email, data.password);
     if (res) {
-      this.router.navigate([RoutePaths.Home]);
+      this.navTargetRoute();
     } else {
       this.toast.error('Error on login');
     }
@@ -55,7 +58,7 @@ export class LoginFormComponent/* implements OnInit*/ {
     this.busy = true;
     const res = await this.userService.loginByFb();
     if (res) {
-      this.router.navigate([RoutePaths.Home]);
+      this.navTargetRoute();
     } else {
       this.toast.error('Error on login');
     }
@@ -65,7 +68,7 @@ export class LoginFormComponent/* implements OnInit*/ {
     this.busy = true;
     const res = await this.userService.loginByGoogle();
     if (res) {
-      this.router.navigate([RoutePaths.Home]);
+      this.navTargetRoute();
     } else {
       this.toast.error('Error on login');
     }

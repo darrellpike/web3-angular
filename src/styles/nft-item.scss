@@ -187,7 +187,7 @@
 
 .nft__item_extra {
   position: absolute;
-  opacity: .5;
+  opacity: 0;
   width: 100%;
   height: 100%;
   z-index: 3;
@@ -197,7 +197,6 @@
   display: table;
   transform: scale(1.03);
   backdrop-filter: saturate(180%) blur(6px);
-  background: rgba(black, .1);
   visibility: hidden;
 }
 

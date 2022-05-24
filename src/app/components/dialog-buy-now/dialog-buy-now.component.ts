@@ -82,6 +82,11 @@ export class DialogBuyNowComponent implements OnInit, OnDestroy {
   }
 
   buy() {
+    // now not clear how it will work
     // TODO:
+  }
+
+  connectWallet() {
+    this.contractService.connectAccount().subscribe(() => {});
   }
 }

@@ -14,6 +14,7 @@ import { LoggedUser, User, UserData } from '@datatypes/user';
 import { UserNotifications } from '@datatypes/notification';
 import { users, notifications } from '@app/mock-data/mock';
 import { ContractService } from '@services/contract.service';
+import { EmailService } from '@services/email.service';
 import { RoutePaths } from '@constants/routes';
 
 
@@ -24,6 +25,7 @@ export class UserService {
   constructor(
     private router: Router,
     private contractService: ContractService,
+    private emailService: EmailService,
     private fireAuth: Auth,
     private fireStore: Firestore,
     private logger: NGXLogger,
@@ -109,8 +111,6 @@ export class UserService {
     } else {
       user = new LoggedUser(snap.data() as UserData, creds);
       await updateDoc(ref, { lastLoginAt: new Date() }); // maybe update more fields?
-
-      this.logger.debug('user', user);
     }
 
     this.currentUser.next(user);
@@ -186,5 +186,10 @@ export class UserService {
       this.logger.error('profile update err', err);
       return false;
     }
+  }
+
+  async restorePassword(email: string): Promise<string | boolean> {
+    // TODO
+    return 'Function in development';
   }
 }
